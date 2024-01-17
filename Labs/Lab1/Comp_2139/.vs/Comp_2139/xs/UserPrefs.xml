@@ -1,4 +1,37 @@
 ﻿<Properties StartupConfiguration="{F4A96F60-D097-40D4-A5DE-EB3748087D37}|https">
-  <MonoDevelop.Ide.ItemProperties.Comp__2139 FirstBuild="True" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Comp_2139/Views/Home/Index.cshtml">
+    <Files>
+      <File FileName="Comp_2139/Controllers/HomeController.cs" Line="33" Column="1" />
+      <File FileName="Comp_2139/Views/Home/Privacy.cshtml" Line="18" Column="8" />
+      <File FileName="Comp_2139/Views/Home/Index.cshtml" Line="6" Column="46" />
+      <File FileName="Comp_2139/Views/Shared/_Layout.cshtml" Line="44" Column="14" />
+      <File FileName="Comp_2139/Properties/launchSettings.json" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Comp_2139" expanded="True">
+            <Node name="Comp_2139">
+              <Node name="Controllers" expanded="True" />
+              <Node name="Models" expanded="True" />
+              <Node name="Properties" expanded="True" />
+              <Node name="Views" expanded="True">
+                <Node name="Home" expanded="True">
+                  <Node name="Index.cshtml" selected="True" />
+                </Node>
+                <Node name="Shared" expanded="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.ItemProperties.Comp__2139 PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MultiItemStartupConfigurations />
 </Properties>
