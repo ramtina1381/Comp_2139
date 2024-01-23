@@ -21,14 +21,23 @@ namespace Comp_2139.Controllers
             return View(projects);
         }
 
+        [HttpGet]
         public IActionResult Create()
         {
             return View();
         }
 
-        public IActionResult Details()
+        [HttpPost]
+        public IActionResult Create(Project project)
         {
-            return View();
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public IActionResult Details(int id)
+        {
+            var project = new Project { ProjectId = id, Name = "Project " + id, Description = "Details of Project " + id };
+            return View(project);
         }
     }
 }

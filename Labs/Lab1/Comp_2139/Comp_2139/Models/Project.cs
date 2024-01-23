@@ -18,11 +18,6 @@ namespace Comp_2139.Models
         public DateTime EndDate { get; set; }
         public string? Status { get; set; }
 
-
-
-        public Project()
-		{
-		}
 	}
 }
 
