@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "QwZK1B/oVe/UzWNKUY3VGikVaNBFFp+k+rsq3nX+g40=",
+  "Hash": "0USsiaNhzai+hx9aWg5d5grCxfL2U4JS8iu9F+5lO70=",
   "Source": "Comp_2139",
   "BasePath": "_content/Comp_2139",
   "Mode": "Default",
@@ -49,6 +49,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "/Users/ramtinabolfazli/Documents/GBC/Winter 2024/2139- Web Application/Comp_2139/Labs/Lab1/Comp_2139/Comp_2139/obj/Debug/net7.0/scopedcss/projectbundle/Comp_2139.bundle.scp.css"
+    },
+    {
+      "Identity": "/Users/ramtinabolfazli/Documents/GBC/Winter 2024/2139- Web Application/Comp_2139/Labs/Lab1/Comp_2139/Comp_2139/wwwroot/.DS_Store",
+      "SourceId": "Comp_2139",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/ramtinabolfazli/Documents/GBC/Winter 2024/2139- Web Application/Comp_2139/Labs/Lab1/Comp_2139/Comp_2139/wwwroot/",
+      "BasePath": "_content/Comp_2139",
+      "RelativePath": ".DS_Store",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/.DS_Store"
     },
     {
       "Identity": "/Users/ramtinabolfazli/Documents/GBC/Winter 2024/2139- Web Application/Comp_2139/Labs/Lab1/Comp_2139/Comp_2139/wwwroot/css/site.css",

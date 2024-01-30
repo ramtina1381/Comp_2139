@@ -1,8 +1,13 @@
-﻿var builder = WebApplication.CreateBuilder(args);
+﻿using Comp_2139.Data;
+using Microsoft.EntityFrameworkCore;
+
+var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+builder.Services.AddDbContextPool<ApplicationDbContext>(options =>
+    options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString) ?? throw new InvalidOperationException("Connection string 'RazorPagesMovieContext' not found.")));
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
