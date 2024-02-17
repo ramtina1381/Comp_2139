@@ -13,9 +13,10 @@ namespace Comp_2139.Models
 
 		[DataType(DataType.Date)]
         public DateTime StartDate { get; set; }
-        [DataType(DataType.Date)]
 
+		[DataType(DataType.Date)]
         public DateTime EndDate { get; set; }
+
         public string? Status { get; set; }
 
 	}
