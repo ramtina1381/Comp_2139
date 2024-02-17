@@ -21,9 +21,11 @@
   <ItemGroup>
     <None Remove="Views\Project\" />
     <None Remove="Data\" />
+    <None Remove="Views\Task\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Project\" />
     <Folder Include="Data\" />
+    <Folder Include="Views\Task\" />
   </ItemGroup>
 </Project>

@@ -14,8 +14,7 @@ namespace Comp_2139.Controllers
     public class ProjectController : Controller
     {
 
-        private readonly ApplicationDbContext context;
-        private ApplicationDbContext _context;
+        private readonly ApplicationDbContext _context;
 
         public ProjectController(ApplicationDbContext context)
         {
@@ -107,7 +106,6 @@ namespace Comp_2139.Controllers
         }
 
         [HttpGet]
-
         public IActionResult Delete(int id)
         {
             var project = _context.Projects.FirstOrDefault(p => p.ProjectId == id);
@@ -116,6 +114,36 @@ namespace Comp_2139.Controllers
                 return NotFound();
             }
             return View(project);
+        }
+
+        [HttpPost, ActionName("DeleteConfirmed")] //ActionName is for using either names as our action name 
+        [ValidateAntiForgeryToken]
+        public IActionResult DeleteConfirmed(int projectId)
+        {
+            var project = _context.Projects.Find(projectId);
+            if(project != null)
+            {
+                _context.Projects.Remove(project);
+                _context.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return NotFound();
+        }
+
+        public async Task<IActionResult> Search(string searchString)
+        {
+            var projectQuery = from p in _context.Projects select p;
+
+            bool searchPerformed = !String.IsNullOrEmpty(searchString);
+            if (searchPerformed)
+            {
+                projectQuery = projectQuery.Where(p => p.Name.Contains(searchString) || p.Description.Contains(searchString));
+            }
+
+            var projects = await projectQuery.ToListAsync();
+            ViewData["SearchPerformed"] = searchPerformed;
+            ViewData["SearchString"] = searchString;
+            return View("Index", projects);
         }
     }
 

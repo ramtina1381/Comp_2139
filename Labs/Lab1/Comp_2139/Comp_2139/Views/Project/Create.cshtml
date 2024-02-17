@@ -1,6 +1,6 @@
-﻿@model Project //Specifies and empty project
+﻿@model Project 
+    
 @{
-    //Razor block
     ViewData["Title"] = "Create Project";
 
 }
@@ -8,21 +8,48 @@
 <h2>Create project</h2>
 
 <form asp-controller="Project" asp-action="Create" method="post">
-    <div>
+    <div asp-validation-summary="ModelOnly" class="text-danger "></div>
+
+    <div class="form-group">
         <label asp-for="Name" class="control-label"></label>
         <input asp-for="Name" class="form-control" />
         <span asp-validation-for="Name" class="text-danger"></span>
     </div>
 
-    <div>
+    <div class="form-group">
         <label asp-for="Description" class="control-label"></label>
-        <textarea asp-for="Description" class="form-control" />
-        <span asp-validation-for="Description" class="text-danger"></span>
-
+        <textarea asp-for="Description" class="form-control"></textarea>
     </div>
 
     <div class="form-group">
-        <input type="submit" value="Create" class="btn btn-primary"/>
+        <label asp-for="StartDate" class="control-label"></label>
+        <input asp-for="StartDate" type="date" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="EndDate" class="control-label"></label>
+        <input asp-for="EndDate" type="date" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Status" class="control-label"></label>
+        <select asp-for="Status" class="form-control">
+            <option value="">Select a Status</option>
+            <option value="New">New</option>
+            <option value="In Progress">In Progress</option>
+            <option value="Complete">Complete</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Create" class="btn btn-primary" />
+        <a asp-action="Index" class="btn btn-warning">Cancel</a>
     </div>
 
 </form>
+
+    @section Scripts{
+        @{
+            await Html.RenderPartialAsync("_ValidationScriptsPartial");
+        }
+    }
