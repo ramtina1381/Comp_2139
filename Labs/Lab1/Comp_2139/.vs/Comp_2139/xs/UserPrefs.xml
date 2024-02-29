@@ -1,45 +1,67 @@
 ﻿<Properties StartupConfiguration="{F4A96F60-D097-40D4-A5DE-EB3748087D37}|https">
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.ItemProperties.Comp__2139 PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Comp_2139/Program.cs">
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workbench ActiveDocument="Comp_2139/Areas/ProjectManagement /Controllers/ProjectController.cs">
     <Files>
-      <File FileName="Comp_2139/Views/Shared/_Layout.cshtml" />
-      <File FileName="Comp_2139/Models/Project.cs" />
-      <File FileName="Comp_2139/Controllers/ProjectController.cs" />
-      <File FileName="Comp_2139/Views/Project/Index.cshtml" />
+      <File FileName="Comp_2139/Views/Task/Index.cshtml" Line="52" Column="2" />
+      <File FileName="Comp_2139/Views/Project/Delete.cshtml" />
+      <File FileName="Comp_2139/Controllers/HomeController.cs" Line="40" Column="1" />
+      <File FileName="Comp_2139/Controllers/ProjectController.cs" Line="137" Column="44" />
+      <File FileName="Comp_2139/Controllers/TaskController.cs" Line="1" Column="1" />
+      <File FileName="Comp_2139/Migrations/20240126041715_InitialCreate.cs" />
+      <File FileName="Comp_2139/Migrations/ApplicationDbContextModelSnapshot.cs" />
+      <File FileName="Comp_2139/Models/ErrorViewModel.cs" />
+      <File FileName="Comp_2139/Models/Project.cs" Line="1" Column="1" />
+      <File FileName="Comp_2139/Models/ProjectTask.cs" Line="1" Column="1" />
       <File FileName="Comp_2139/Views/Project/Create.cshtml" />
       <File FileName="Comp_2139/Views/Project/Details.cshtml" />
-      <File FileName="Comp_2139/Views/Home/Index.cshtml" />
-      <File FileName="Comp_2139/Controllers/HomeController.cs" />
-      <File FileName="Comp_2139/appsettings.json" Line="12" Column="4" />
-      <File FileName="Comp_2139/Data/ApplicationDbContext.cs" Line="1" Column="1" />
-      <File FileName="Comp_2139/Program.cs" Line="21" Column="27" />
-      <File FileName="Comp_2139/Views/_ViewStart.cshtml" />
+      <File FileName="Comp_2139/Views/Project/Edit.cshtml" />
+      <File FileName="Comp_2139/Views/Project/Index.cshtml" Line="54" Column="6" />
+      <File FileName="Comp_2139/Views/Shared/_Layout.cshtml" Line="20" Column="5" />
+      <File FileName="Comp_2139/Views/Shared/_ValidationScriptsPartial.cshtml" />
       <File FileName="Comp_2139/Views/Shared/Error.cshtml" />
-      <File FileName="Comp_2139/Views/_ViewImports.cshtml" />
-      <File FileName="Comp_2139/Properties/launchSettings.json" />
-      <File FileName="Comp_2139/Views/Home/About.cshtml" />
-      <File FileName="Comp_2139/Migrations/ApplicationDbContextModelSnapshot.cs" Line="1" Column="1" />
-      <File FileName="Comp_2139/Migrations/20240126041715_InitialCreate.cs" />
+      <File FileName="Comp_2139/Views/Task/Create.cshtml" />
+      <File FileName="Comp_2139/Views/Task/Delete.cshtml" />
+      <File FileName="Comp_2139/Views/Task/Details.cshtml" />
+      <File FileName="Comp_2139/Views/Task/Edit.cshtml" />
+      <File FileName="Comp_2139/Views/_ViewImports.cshtml" Line="1" Column="1" />
+      <File FileName="Comp_2139/Views/_ViewStart.cshtml" Line="1" Column="1" />
+      <File FileName="Comp_2139/appsettings.json" />
+      <File FileName="Comp_2139/Program.cs" Line="31" Column="48" />
+      <File FileName="Comp_2139/Data/ApplicationDbContext.cs" />
+      <File FileName="Comp_2139/Migrations/20240214034749_AddTaskTable.cs" />
+      <File FileName="Comp_2139/Views/Shared/NotFound.cshtml" />
+      <File FileName="Comp_2139/Area/ProjectManagement /Views/_ViewImports.cshtml" Line="8" Column="1" />
+      <File FileName="Comp_2139/Views/Shared/_Navbar.cshtml" Line="35" Column="78" />
+      <File FileName="Comp_2139/Views/Shared/_Header.cshtml" Line="9" Column="1" />
+      <File FileName="Comp_2139/Areas/ProjectManagement /Views/_ViewStart.cshtml" Line="1" Column="1" />
+      <File FileName="Comp_2139/Views/Shared/_Footer.cshtml" Line="9" Column="10" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Comp_2139" expanded="True">
-            <Node name="Comp_2139" expanded="True">
-              <Node name="Dependencies" expanded="True" />
+            <Node name="Comp_2139">
+              <Node name="Areas" expanded="True">
+                <Node name="ProjectManagement ">
+                  <Node name="Controllers">
+                    <Node name="ProjectController.cs" selected="True" />
+                  </Node>
+                  <Node name="Views" expanded="True">
+                    <Node name="Project" expanded="True" />
+                  </Node>
+                </Node>
+              </Node>
               <Node name="Controllers" expanded="True" />
-              <Node name="Data" expanded="True" />
               <Node name="Models" expanded="True" />
               <Node name="Views" expanded="True">
-                <Node name="Home" expanded="True" />
+                <Node name="Shared" expanded="True" />
               </Node>
-              <Node name="Program.cs" selected="True" />
             </Node>
           </Node>
         </State>

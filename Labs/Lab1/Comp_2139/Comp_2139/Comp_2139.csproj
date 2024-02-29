@@ -19,13 +19,11 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <None Remove="Views\Project\" />
     <None Remove="Data\" />
-    <None Remove="Views\Task\" />
+    <None Remove="Areas\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Views\Project\" />
     <Folder Include="Data\" />
-    <Folder Include="Views\Task\" />
+    <Folder Include="Areas\" />
   </ItemGroup>
 </Project>
