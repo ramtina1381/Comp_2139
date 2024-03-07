@@ -10433,11 +10433,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/ramtinabolfazli/Documents/GBC/Winter 2024/2139- Web Application/Comp_2139/Labs/Lab1/Comp_2139/Comp_2139/Comp_2139.csproj",
+      "projectUniqueName": "/Users/ramtinabolfazli/Documents/GBC/Winter 2024/2139- Web Application/comp2139_Labs/Labs/Lab1/Comp_2139/Comp_2139/Comp_2139.csproj",
       "projectName": "Comp_2139",
-      "projectPath": "/Users/ramtinabolfazli/Documents/GBC/Winter 2024/2139- Web Application/Comp_2139/Labs/Lab1/Comp_2139/Comp_2139/Comp_2139.csproj",
+      "projectPath": "/Users/ramtinabolfazli/Documents/GBC/Winter 2024/2139- Web Application/comp2139_Labs/Labs/Lab1/Comp_2139/Comp_2139/Comp_2139.csproj",
       "packagesPath": "/Users/ramtinabolfazli/.nuget/packages/",
-      "outputPath": "/Users/ramtinabolfazli/Documents/GBC/Winter 2024/2139- Web Application/Comp_2139/Labs/Lab1/Comp_2139/Comp_2139/obj/",
+      "outputPath": "/Users/ramtinabolfazli/Documents/GBC/Winter 2024/2139- Web Application/comp2139_Labs/Labs/Lab1/Comp_2139/Comp_2139/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/ramtinabolfazli/.nuget/NuGet/NuGet.Config"
@@ -10446,7 +10446,6 @@
         "net7.0"
       ],
       "sources": {
-        "/usr/local/share/dotnet/sdk/7.0.312/Sdks/Microsoft.NET.Sdk.Web/library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -10459,6 +10458,11 @@
         "warnAsError": [
           "NU1605"
         ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -10499,6 +10503,20 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.AspNetCore.App.Ref",
+            "version": "[7.0.16, 7.0.16]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Host.osx-arm64",
+            "version": "[7.0.16, 7.0.16]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Ref",
+            "version": "[7.0.16, 7.0.16]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.AspNetCore.App": {
             "privateAssets": "none"
@@ -10507,7 +10525,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.312/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.200/RuntimeIdentifierGraph.json"
       }
     }
   }

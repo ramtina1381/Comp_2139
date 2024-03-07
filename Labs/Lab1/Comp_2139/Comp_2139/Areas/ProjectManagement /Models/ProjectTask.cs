@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace Comp_2139.Models
+namespace Comp_2139.Areas.ProjectManagement.Models
 {
 	public class ProjectTask
 	{

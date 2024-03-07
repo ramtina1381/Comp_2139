@@ -1,4 +1,5 @@
 ﻿using System;
+using Comp_2139.Areas.ProjectManagement.Models;
 using Comp_2139.Models;
 using Microsoft.EntityFrameworkCore;
 

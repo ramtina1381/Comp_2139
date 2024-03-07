@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "WmfuadBPEvMsY6laZ18JVWEFNvcVERQj773vfW26TtXWRiQ8Gw0J2f86njSRmD3sS364bcukH40dzkYlhBkBuQ==",
+  "dgSpecHash": "Jv7/QhAOU1I+57z46ima54zc1x1GCMdDyPPXXX3SvIyqDfVGVS4IlvkOvVQZFpUFHnbPZqHq8OnlaAuOeYAI5w==",
   "success": true,
-  "projectFilePath": "/Users/ramtinabolfazli/Documents/GBC/Winter 2024/2139- Web Application/Comp_2139/Labs/Lab1/Comp_2139/Comp_2139/Comp_2139.csproj",
+  "projectFilePath": "/Users/ramtinabolfazli/Documents/GBC/Winter 2024/2139- Web Application/comp2139_Labs/Labs/Lab1/Comp_2139/Comp_2139/Comp_2139.csproj",
   "expectedPackageFiles": [
     "/Users/ramtinabolfazli/.nuget/packages/humanizer/2.14.1/humanizer.2.14.1.nupkg.sha512",
     "/Users/ramtinabolfazli/.nuget/packages/humanizer.core/2.14.1/humanizer.core.2.14.1.nupkg.sha512",
@@ -208,7 +208,10 @@
     "/Users/ramtinabolfazli/.nuget/packages/system.threading.timer/4.3.0/system.threading.timer.4.3.0.nupkg.sha512",
     "/Users/ramtinabolfazli/.nuget/packages/system.windows.extensions/6.0.0/system.windows.extensions.6.0.0.nupkg.sha512",
     "/Users/ramtinabolfazli/.nuget/packages/system.xml.readerwriter/4.3.0/system.xml.readerwriter.4.3.0.nupkg.sha512",
-    "/Users/ramtinabolfazli/.nuget/packages/system.xml.xdocument/4.3.0/system.xml.xdocument.4.3.0.nupkg.sha512"
+    "/Users/ramtinabolfazli/.nuget/packages/system.xml.xdocument/4.3.0/system.xml.xdocument.4.3.0.nupkg.sha512",
+    "/Users/ramtinabolfazli/.nuget/packages/microsoft.netcore.app.ref/7.0.16/microsoft.netcore.app.ref.7.0.16.nupkg.sha512",
+    "/Users/ramtinabolfazli/.nuget/packages/microsoft.aspnetcore.app.ref/7.0.16/microsoft.aspnetcore.app.ref.7.0.16.nupkg.sha512",
+    "/Users/ramtinabolfazli/.nuget/packages/microsoft.netcore.app.host.osx-arm64/7.0.16/microsoft.netcore.app.host.osx-arm64.7.0.16.nupkg.sha512"
   ],
   "logs": []
 }

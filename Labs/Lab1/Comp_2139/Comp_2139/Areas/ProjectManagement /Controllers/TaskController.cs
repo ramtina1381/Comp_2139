@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 
-namespace Comp_2139.Controllers
+namespace Comp_2139.Areas.ProjectManagement.Models
 {
     public class TaskController : Controller
     {

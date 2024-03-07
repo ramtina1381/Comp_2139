@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
-namespace Comp_2139.Controllers
+namespace Comp_2139.Areas.ProjectManagement.Models
 {
     [Area("ProjectManagement")]
     [Route("[area]/[controller]/[action]")]
@@ -73,7 +73,7 @@ namespace Comp_2139.Controllers
             return View(project);
         }
 
-        [HttpPost("Edit /{id: int}")]
+        [HttpPost("Edit /{id:int}")]
         [ValidateAntiForgeryToken]
         public IActionResult Edit(int id, [Bind("ProjectId, Name, Description")]Project project)
         {
