@@ -27,16 +27,16 @@ public class HomeController : Controller
     {
         if (searchType == "Projects")
         {
-            return RedirectToAction("Search", "Project", new { searchString });
+            return RedirectToAction("Search", "Project", new { area = "ProjectManagement", searchString });
         }
-        else if(searchType == "Tasks")
+        else if (searchType == "Tasks")
         {
-            // var url = Url.Action("Search", "Task", new { });
-            return RedirectToAction("Search", "Project", new { searchString });
+            return RedirectToAction("Search", "Task", new { area = "ProjectManagement", searchString });
         }
 
         return RedirectToAction("Index", "Home");
     }
+
 
     public IActionResult NotFound(int statusCode)
     {

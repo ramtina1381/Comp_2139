@@ -5,12 +5,20 @@
       "PackagePath": "staticwebassets/Comp_2139.bundle.scp.css"
     },
     {
+      "Id": "/Users/ramtinabolfazli/Documents/GBC/Winter 2024/2139- Web Application/comp2139_Labs/Labs/Lab1/Comp_2139/Comp_2139/wwwroot/.DS_Store",
+      "PackagePath": "staticwebassets/.DS_Store"
+    },
+    {
       "Id": "/Users/ramtinabolfazli/Documents/GBC/Winter 2024/2139- Web Application/comp2139_Labs/Labs/Lab1/Comp_2139/Comp_2139/wwwroot/css/site.css",
       "PackagePath": "staticwebassets/css/site.css"
     },
     {
       "Id": "/Users/ramtinabolfazli/Documents/GBC/Winter 2024/2139- Web Application/comp2139_Labs/Labs/Lab1/Comp_2139/Comp_2139/wwwroot/favicon.ico",
       "PackagePath": "staticwebassets/favicon.ico"
+    },
+    {
+      "Id": "/Users/ramtinabolfazli/Documents/GBC/Winter 2024/2139- Web Application/comp2139_Labs/Labs/Lab1/Comp_2139/Comp_2139/wwwroot/js/projectComment.js",
+      "PackagePath": "staticwebassets/js/projectComment.js"
     },
     {
       "Id": "/Users/ramtinabolfazli/Documents/GBC/Winter 2024/2139- Web Application/comp2139_Labs/Labs/Lab1/Comp_2139/Comp_2139/wwwroot/js/site.js",

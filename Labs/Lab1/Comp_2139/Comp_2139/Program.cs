@@ -1,6 +1,9 @@
-﻿using Comp_2139.Data;
+using Comp_2139.Data;
 using Comp_2139.Areas;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.Services;
+using Comp_2139.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,7 +12,13 @@ builder.Services.AddControllersWithViews();
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContextPool<ApplicationDbContext>(options =>
     options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString) ?? throw new InvalidOperationException("Connection string 'RazorPagesMovieContext' not found.")));
+builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+.AddEntityFrameworkStores<ApplicationDbContext>();
+
+// This ensures that whenever an IEmailSender is injected an instance of EmailSender is provided
+builder.Services.AddSingleton<IEmailSender, EmailSender>();
 var app = builder.Build();
+
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
@@ -28,8 +37,9 @@ app.UseRouting();
 app.UseAuthorization();
 
 app.MapControllerRoute(
-    name: "area",
+    name: "areas",
     pattern: "{area:exists}/{controller=Project}/{action=Index}/{id?}");
+
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");

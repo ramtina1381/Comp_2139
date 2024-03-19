@@ -17,6 +17,9 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="7.0.15" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="7.0.15" />
+    <PackageReference Include="SendGrid" Version="9.29.2" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Data\" />
@@ -28,16 +31,18 @@
     <None Remove="Areas\ProjectManagement \Components\ProjectSummary\" />
     <None Remove="Views\Shared\Components\" />
     <None Remove="Views\Shared\Components\ProjectSummary\" />
+    <None Remove="Services\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Data\" />
     <Folder Include="Areas\" />
     <Folder Include="Views\Shared\DisplayTemplates\" />
-    <Folder Include="Areas\ProjectManagement \Views\Shared\" />
-    <Folder Include="Areas\ProjectManagement \Views\Shared\DisplayTemplates\" />
-    <Folder Include="Areas\ProjectManagement \Components\" />
-    <Folder Include="Areas\ProjectManagement \Components\ProjectSummary\" />
+    <Folder Include="Areas\ProjectManagement\Views\Shared\" />
+    <Folder Include="Areas\ProjectManagement\Views\Shared\DisplayTemplates\" />
+    <Folder Include="Areas\ProjectManagement\Components\" />
+    <Folder Include="Areas\ProjectManagement\Components\ProjectSummary\" />
     <Folder Include="Views\Shared\Components\" />
     <Folder Include="Views\Shared\Components\ProjectSummary\" />
+    <Folder Include="Services\" />
   </ItemGroup>
 </Project>
