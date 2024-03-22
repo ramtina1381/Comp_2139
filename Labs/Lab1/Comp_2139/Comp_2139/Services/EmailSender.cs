@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.Extensions.Configuration; // Add this line
+
+using System;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using SendGrid;
 using SendGrid.Helpers.Mail;
@@ -8,10 +10,12 @@ namespace Comp_2139.Services
     public class EmailSender : IEmailSender
     {
         private readonly string _sendGridKey;
+
         public EmailSender(IConfiguration configuration)
         {
-            _sendGridKey = configuration["SendGrid: ApiKey"];
+            _sendGridKey = configuration["SendGrid:ApiKey"]; // Corrected the configuration key
         }
+
         public async Task SendEmailAsync(string email, string subject, string htmlMessage)
         {
             var client = new SendGridClient(_sendGridKey);
@@ -22,4 +26,3 @@ namespace Comp_2139.Services
         }
     }
 }
-
