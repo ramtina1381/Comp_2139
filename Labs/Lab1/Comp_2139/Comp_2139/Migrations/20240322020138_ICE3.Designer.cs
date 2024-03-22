@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Comp_2139.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240316214409_ProjectComments")]
-    partial class ProjectComments
+    [Migration("20240322020138_ICE3")]
+    partial class ICE3
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -29,25 +29,51 @@ namespace Comp_2139.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Description")
-                        .HasColumnType("longtext");
+                        .HasMaxLength(500)
+                        .HasColumnType("varchar(500)");
 
                     b.Property<DateTime>("EndDate")
                         .HasColumnType("datetime(6)");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("varchar(20)");
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)");
 
                     b.Property<DateTime>("StartDate")
                         .HasColumnType("datetime(6)");
 
                     b.Property<string>("Status")
-                        .HasColumnType("longtext");
+                        .HasMaxLength(20)
+                        .HasColumnType("varchar(20)");
 
                     b.HasKey("ProjectId");
 
                     b.ToTable("Projects");
+                });
+
+            modelBuilder.Entity("Comp_2139.Areas.ProjectManagement.Models.ProjectComment", b =>
+                {
+                    b.Property<int>("ProjectCommentId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("Content")
+                        .IsRequired()
+                        .HasMaxLength(500)
+                        .HasColumnType("varchar(500)");
+
+                    b.Property<DateTime>("DatePosted")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<int>("ProjectId")
+                        .HasColumnType("int");
+
+                    b.HasKey("ProjectCommentId");
+
+                    b.HasIndex("ProjectId");
+
+                    b.ToTable("ProjectComments");
                 });
 
             modelBuilder.Entity("Comp_2139.Areas.ProjectManagement.Models.ProjectTask", b =>
@@ -268,6 +294,17 @@ namespace Comp_2139.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens", (string)null);
+                });
+
+            modelBuilder.Entity("Comp_2139.Areas.ProjectManagement.Models.ProjectComment", b =>
+                {
+                    b.HasOne("Comp_2139.Areas.ProjectManagement.Models.Project", "Project")
+                        .WithMany()
+                        .HasForeignKey("ProjectId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Project");
                 });
 
             modelBuilder.Entity("Comp_2139.Areas.ProjectManagement.Models.ProjectTask", b =>

@@ -472,6 +472,6 @@
 /Users/ramtinabolfazli/Documents/GBC/Winter 2024/2139- Web Application/comp2139_Labs/Labs/Lab1/Comp_2139/Comp_2139/bin/Debug/net7.0/Microsoft.Extensions.Identity.Stores.dll
 /Users/ramtinabolfazli/Documents/GBC/Winter 2024/2139- Web Application/comp2139_Labs/Labs/Lab1/Comp_2139/Comp_2139/bin/Debug/net7.0/Microsoft.Extensions.Options.dll
 /Users/ramtinabolfazli/Documents/GBC/Winter 2024/2139- Web Application/comp2139_Labs/Labs/Lab1/Comp_2139/Comp_2139/obj/Debug/net7.0/Comp_2139.MvcApplicationPartsAssemblyInfo.cs
-/Users/ramtinabolfazli/Documents/GBC/Winter 2024/2139- Web Application/comp2139_Labs/Labs/Lab1/Comp_2139/Comp_2139/obj/Debug/net7.0/Comp_2139.csproj.CopyComplete
 /Users/ramtinabolfazli/Documents/GBC/Winter 2024/2139- Web Application/comp2139_Labs/Labs/Lab1/Comp_2139/Comp_2139/bin/Debug/net7.0/SendGrid.dll
 /Users/ramtinabolfazli/Documents/GBC/Winter 2024/2139- Web Application/comp2139_Labs/Labs/Lab1/Comp_2139/Comp_2139/bin/Debug/net7.0/StarkbankEcdsa.dll
+/Users/ramtinabolfazli/Documents/GBC/Winter 2024/2139- Web Application/comp2139_Labs/Labs/Lab1/Comp_2139/Comp_2139/obj/Debug/net7.0/Comp_2139.csproj.CopyComplete

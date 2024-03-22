@@ -3,73 +3,66 @@
 }
 @using Microsoft.AspNetCore.Identity
 @inject SignInManager<IdentityUser> SignInManager
-<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-    <div class="container-fluid">
+<nav class="navbar navbar-expand-sm navbar-light bg-light border-bottom box-shadow mb-3">
+    <div class="container">
         <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Comp_2139</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <!--
-            *** Lab 4 ***
-            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-            <ul class="navbar-nav flex-grow-1">
-        -->
-        <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-            <form class="d-flex" asp-controller="Home" asp-action="GeneralSearch" method="get">
-                <input class="form-control" type="text" placeholder="Search" name="searchString" />
-                <select class="form-control btn btn-secondary dropdown-toggle" name="searchType">
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <form class="d-flex ms-auto" asp-controller="Home" asp-action="GeneralSearch" method="get">
+                <input class="form-control me-2" type="text" placeholder="Search" name="searchString" />
+                <select class="form-select me-2" name="searchType">
                     <option value="Projects">Projects</option>
                     <option value="Tasks">Tasks</option>
                 </select>
                 <button class="btn btn-outline-success" type="submit">Search</button>
             </form>
 
-            <ul class="navbar-nav flex-grow-1 justify-content-end">
+            <ul class="navbar-nav mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index"> <i class="fa-solid fa-house"></i>Home</a>
+                    <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">
+                        <i class="fas fa-home"></i> Home
+                    </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="About"> <i class="fa-solid fa-people-group"></i>About</a>
+                    <a class="nav-link" asp-area="" asp-controller="Home" asp-action="About">
+                        <i class="fas fa-users"></i> About
+                    </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-dark" asp-area="ProjectManagement" asp-controller="Project" asp-action="Index"> <i class="fa-solid fa-list-check"></i>Projects</a>
+                    <a class="nav-link" asp-area="ProjectManagement" asp-controller="Project" asp-action="Index">
+                        <i class="fas fa-list-check"></i> Projects
+                    </a>
                 </li>
+
                 @if (SignInManager.IsSignedIn(User))
                 {
-                    //profile
-
-                    <li class="nav-link">
-                        <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage your account">
-                            <i class="fa fa-user-circle"></i>
-                            Profile
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage your account">
+                            <i class="fas fa-user-circle"></i> Profile
                         </a>
                     </li>
-
-
-                    //logout
                     <li class="nav-item">
                         <form asp-area="Identity" asp-page="/Account/Logout" method="post">
-                            <button type="submit" class="nav-link btn btn-link text-dark" style="cursor: pointer">Logout</button>
+                            <button type="submit" class="btn btn-link nav-link text-danger" style="cursor: pointer">
+                                <i class="fas fa-sign-out-alt"></i> Logout
+                            </button>
                         </form>
                     </li>
                 }
-
                 else
                 {
-                    //login
-                    <li class="nav-link">
-                        <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login">
-                            <i class="fa fa-sign-in-alt"></i>
-                            Login
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="Identity" asp-page="/Account/Login">
+                            <i class="fas fa-sign-in-alt"></i> Login
                         </a>
                     </li>
-
-                    //register
-                    <li class="nav-link">
-                        <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register">
-                            <i class="fa fa-user-plus"></i>
-                            Register
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="Identity" asp-page="/Account/Register">
+                            <i class="fas fa-user-plus"></i> Register
                         </a>
                     </li>
                 }
