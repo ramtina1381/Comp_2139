@@ -6,6 +6,7 @@ using System;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Encodings.Web;
 using System.Threading.Tasks;
+using Comp_2139.Areas.ProjectManagement.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -14,12 +15,13 @@ namespace Comp_2139.Areas.Identity.Pages.Account.Manage
 {
     public class IndexModel : PageModel
     {
-        private readonly UserManager<IdentityUser> _userManager;
-        private readonly SignInManager<IdentityUser> _signInManager;
+        private readonly UserManager<ApplicationUser> _userManager;
+        private readonly SignInManager<ApplicationUser> _signInManager;
 
         public IndexModel(
-            UserManager<IdentityUser> userManager,
-            SignInManager<IdentityUser> signInManager)
+            UserManager<ApplicationUser> userManager,
+            SignInManager<ApplicationUser> signInManager)
+
         {
             _userManager = userManager;
             _signInManager = signInManager;
@@ -38,6 +40,9 @@ namespace Comp_2139.Areas.Identity.Pages.Account.Manage
         [TempData]
         public string StatusMessage { get; set; }
 
+
+        [TempData]
+        public string UserChangeLimitStatusMessage { get; set; }
         /// <summary>
         ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
         ///     directly from your code. This API may change or be removed in future releases.
@@ -51,6 +56,18 @@ namespace Comp_2139.Areas.Identity.Pages.Account.Manage
         /// </summary>
         public class InputModel
         {
+            [Display(Name = "Username")]
+            public string Username { get; set; }
+
+            [Display(Name = "First Name")]
+            public string FirstName { get; set; }
+
+            [Display(Name = "Last Name")]
+            public string LastName { get; set; }
+
+            [Display(Name = "Profile Picture")]
+            public byte[] ProfilePicture { get; set; }
+
             /// <summary>
             ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
             ///     directly from your code. This API may change or be removed in future releases.
@@ -60,16 +77,24 @@ namespace Comp_2139.Areas.Identity.Pages.Account.Manage
             public string PhoneNumber { get; set; }
         }
 
-        private async Task LoadAsync(IdentityUser user)
+        private async Task LoadAsync(ApplicationUser user)
         {
             var userName = await _userManager.GetUserNameAsync(user);
             var phoneNumber = await _userManager.GetPhoneNumberAsync(user);
+
+            var firstName = user.FirstName;
+            var lastName = user.LastName;
+            var profilePicture = user.ProfilePicture;
 
             Username = userName;
 
             Input = new InputModel
             {
-                PhoneNumber = phoneNumber
+                Username = userName,
+                PhoneNumber = phoneNumber,
+                FirstName = firstName,
+                LastName = lastName,
+                ProfilePicture = profilePicture
             };
         }
 
@@ -108,6 +133,56 @@ namespace Comp_2139.Areas.Identity.Pages.Account.Manage
                     StatusMessage = "Unexpected error when trying to set phone number.";
                     return RedirectToPage();
                 }
+            }
+
+
+            if(user.UsernameChangeLimit > 0)
+            {
+                if(Input.Username != user.UserName)
+                {
+                    var userNameExists = await _userManager.FindByNameAsync(Input.Username);
+                    if(userNameExists != null)
+                    {
+                        StatusMessage = "Error: Username not available. please enter a new username. ";
+                        return RedirectToPage();
+                    }
+                    var setUsername = await _userManager.SetUserNameAsync(user, Input.Username);
+                    if (!setUsername.Succeeded)
+                    {
+                        StatusMessage = "Error: Unexpected error when attempting to update the username. ";
+                        return RedirectToPage();
+                    }
+                    else
+                    {
+                        user.UserName = Input.Username;
+                        user.UsernameChangeLimit -= 1;
+                        await _userManager.UpdateAsync(user);
+                    }
+                }
+            }
+            var firstName = user.FirstName;
+            if(Input.FirstName != firstName)
+            {
+                user.FirstName = firstName;
+                await _userManager.UpdateAsync(user);
+            }
+            var lastName = user.LastName;
+            if (Input.FirstName != firstName)
+            {
+                user.LastName = lastName;
+                await _userManager.UpdateAsync(user);
+            }
+
+            // Intake profile image, assuming always new, reconstruct and persist to database
+            if(Request.Form.Files.Count > 0)
+            {
+                IFormFile file = Request.Form.Files.FirstOrDefault();
+                using( var dataStream = new MemoryStream())
+                {
+                    await file.CopyToAsync(dataStream);
+                    user.ProfilePicture = dataStream.ToArray();
+                }
+                await _userManager.UpdateAsync(user);
             }
 
             await _signInManager.RefreshSignInAsync(user);

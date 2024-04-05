@@ -11,14 +11,15 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Comp_2139.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240322020138_ICE3")]
-    partial class ICE3
+    [Migration("20240327014242_Identity core tables")]
+    partial class Identitycoretables
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
+                .HasDefaultSchema("Identity")
                 .HasAnnotation("ProductVersion", "7.0.15")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
@@ -49,7 +50,27 @@ namespace Comp_2139.Migrations
 
                     b.HasKey("ProjectId");
 
-                    b.ToTable("Projects");
+                    b.ToTable("Projects", "Identity");
+
+                    b.HasData(
+                        new
+                        {
+                            ProjectId = 1,
+                            Description = "First COMP2139 Assignment",
+                            EndDate = new DateTime(2024, 2, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "COMP2139 Assignment 1",
+                            StartDate = new DateTime(2024, 1, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Status = "Closed"
+                        },
+                        new
+                        {
+                            ProjectId = 2,
+                            Description = "Second COMP2139 Assignment",
+                            EndDate = new DateTime(2023, 4, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "COMP2139 Assignment 2",
+                            StartDate = new DateTime(2024, 3, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Status = "In Progress"
+                        });
                 });
 
             modelBuilder.Entity("Comp_2139.Areas.ProjectManagement.Models.ProjectComment", b =>
@@ -73,7 +94,7 @@ namespace Comp_2139.Migrations
 
                     b.HasIndex("ProjectId");
 
-                    b.ToTable("ProjectComments");
+                    b.ToTable("ProjectComments", "Identity");
                 });
 
             modelBuilder.Entity("Comp_2139.Areas.ProjectManagement.Models.ProjectTask", b =>
@@ -97,7 +118,23 @@ namespace Comp_2139.Migrations
 
                     b.HasIndex("ProjectId");
 
-                    b.ToTable("ProjectTasks");
+                    b.ToTable("ProjectTasks", "Identity");
+
+                    b.HasData(
+                        new
+                        {
+                            ProjectTaskId = 1,
+                            Description = "Database Design for Assignment 1",
+                            ProjectId = 1,
+                            Title = "Database Design"
+                        },
+                        new
+                        {
+                            ProjectTaskId = 2,
+                            Description = "Authentication Using Identity Core",
+                            ProjectId = 1,
+                            Title = "Authentication"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -123,7 +160,7 @@ namespace Comp_2139.Migrations
                         .IsUnique()
                         .HasDatabaseName("RoleNameIndex");
 
-                    b.ToTable("AspNetRoles", (string)null);
+                    b.ToTable("Role", "Identity");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -146,7 +183,7 @@ namespace Comp_2139.Migrations
 
                     b.HasIndex("RoleId");
 
-                    b.ToTable("AspNetRoleClaims", (string)null);
+                    b.ToTable("RoleClaims", "Identity");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUser", b =>
@@ -210,7 +247,9 @@ namespace Comp_2139.Migrations
                         .IsUnique()
                         .HasDatabaseName("UserNameIndex");
 
-                    b.ToTable("AspNetUsers", (string)null);
+                    b.ToTable("AspNetUsers", "Identity");
+
+                    b.UseTptMappingStrategy();
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
@@ -233,18 +272,16 @@ namespace Comp_2139.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("AspNetUserClaims", (string)null);
+                    b.ToTable("UserClaims", "Identity");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
                     b.Property<string>("LoginProvider")
-                        .HasMaxLength(128)
-                        .HasColumnType("varchar(128)");
+                        .HasColumnType("varchar(255)");
 
                     b.Property<string>("ProviderKey")
-                        .HasMaxLength(128)
-                        .HasColumnType("varchar(128)");
+                        .HasColumnType("varchar(255)");
 
                     b.Property<string>("ProviderDisplayName")
                         .HasColumnType("longtext");
@@ -257,7 +294,7 @@ namespace Comp_2139.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("AspNetUserLogins", (string)null);
+                    b.ToTable("UserLogins", "Identity");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
@@ -272,7 +309,7 @@ namespace Comp_2139.Migrations
 
                     b.HasIndex("RoleId");
 
-                    b.ToTable("AspNetUserRoles", (string)null);
+                    b.ToTable("UserRoles", "Identity");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
@@ -281,19 +318,38 @@ namespace Comp_2139.Migrations
                         .HasColumnType("varchar(255)");
 
                     b.Property<string>("LoginProvider")
-                        .HasMaxLength(128)
-                        .HasColumnType("varchar(128)");
+                        .HasColumnType("varchar(255)");
 
                     b.Property<string>("Name")
-                        .HasMaxLength(128)
-                        .HasColumnType("varchar(128)");
+                        .HasColumnType("varchar(255)");
 
                     b.Property<string>("Value")
                         .HasColumnType("longtext");
 
                     b.HasKey("UserId", "LoginProvider", "Name");
 
-                    b.ToTable("AspNetUserTokens", (string)null);
+                    b.ToTable("UserToken", "Identity");
+                });
+
+            modelBuilder.Entity("Comp_2139.Areas.ProjectManagement.Models.ApplicationUser", b =>
+                {
+                    b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
+
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("LastName")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<byte[]>("ProfilePicture")
+                        .HasColumnType("longblob");
+
+                    b.Property<int>("UsernameChangeLimit")
+                        .HasColumnType("int");
+
+                    b.ToTable("User", "Identity");
                 });
 
             modelBuilder.Entity("Comp_2139.Areas.ProjectManagement.Models.ProjectComment", b =>
@@ -365,6 +421,15 @@ namespace Comp_2139.Migrations
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Comp_2139.Areas.ProjectManagement.Models.ApplicationUser", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
+                        .WithOne()
+                        .HasForeignKey("Comp_2139.Areas.ProjectManagement.Models.ApplicationUser", "Id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
