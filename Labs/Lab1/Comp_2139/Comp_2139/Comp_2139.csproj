@@ -20,6 +20,9 @@
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="7.0.15" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="7.0.15" />
     <PackageReference Include="SendGrid" Version="9.29.2" />
+    <PackageReference Include="Serilog" Version="3.1.1" />
+    <PackageReference Include="Serilog.AspNetCore" Version="8.0.1" />
+    <PackageReference Include="Serilog.Sinks.File" Version="5.0.0" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Data\" />
@@ -35,6 +38,9 @@
     <None Remove="Models\ViewModels\" />
     <None Remove="Views\RoleManager\" />
     <None Remove="Enum\" />
+    <None Remove="Views\UserRoles\" />
+    <None Remove="Components\" />
+    <None Remove="Views\Shared\Components\UserRole\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Data\" />
@@ -50,5 +56,8 @@
     <Folder Include="Models\ViewModels\" />
     <Folder Include="Views\RoleManager\" />
     <Folder Include="Enum\" />
+    <Folder Include="Views\UserRoles\" />
+    <Folder Include="Components\" />
+    <Folder Include="Views\Shared\Components\UserRole\" />
   </ItemGroup>
 </Project>

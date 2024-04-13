@@ -29,7 +29,7 @@ namespace Comp_2139.Data
             if(userManager.Users.All(u => u.Id != superUser.Id))
             {
                 var users = await userManager.FindByEmailAsync(superUser.Email);
-                if(users != null)
+                if(users == null)
                 {
                     await userManager.CreateAsync(superUser, "P@ssword12$");
 

@@ -49,42 +49,31 @@ namespace Comp_2139.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Manager(string userId)
+        public async Task<IActionResult> Manage(string userId)
         {
             ViewBag.userId = userId;
             var user = await _userManager.FindByIdAsync(userId);
-            var model = new List<ManageUserRolesViewModel>(); // Declare model here
-
             if (user == null)
             {
-                ViewBag.userId = userId;
-                var user1 = await _userManager.FindByIdAsync(userId);
-                if (user1 == null)
-                {
-                    ViewBag.ErrorMessage = $"User with Id = {userId} cannot be found";
-                    return View("Not Found");
-                }
-
-                ViewBag.UserName = user1.UserName;
-                foreach (var role in _roleManager.Roles)
-                {
-                    var userRolesViewModel = new ManageUserRolesViewModel
-                    {
-                        RoleId = role.Id,
-                        RoleName = role.Name
-                    };
-
-                    if (await _userManager.IsInRoleAsync(user1, role.Name))
-                    {
-                        userRolesViewModel.Selected = true;
-                    }
-                    else
-                    {
-                        userRolesViewModel.Selected = false;
-                    }
-                    model.Add(userRolesViewModel);
-                }
+                ViewBag.ErrorMessage = $"User with ID = {userId} can't be found!";
+                return View("NotFound");
             }
+
+            ViewBag.UserName = user.UserName;
+            var roles = await _roleManager.Roles.ToListAsync(); // Materialize the roles list
+            var model = new List<ManageUserRolesViewModel>();
+
+            foreach (var role in roles)
+            {
+                var userRolesViewModel = new ManageUserRolesViewModel
+                {
+                    RoleId = role.Id,
+                    RoleName = role.Name,
+                    Selected = await _userManager.IsInRoleAsync(user, role.Name) // Check if the user is in this role
+                };
+                model.Add(userRolesViewModel);
+            }
+
             return View(model);
         }
 

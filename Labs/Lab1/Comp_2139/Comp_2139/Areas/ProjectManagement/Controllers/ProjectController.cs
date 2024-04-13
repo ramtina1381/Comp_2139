@@ -21,15 +21,18 @@ namespace Comp_2139.Areas.ProjectManagement.Controllers
     public class ProjectController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly ILogger<ProjectController> _logger;
 
-        public ProjectController(ApplicationDbContext context)
+        public ProjectController(ApplicationDbContext context, ILogger<ProjectController> logger)
         {
             _context = context;
+            _logger = logger;
         }
         // GET: /<controller>/
         [HttpGet("")]
         public async Task<IActionResult> Index()
         {
+            _logger.LogInformation("ProjectController Index Action Called.");
             var projects = await _context.Projects.ToListAsync();
             return View(projects);
         }
@@ -45,6 +48,7 @@ namespace Comp_2139.Areas.ProjectManagement.Controllers
         [ValidateAntiForgeryTokenAttribute]
         public IActionResult Create(Project project)
         {
+            _logger.LogInformation("ProjectController Create Action Called.");
             if (!ModelState.IsValid)
             {
                 _context.Projects.Add(project);
@@ -57,6 +61,9 @@ namespace Comp_2139.Areas.ProjectManagement.Controllers
         [HttpGet("Details/{id:int}")]
         public async Task<IActionResult> Details(int id)
         {
+            _logger.LogInformation("ProjectController Details Action Called.");
+            _logger.LogDebug($"Project primary key is: {id}");
+
             var project = await _context.Projects.FirstOrDefaultAsync(p => p.ProjectId == id);
             return View(project);
             if(project == null)

@@ -9,6 +9,7 @@ using Comp_2139.Services;
 using Comp_2139.Areas.ProjectManagement.Models;
 using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
 using System;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,7 +24,10 @@ builder.Services.AddDbContextPool<ApplicationDbContext>(options =>
         b => b.SchemaBehavior(MySqlSchemaBehavior.Ignore)); // Set the SchemaBehavior option here
 });
 
-builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
+builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
+{
+    options.SignIn.RequireConfirmedAccount = true;
+})
     .AddEntityFrameworkStores<ApplicationDbContext>()
     .AddDefaultUI()
     .AddDefaultTokenProviders();
@@ -33,6 +37,13 @@ builder.Services.AddRazorPages();
 
 // This ensures that whenever an IEmailSender is injected, an instance of EmailSender is provided
 builder.Services.AddSingleton<IEmailSender, EmailSender>();
+
+// setup serilog as the loggin provider
+builder.Host.UseSerilog((hostingContext, loggerConfiguration) =>
+{
+    // configure serilog to read from the apps setting (appsetting.json)
+    loggerConfiguration.ReadFrom.Configuration(hostingContext.Configuration);
+});
 
 var app = builder.Build();
 

@@ -252,6 +252,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL0NvbXBvbmVudHMvUHJvamVjdFN1bW1hcnkvRGVmYXVsdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[/Users/ramtinabolfazli/Documents/GBC/Winter 2024/2139- Web Application/comp2139_Labs/Labs/Lab1/Comp_2139/Comp_2139/Views/Shared/Components/UserRole/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL0NvbXBvbmVudHMvVXNlclJvbGUvRGVmYXVsdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/ramtinabolfazli/Documents/GBC/Winter 2024/2139- Web Application/comp2139_Labs/Labs/Lab1/Comp_2139/Comp_2139/Views/Shared/DisplayTemplates/DateTime.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL0Rpc3BsYXlUZW1wbGF0ZXMvRGF0ZVRpbWUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -282,6 +286,14 @@ build_metadata.AdditionalFiles.CssScope =
 
 [/Users/ramtinabolfazli/Documents/GBC/Winter 2024/2139- Web Application/comp2139_Labs/Labs/Lab1/Comp_2139/Comp_2139/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ramtinabolfazli/Documents/GBC/Winter 2024/2139- Web Application/comp2139_Labs/Labs/Lab1/Comp_2139/Comp_2139/Views/UserRoles/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVXNlclJvbGVzL0luZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ramtinabolfazli/Documents/GBC/Winter 2024/2139- Web Application/comp2139_Labs/Labs/Lab1/Comp_2139/Comp_2139/Views/UserRoles/Manage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVXNlclJvbGVzL01hbmFnZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/ramtinabolfazli/Documents/GBC/Winter 2024/2139- Web Application/comp2139_Labs/Labs/Lab1/Comp_2139/Comp_2139/Views/_ViewImports.cshtml]

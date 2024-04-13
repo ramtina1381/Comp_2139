@@ -1,0 +1,1567 @@
+2024-04-13 10:10:19.584 -04:00 [INF] User profile is available. Using '/Users/ramtinabolfazli/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2024-04-13 10:10:20.017 -04:00 [INF] Executed DbCommand (22ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Id`, `r`.`ConcurrencyStamp`, `r`.`Name`, `r`.`NormalizedName`
+FROM `Role` AS `r`
+WHERE `r`.`NormalizedName` = @__normalizedName_0
+LIMIT 1
+2024-04-13 10:10:20.048 -04:00 [WRN] Role 45387db7-cd4a-442d-b860-0e51b761faf5 validation failed: DuplicateRoleName.
+2024-04-13 10:10:20.230 -04:00 [INF] Executed DbCommand (79ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Id`, `r`.`ConcurrencyStamp`, `r`.`Name`, `r`.`NormalizedName`
+FROM `Role` AS `r`
+WHERE `r`.`NormalizedName` = @__normalizedName_0
+LIMIT 1
+2024-04-13 10:10:20.257 -04:00 [WRN] Role f35c095c-0294-4dfb-8f3b-5cd1003b95b1 validation failed: DuplicateRoleName.
+2024-04-13 10:10:20.339 -04:00 [INF] Executed DbCommand (78ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Id`, `r`.`ConcurrencyStamp`, `r`.`Name`, `r`.`NormalizedName`
+FROM `Role` AS `r`
+WHERE `r`.`NormalizedName` = @__normalizedName_0
+LIMIT 1
+2024-04-13 10:10:20.340 -04:00 [WRN] Role d425dc0b-7dce-4517-a9af-ffe8d4af31f2 validation failed: DuplicateRoleName.
+2024-04-13 10:10:20.418 -04:00 [INF] Executed DbCommand (28ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Id`, `r`.`ConcurrencyStamp`, `r`.`Name`, `r`.`NormalizedName`
+FROM `Role` AS `r`
+WHERE `r`.`NormalizedName` = @__normalizedName_0
+LIMIT 1
+2024-04-13 10:10:20.443 -04:00 [WRN] Role e4676e19-6813-425e-939b-f0fa434250a1 validation failed: DuplicateRoleName.
+2024-04-13 10:10:20.479 -04:00 [INF] Executed DbCommand (4ms) [Parameters=[@__superUser_Id_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT NOT EXISTS (
+    SELECT 1
+    FROM `User` AS `u`
+    WHERE `u`.`Id` = @__superUser_Id_0)
+2024-04-13 10:10:20.548 -04:00 [INF] Executed DbCommand (30ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`Id`, `u`.`AccessFailedCount`, `u`.`ConcurrencyStamp`, `u`.`Email`, `u`.`EmailConfirmed`, `u`.`FirstName`, `u`.`LastName`, `u`.`LockoutEnabled`, `u`.`LockoutEnd`, `u`.`NormalizedEmail`, `u`.`NormalizedUserName`, `u`.`PasswordHash`, `u`.`PhoneNumber`, `u`.`PhoneNumberConfirmed`, `u`.`ProfilePicture`, `u`.`SecurityStamp`, `u`.`TwoFactorEnabled`, `u`.`UserName`, `u`.`UsernameChangeLimit`
+FROM `User` AS `u`
+WHERE `u`.`NormalizedEmail` = @__normalizedEmail_0
+LIMIT 2
+2024-04-13 10:10:21.238 -04:00 [INF] Now listening on: https://localhost:7011
+2024-04-13 10:10:21.260 -04:00 [INF] Now listening on: http://localhost:5253
+2024-04-13 10:10:21.261 -04:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-04-13 10:10:21.261 -04:00 [INF] Hosting environment: Development
+2024-04-13 10:10:21.261 -04:00 [INF] Content root path: /Users/ramtinabolfazli/Documents/GBC/Winter 2024/2139- Web Application/comp2139_Labs/Labs/Lab1/Comp_2139/Comp_2139
+2024-04-13 10:10:23.049 -04:00 [INF] Request starting HTTP/1.1 GET https://localhost:7011/ - -
+2024-04-13 10:10:23.175 -04:00 [INF] Executed DbCommand (5ms) [Parameters=[@__p_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`Id`, `u`.`AccessFailedCount`, `u`.`ConcurrencyStamp`, `u`.`Email`, `u`.`EmailConfirmed`, `u`.`FirstName`, `u`.`LastName`, `u`.`LockoutEnabled`, `u`.`LockoutEnd`, `u`.`NormalizedEmail`, `u`.`NormalizedUserName`, `u`.`PasswordHash`, `u`.`PhoneNumber`, `u`.`PhoneNumberConfirmed`, `u`.`ProfilePicture`, `u`.`SecurityStamp`, `u`.`TwoFactorEnabled`, `u`.`UserName`, `u`.`UsernameChangeLimit`
+FROM `User` AS `u`
+WHERE `u`.`Id` = @__p_0
+LIMIT 1
+2024-04-13 10:10:23.300 -04:00 [INF] Executed DbCommand (73ms) [Parameters=[@__user_Id_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`Id`, `u`.`ClaimType`, `u`.`ClaimValue`, `u`.`UserId`
+FROM `UserClaims` AS `u`
+WHERE `u`.`UserId` = @__user_Id_0
+2024-04-13 10:10:23.462 -04:00 [INF] Executed DbCommand (73ms) [Parameters=[@__userId_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Name`
+FROM `UserRoles` AS `u`
+INNER JOIN `Role` AS `r` ON `u`.`RoleId` = `r`.`Id`
+WHERE `u`.`UserId` = @__userId_0
+2024-04-13 10:10:23.516 -04:00 [INF] Executed DbCommand (2ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Id`, `r`.`ConcurrencyStamp`, `r`.`Name`, `r`.`NormalizedName`
+FROM `Role` AS `r`
+WHERE `r`.`NormalizedName` = @__normalizedName_0
+LIMIT 1
+2024-04-13 10:10:23.574 -04:00 [INF] Executed DbCommand (26ms) [Parameters=[@__role_Id_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`ClaimType`, `r`.`ClaimValue`
+FROM `RoleClaims` AS `r`
+WHERE `r`.`RoleId` = @__role_Id_0
+2024-04-13 10:10:23.581 -04:00 [INF] Executed DbCommand (2ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Id`, `r`.`ConcurrencyStamp`, `r`.`Name`, `r`.`NormalizedName`
+FROM `Role` AS `r`
+WHERE `r`.`NormalizedName` = @__normalizedName_0
+LIMIT 1
+2024-04-13 10:10:23.736 -04:00 [INF] Executed DbCommand (126ms) [Parameters=[@__role_Id_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`ClaimType`, `r`.`ClaimValue`
+FROM `RoleClaims` AS `r`
+WHERE `r`.`RoleId` = @__role_Id_0
+2024-04-13 10:10:23.772 -04:00 [INF] Executed DbCommand (3ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Id`, `r`.`ConcurrencyStamp`, `r`.`Name`, `r`.`NormalizedName`
+FROM `Role` AS `r`
+WHERE `r`.`NormalizedName` = @__normalizedName_0
+LIMIT 1
+2024-04-13 10:10:23.944 -04:00 [INF] Executed DbCommand (167ms) [Parameters=[@__role_Id_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`ClaimType`, `r`.`ClaimValue`
+FROM `RoleClaims` AS `r`
+WHERE `r`.`RoleId` = @__role_Id_0
+2024-04-13 10:10:23.961 -04:00 [INF] Executing endpoint 'Comp_2139.Controllers.HomeController.Index (Comp_2139)'
+2024-04-13 10:10:23.981 -04:00 [INF] Route matched with {action = "Index", controller = "Home", area = "", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Comp_2139.Controllers.HomeController (Comp_2139).
+2024-04-13 10:10:23.994 -04:00 [INF] Executing ViewResult, running view Index.
+2024-04-13 10:10:24.174 -04:00 [INF] Executed DbCommand (26ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Id`, `r`.`ConcurrencyStamp`, `r`.`Name`, `r`.`NormalizedName`
+FROM `Role` AS `r`
+WHERE `r`.`NormalizedName` = @__normalizedRoleName_0
+LIMIT 2
+2024-04-13 10:10:24.261 -04:00 [INF] Executed DbCommand (27ms) [Parameters=[@__p_0='?' (Size = 255), @__p_1='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`UserId`, `u`.`RoleId`
+FROM `UserRoles` AS `u`
+WHERE (`u`.`UserId` = @__p_0) AND (`u`.`RoleId` = @__p_1)
+LIMIT 1
+2024-04-13 10:10:24.409 -04:00 [INF] Executed DbCommand (108ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Id`, `r`.`ConcurrencyStamp`, `r`.`Name`, `r`.`NormalizedName`
+FROM `Role` AS `r`
+WHERE `r`.`NormalizedName` = @__normalizedRoleName_0
+LIMIT 2
+2024-04-13 10:10:24.565 -04:00 [INF] Executed DbCommand (100ms) [Parameters=[@__p_0='?' (Size = 255), @__p_1='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`UserId`, `u`.`RoleId`
+FROM `UserRoles` AS `u`
+WHERE (`u`.`UserId` = @__p_0) AND (`u`.`RoleId` = @__p_1)
+LIMIT 1
+2024-04-13 10:10:24.651 -04:00 [INF] Executed ViewResult - view Index executed in 661.4615ms.
+2024-04-13 10:10:24.652 -04:00 [INF] Executed action Comp_2139.Controllers.HomeController.Index (Comp_2139) in 670.1349ms
+2024-04-13 10:10:24.652 -04:00 [INF] Executed endpoint 'Comp_2139.Controllers.HomeController.Index (Comp_2139)'
+2024-04-13 10:10:24.658 -04:00 [INF] Request finished HTTP/1.1 GET https://localhost:7011/ - - - 200 - text/html;+charset=utf-8 1609.9031ms
+2024-04-13 10:10:27.350 -04:00 [INF] Request starting HTTP/1.1 POST https://localhost:7011/Identity/Account/Logout application/x-www-form-urlencoded 225
+2024-04-13 10:10:27.392 -04:00 [INF] Executing endpoint '/Account/Logout'
+2024-04-13 10:10:27.437 -04:00 [INF] Route matched with {page = "/Account/Logout", area = "Identity", action = "", controller = ""}. Executing page /Account/Logout
+2024-04-13 10:10:27.460 -04:00 [INF] Executing handler method Comp_2139.Areas.Identity.Pages.Account.LogoutModel.OnPost - ModelState is "Valid"
+2024-04-13 10:10:27.465 -04:00 [INF] AuthenticationScheme: Identity.Application signed out.
+2024-04-13 10:10:27.466 -04:00 [INF] AuthenticationScheme: Identity.External signed out.
+2024-04-13 10:10:27.466 -04:00 [INF] AuthenticationScheme: Identity.TwoFactorUserId signed out.
+2024-04-13 10:10:27.466 -04:00 [INF] User logged out.
+2024-04-13 10:10:27.467 -04:00 [INF] Executed handler method OnPost, returned result Microsoft.AspNetCore.Mvc.RedirectToPageResult.
+2024-04-13 10:10:27.467 -04:00 [INF] Executing RedirectToPageResult, redirecting to null.
+2024-04-13 10:10:27.468 -04:00 [INF] Executed page /Account/Logout in 30.3678ms
+2024-04-13 10:10:27.468 -04:00 [INF] Executed endpoint '/Account/Logout'
+2024-04-13 10:10:27.468 -04:00 [INF] Request finished HTTP/1.1 POST https://localhost:7011/Identity/Account/Logout application/x-www-form-urlencoded 225 - 302 0 - 119.4313ms
+2024-04-13 10:10:27.472 -04:00 [INF] Request starting HTTP/1.1 GET https://localhost:7011/Identity/Account/Logout - -
+2024-04-13 10:10:27.480 -04:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2024-04-13 10:10:27.481 -04:00 [INF] AuthenticationScheme: Identity.Application was challenged.
+2024-04-13 10:10:27.482 -04:00 [INF] Request finished HTTP/1.1 GET https://localhost:7011/Identity/Account/Logout - - - 302 0 - 9.5826ms
+2024-04-13 10:10:27.484 -04:00 [INF] Request starting HTTP/1.1 GET https://localhost:7011/Identity/Account/Login?ReturnUrl=%2FIdentity%2FAccount%2FLogout - -
+2024-04-13 10:10:27.484 -04:00 [INF] Executing endpoint '/Account/Login'
+2024-04-13 10:10:27.490 -04:00 [INF] Route matched with {page = "/Account/Login", area = "Identity", action = "", controller = ""}. Executing page /Account/Login
+2024-04-13 10:10:27.500 -04:00 [INF] Executing handler method Comp_2139.Areas.Identity.Pages.Account.LoginModel.OnGetAsync - ModelState is "Valid"
+2024-04-13 10:10:27.501 -04:00 [INF] AuthenticationScheme: Identity.External signed out.
+2024-04-13 10:10:27.501 -04:00 [INF] Executed handler method OnGetAsync, returned result .
+2024-04-13 10:10:27.502 -04:00 [INF] Executing an implicit handler method - ModelState is "Valid"
+2024-04-13 10:10:27.502 -04:00 [INF] Executed an implicit handler method, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2024-04-13 10:10:27.528 -04:00 [INF] Executed page /Account/Login in 38.2352ms
+2024-04-13 10:10:27.529 -04:00 [INF] Executed endpoint '/Account/Login'
+2024-04-13 10:10:27.529 -04:00 [INF] Request finished HTTP/1.1 GET https://localhost:7011/Identity/Account/Login?ReturnUrl=%2FIdentity%2FAccount%2FLogout - - - 200 - text/html;+charset=utf-8 44.4782ms
+2024-04-13 10:24:20.615 -04:00 [INF] User profile is available. Using '/Users/ramtinabolfazli/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2024-04-13 10:24:21.085 -04:00 [INF] Executed DbCommand (39ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Id`, `r`.`ConcurrencyStamp`, `r`.`Name`, `r`.`NormalizedName`
+FROM `Role` AS `r`
+WHERE `r`.`NormalizedName` = @__normalizedName_0
+LIMIT 1
+2024-04-13 10:24:21.118 -04:00 [WRN] Role f8492a8c-e3f9-42a3-8e90-9ae2c6d4b12d validation failed: DuplicateRoleName.
+2024-04-13 10:24:21.126 -04:00 [INF] Executed DbCommand (1ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Id`, `r`.`ConcurrencyStamp`, `r`.`Name`, `r`.`NormalizedName`
+FROM `Role` AS `r`
+WHERE `r`.`NormalizedName` = @__normalizedName_0
+LIMIT 1
+2024-04-13 10:24:21.127 -04:00 [WRN] Role f739d180-e57e-4314-a55f-002805cf2ba7 validation failed: DuplicateRoleName.
+2024-04-13 10:24:21.254 -04:00 [INF] Executed DbCommand (101ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Id`, `r`.`ConcurrencyStamp`, `r`.`Name`, `r`.`NormalizedName`
+FROM `Role` AS `r`
+WHERE `r`.`NormalizedName` = @__normalizedName_0
+LIMIT 1
+2024-04-13 10:24:21.254 -04:00 [WRN] Role 257bf140-6696-40e8-b22e-cca321a9c9e3 validation failed: DuplicateRoleName.
+2024-04-13 10:24:21.454 -04:00 [INF] Executed DbCommand (174ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Id`, `r`.`ConcurrencyStamp`, `r`.`Name`, `r`.`NormalizedName`
+FROM `Role` AS `r`
+WHERE `r`.`NormalizedName` = @__normalizedName_0
+LIMIT 1
+2024-04-13 10:24:21.455 -04:00 [WRN] Role a3703381-8885-4a62-b72c-861fba4923cc validation failed: DuplicateRoleName.
+2024-04-13 10:24:21.477 -04:00 [INF] Executed DbCommand (4ms) [Parameters=[@__superUser_Id_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT NOT EXISTS (
+    SELECT 1
+    FROM `User` AS `u`
+    WHERE `u`.`Id` = @__superUser_Id_0)
+2024-04-13 10:24:21.524 -04:00 [INF] Executed DbCommand (34ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`Id`, `u`.`AccessFailedCount`, `u`.`ConcurrencyStamp`, `u`.`Email`, `u`.`EmailConfirmed`, `u`.`FirstName`, `u`.`LastName`, `u`.`LockoutEnabled`, `u`.`LockoutEnd`, `u`.`NormalizedEmail`, `u`.`NormalizedUserName`, `u`.`PasswordHash`, `u`.`PhoneNumber`, `u`.`PhoneNumberConfirmed`, `u`.`ProfilePicture`, `u`.`SecurityStamp`, `u`.`TwoFactorEnabled`, `u`.`UserName`, `u`.`UsernameChangeLimit`
+FROM `User` AS `u`
+WHERE `u`.`NormalizedEmail` = @__normalizedEmail_0
+LIMIT 2
+2024-04-13 10:24:21.927 -04:00 [INF] Now listening on: https://localhost:7011
+2024-04-13 10:24:21.975 -04:00 [INF] Now listening on: http://localhost:5253
+2024-04-13 10:24:21.977 -04:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-04-13 10:24:21.977 -04:00 [INF] Hosting environment: Development
+2024-04-13 10:24:21.977 -04:00 [INF] Content root path: /Users/ramtinabolfazli/Documents/GBC/Winter 2024/2139- Web Application/comp2139_Labs/Labs/Lab1/Comp_2139/Comp_2139
+2024-04-13 10:24:23.524 -04:00 [INF] Request starting HTTP/1.1 GET https://localhost:7011/ - -
+2024-04-13 10:24:23.558 -04:00 [INF] Executing endpoint 'Comp_2139.Controllers.HomeController.Index (Comp_2139)'
+2024-04-13 10:24:23.565 -04:00 [INF] Route matched with {action = "Index", controller = "Home", area = "", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Comp_2139.Controllers.HomeController (Comp_2139).
+2024-04-13 10:24:23.575 -04:00 [INF] Executing ViewResult, running view Index.
+2024-04-13 10:24:23.694 -04:00 [INF] Executed ViewResult - view Index executed in 122.6372ms.
+2024-04-13 10:24:23.695 -04:00 [INF] Executed action Comp_2139.Controllers.HomeController.Index (Comp_2139) in 129.5855ms
+2024-04-13 10:24:23.695 -04:00 [INF] Executed endpoint 'Comp_2139.Controllers.HomeController.Index (Comp_2139)'
+2024-04-13 10:24:23.704 -04:00 [INF] Request finished HTTP/1.1 GET https://localhost:7011/ - - - 200 - text/html;+charset=utf-8 181.0455ms
+2024-04-13 10:24:27.767 -04:00 [INF] Request starting HTTP/1.1 GET https://localhost:7011/ - -
+2024-04-13 10:24:27.773 -04:00 [INF] Executing endpoint 'Comp_2139.Controllers.HomeController.Index (Comp_2139)'
+2024-04-13 10:24:27.777 -04:00 [INF] Route matched with {action = "Index", controller = "Home", area = "", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Comp_2139.Controllers.HomeController (Comp_2139).
+2024-04-13 10:24:27.779 -04:00 [INF] Executing ViewResult, running view Index.
+2024-04-13 10:24:27.792 -04:00 [INF] Executed ViewResult - view Index executed in 14.2523ms.
+2024-04-13 10:24:27.793 -04:00 [INF] Executed action Comp_2139.Controllers.HomeController.Index (Comp_2139) in 15.1926ms
+2024-04-13 10:24:27.793 -04:00 [INF] Executed endpoint 'Comp_2139.Controllers.HomeController.Index (Comp_2139)'
+2024-04-13 10:24:27.912 -04:00 [INF] Request finished HTTP/1.1 GET https://localhost:7011/ - - - 200 - text/html;+charset=utf-8 93.5949ms
+2024-04-13 10:24:28.645 -04:00 [INF] Request starting HTTP/1.1 GET https://localhost:7011/Home/About - -
+2024-04-13 10:24:28.676 -04:00 [INF] Executing endpoint 'Comp_2139.Controllers.HomeController.About (Comp_2139)'
+2024-04-13 10:24:28.679 -04:00 [INF] Route matched with {action = "About", controller = "Home", area = "", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult About() on controller Comp_2139.Controllers.HomeController (Comp_2139).
+2024-04-13 10:24:28.680 -04:00 [INF] Executing ViewResult, running view About.
+2024-04-13 10:24:28.694 -04:00 [INF] Executed ViewResult - view About executed in 15.0049ms.
+2024-04-13 10:24:28.694 -04:00 [INF] Executed action Comp_2139.Controllers.HomeController.About (Comp_2139) in 15.4319ms
+2024-04-13 10:24:28.694 -04:00 [INF] Executed endpoint 'Comp_2139.Controllers.HomeController.About (Comp_2139)'
+2024-04-13 10:24:28.695 -04:00 [INF] Request finished HTTP/1.1 GET https://localhost:7011/Home/About - - - 200 - text/html;+charset=utf-8 49.2828ms
+2024-04-13 10:24:29.882 -04:00 [INF] Request starting HTTP/1.1 GET https://localhost:7011/ProjectManagement/Project/Index - -
+2024-04-13 10:24:29.917 -04:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2024-04-13 10:24:29.924 -04:00 [INF] AuthenticationScheme: Identity.Application was challenged.
+2024-04-13 10:24:29.925 -04:00 [INF] Request finished HTTP/1.1 GET https://localhost:7011/ProjectManagement/Project/Index - - - 302 0 - 42.3231ms
+2024-04-13 10:24:29.929 -04:00 [INF] Request starting HTTP/1.1 GET https://localhost:7011/Identity/Account/Login?ReturnUrl=%2FProjectManagement%2FProject%2FIndex - -
+2024-04-13 10:24:29.930 -04:00 [INF] Executing endpoint '/Account/Login'
+2024-04-13 10:24:29.953 -04:00 [INF] Route matched with {page = "/Account/Login", area = "Identity", action = "", controller = ""}. Executing page /Account/Login
+2024-04-13 10:24:29.963 -04:00 [INF] Executing handler method Comp_2139.Areas.Identity.Pages.Account.LoginModel.OnGetAsync - ModelState is "Valid"
+2024-04-13 10:24:29.966 -04:00 [INF] AuthenticationScheme: Identity.External signed out.
+2024-04-13 10:24:29.967 -04:00 [INF] Executed handler method OnGetAsync, returned result .
+2024-04-13 10:24:29.968 -04:00 [INF] Executing an implicit handler method - ModelState is "Valid"
+2024-04-13 10:24:29.968 -04:00 [INF] Executed an implicit handler method, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2024-04-13 10:24:30.017 -04:00 [INF] Executed page /Account/Login in 63.8671ms
+2024-04-13 10:24:30.017 -04:00 [INF] Executed endpoint '/Account/Login'
+2024-04-13 10:24:30.017 -04:00 [INF] Request finished HTTP/1.1 GET https://localhost:7011/Identity/Account/Login?ReturnUrl=%2FProjectManagement%2FProject%2FIndex - - - 200 - text/html;+charset=utf-8 88.4564ms
+2024-04-13 10:24:36.569 -04:00 [INF] Request starting HTTP/1.1 GET https://localhost:7011/Identity/Account/Register - -
+2024-04-13 10:24:36.592 -04:00 [INF] Executing endpoint '/Account/Register'
+2024-04-13 10:24:36.606 -04:00 [INF] Route matched with {page = "/Account/Register", area = "Identity", action = "", controller = ""}. Executing page /Account/Register
+2024-04-13 10:24:36.609 -04:00 [INF] Executing handler method Comp_2139.Areas.Identity.Pages.Account.RegisterModel.OnGetAsync - ModelState is "Valid"
+2024-04-13 10:24:36.612 -04:00 [INF] Executed handler method OnGetAsync, returned result .
+2024-04-13 10:24:36.612 -04:00 [INF] Executing an implicit handler method - ModelState is "Valid"
+2024-04-13 10:24:36.612 -04:00 [INF] Executed an implicit handler method, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2024-04-13 10:24:36.632 -04:00 [INF] Executed page /Account/Register in 26.1115ms
+2024-04-13 10:24:36.632 -04:00 [INF] Executed endpoint '/Account/Register'
+2024-04-13 10:24:36.633 -04:00 [INF] Request finished HTTP/1.1 GET https://localhost:7011/Identity/Account/Register - - - 200 - text/html;+charset=utf-8 63.8503ms
+2024-04-13 10:25:05.956 -04:00 [INF] Request starting HTTP/1.1 POST https://localhost:7011/Identity/Account/Register application/x-www-form-urlencoded 322
+2024-04-13 10:25:05.958 -04:00 [INF] Executing endpoint '/Account/Register'
+2024-04-13 10:25:05.959 -04:00 [INF] Route matched with {page = "/Account/Register", area = "Identity", action = "", controller = ""}. Executing page /Account/Register
+2024-04-13 10:25:05.987 -04:00 [INF] Executing handler method Comp_2139.Areas.Identity.Pages.Account.RegisterModel.OnPostAsync - ModelState is "Valid"
+2024-04-13 10:25:06.093 -04:00 [INF] Executed DbCommand (2ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`Id`, `u`.`AccessFailedCount`, `u`.`ConcurrencyStamp`, `u`.`Email`, `u`.`EmailConfirmed`, `u`.`FirstName`, `u`.`LastName`, `u`.`LockoutEnabled`, `u`.`LockoutEnd`, `u`.`NormalizedEmail`, `u`.`NormalizedUserName`, `u`.`PasswordHash`, `u`.`PhoneNumber`, `u`.`PhoneNumberConfirmed`, `u`.`ProfilePicture`, `u`.`SecurityStamp`, `u`.`TwoFactorEnabled`, `u`.`UserName`, `u`.`UsernameChangeLimit`
+FROM `User` AS `u`
+WHERE `u`.`NormalizedUserName` = @__normalizedUserName_0
+LIMIT 1
+2024-04-13 10:25:06.221 -04:00 [INF] Executed DbCommand (52ms) [Parameters=[@p0='?' (Size = 255), @p1='?' (DbType = Int32), @p2='?' (Size = 4000), @p3='?' (Size = 256), @p4='?' (DbType = Boolean), @p5='?' (Size = 4000), @p6='?' (Size = 4000), @p7='?' (DbType = Boolean), @p8='?' (DbType = DateTimeOffset), @p9='?' (Size = 256), @p10='?' (Size = 256), @p11='?' (Size = 4000), @p12='?' (Size = 4000), @p13='?' (DbType = Boolean), @p14='?' (Size = 8000) (DbType = Binary), @p15='?' (Size = 4000), @p16='?' (DbType = Boolean), @p17='?' (Size = 256), @p18='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET AUTOCOMMIT = 1;
+INSERT INTO `User` (`Id`, `AccessFailedCount`, `ConcurrencyStamp`, `Email`, `EmailConfirmed`, `FirstName`, `LastName`, `LockoutEnabled`, `LockoutEnd`, `NormalizedEmail`, `NormalizedUserName`, `PasswordHash`, `PhoneNumber`, `PhoneNumberConfirmed`, `ProfilePicture`, `SecurityStamp`, `TwoFactorEnabled`, `UserName`, `UsernameChangeLimit`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16, @p17, @p18);
+2024-04-13 10:25:06.227 -04:00 [INF] User created a new account with password.
+2024-04-13 10:25:06.284 -04:00 [INF] Executed DbCommand (26ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Id`, `r`.`ConcurrencyStamp`, `r`.`Name`, `r`.`NormalizedName`
+FROM `Role` AS `r`
+WHERE `r`.`NormalizedName` = @__normalizedRoleName_0
+LIMIT 2
+2024-04-13 10:25:06.327 -04:00 [INF] Executed DbCommand (4ms) [Parameters=[@__p_0='?' (Size = 255), @__p_1='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`UserId`, `u`.`RoleId`
+FROM `UserRoles` AS `u`
+WHERE (`u`.`UserId` = @__p_0) AND (`u`.`RoleId` = @__p_1)
+LIMIT 1
+2024-04-13 10:25:06.452 -04:00 [INF] Executed DbCommand (98ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Id`, `r`.`ConcurrencyStamp`, `r`.`Name`, `r`.`NormalizedName`
+FROM `Role` AS `r`
+WHERE `r`.`NormalizedName` = @__normalizedRoleName_0
+LIMIT 2
+2024-04-13 10:25:06.526 -04:00 [INF] Executed DbCommand (27ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`Id`, `u`.`AccessFailedCount`, `u`.`ConcurrencyStamp`, `u`.`Email`, `u`.`EmailConfirmed`, `u`.`FirstName`, `u`.`LastName`, `u`.`LockoutEnabled`, `u`.`LockoutEnd`, `u`.`NormalizedEmail`, `u`.`NormalizedUserName`, `u`.`PasswordHash`, `u`.`PhoneNumber`, `u`.`PhoneNumberConfirmed`, `u`.`ProfilePicture`, `u`.`SecurityStamp`, `u`.`TwoFactorEnabled`, `u`.`UserName`, `u`.`UsernameChangeLimit`
+FROM `User` AS `u`
+WHERE `u`.`NormalizedUserName` = @__normalizedUserName_0
+LIMIT 1
+2024-04-13 10:25:06.633 -04:00 [INF] Executed DbCommand (8ms) [Parameters=[@p18='?' (Size = 255), @p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p19='?' (Size = 4000), @p2='?' (Size = 256), @p3='?' (DbType = Boolean), @p4='?' (Size = 4000), @p5='?' (Size = 4000), @p6='?' (DbType = Boolean), @p7='?' (DbType = DateTimeOffset), @p8='?' (Size = 256), @p9='?' (Size = 256), @p10='?' (Size = 4000), @p11='?' (Size = 4000), @p12='?' (DbType = Boolean), @p13='?' (Size = 8000) (DbType = Binary), @p14='?' (Size = 4000), @p15='?' (DbType = Boolean), @p16='?' (Size = 256), @p17='?' (DbType = Int32), @p20='?' (Size = 255), @p21='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+UPDATE `User` SET `AccessFailedCount` = @p0, `ConcurrencyStamp` = @p1, `Email` = @p2, `EmailConfirmed` = @p3, `FirstName` = @p4, `LastName` = @p5, `LockoutEnabled` = @p6, `LockoutEnd` = @p7, `NormalizedEmail` = @p8, `NormalizedUserName` = @p9, `PasswordHash` = @p10, `PhoneNumber` = @p11, `PhoneNumberConfirmed` = @p12, `ProfilePicture` = @p13, `SecurityStamp` = @p14, `TwoFactorEnabled` = @p15, `UserName` = @p16, `UsernameChangeLimit` = @p17
+WHERE `Id` = @p18 AND `ConcurrencyStamp` = @p19;
+SELECT ROW_COUNT();
+
+INSERT INTO `UserRoles` (`RoleId`, `UserId`)
+VALUES (@p20, @p21);
+2024-04-13 10:25:07.389 -04:00 [INF] Executed handler method OnPostAsync, returned result Microsoft.AspNetCore.Mvc.RedirectToPageResult.
+2024-04-13 10:25:07.392 -04:00 [INF] Executing RedirectToPageResult, redirecting to RegisterConfirmation.
+2024-04-13 10:25:07.394 -04:00 [INF] Executed page /Account/Register in 1434.8857ms
+2024-04-13 10:25:07.395 -04:00 [INF] Executed endpoint '/Account/Register'
+2024-04-13 10:25:07.401 -04:00 [INF] Request finished HTTP/1.1 POST https://localhost:7011/Identity/Account/Register application/x-www-form-urlencoded 322 - 302 0 - 1445.2212ms
+2024-04-13 10:25:07.402 -04:00 [INF] Request starting HTTP/1.1 GET https://localhost:7011/Identity/Account/RegisterConfirmation?email=ramtinaithink@gmail.com&returnUrl=%2F - -
+2024-04-13 10:25:07.402 -04:00 [INF] Executing endpoint '/Account/RegisterConfirmation'
+2024-04-13 10:25:07.406 -04:00 [INF] Route matched with {page = "/Account/RegisterConfirmation", area = "Identity", action = "", controller = ""}. Executing page /Account/RegisterConfirmation
+2024-04-13 10:25:07.409 -04:00 [INF] Executing handler method Comp_2139.Areas.Identity.Pages.Account.RegisterConfirmationModel.OnGetAsync - ModelState is "Valid"
+2024-04-13 10:25:07.514 -04:00 [INF] Executed DbCommand (53ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`Id`, `u`.`AccessFailedCount`, `u`.`ConcurrencyStamp`, `u`.`Email`, `u`.`EmailConfirmed`, `u`.`FirstName`, `u`.`LastName`, `u`.`LockoutEnabled`, `u`.`LockoutEnd`, `u`.`NormalizedEmail`, `u`.`NormalizedUserName`, `u`.`PasswordHash`, `u`.`PhoneNumber`, `u`.`PhoneNumberConfirmed`, `u`.`ProfilePicture`, `u`.`SecurityStamp`, `u`.`TwoFactorEnabled`, `u`.`UserName`, `u`.`UsernameChangeLimit`
+FROM `User` AS `u`
+WHERE `u`.`NormalizedEmail` = @__normalizedEmail_0
+LIMIT 2
+2024-04-13 10:25:07.515 -04:00 [INF] Executed handler method OnGetAsync, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2024-04-13 10:25:07.522 -04:00 [INF] Executed page /Account/RegisterConfirmation in 116.2114ms
+2024-04-13 10:25:07.522 -04:00 [INF] Executed endpoint '/Account/RegisterConfirmation'
+2024-04-13 10:25:07.523 -04:00 [INF] Request finished HTTP/1.1 GET https://localhost:7011/Identity/Account/RegisterConfirmation?email=ramtinaithink@gmail.com&returnUrl=%2F - - - 200 - text/html;+charset=utf-8 121.5867ms
+2024-04-13 10:25:21.440 -04:00 [INF] Request starting HTTP/1.1 OPTIONS https://localhost:7011/Identity/Account/ConfirmEmail?userId=a964ff9c-37f3-4ff9-b7b8-69fc6936e33b&code=Q2ZESjhGQmYvTUZrVEpsR2pDaldGczFnNGg2M3htSldxSXRZcUQ5Mk44WjB6Qnc2SE1UMlVaOWVaaUt1NzZBMm82a3JPMUkyVmxVMEVSdm90dERZTERFUWZyTExDWFRYT1NJNERCTTErbVBGd2N1RHZmTXY3UERLd3JsVmlEQ2VlS0owOE1HVE9aYytZQ0srK2xTcnNTbG1ERlJWMXFXUTlmQnhIUnZTRVhpLzlPVXNZb0VBaXh6cTJwYUExOEdreE1EenVmVVVIaWtmWE9hVzVPb2lyTEJEUnR3MlBNMERSdGxtWmNZZ2lOV0R3T2dkVC9WTUFuT2g5eVA2emRWaWUrSHc1dz09&returnUrl=%2F - -
+2024-04-13 10:25:21.443 -04:00 [INF] Executing endpoint '/Account/ConfirmEmail'
+2024-04-13 10:25:21.453 -04:00 [INF] Route matched with {page = "/Account/ConfirmEmail", area = "Identity", action = "", controller = ""}. Executing page /Account/ConfirmEmail
+2024-04-13 10:25:21.459 -04:00 [INF] Executing StatusCodeResult, setting HTTP status code 200
+2024-04-13 10:25:21.461 -04:00 [INF] Executed page /Account/ConfirmEmail in 7.6069ms
+2024-04-13 10:25:21.461 -04:00 [INF] Executed endpoint '/Account/ConfirmEmail'
+2024-04-13 10:25:21.462 -04:00 [INF] Request finished HTTP/1.1 OPTIONS https://localhost:7011/Identity/Account/ConfirmEmail?userId=a964ff9c-37f3-4ff9-b7b8-69fc6936e33b&code=Q2ZESjhGQmYvTUZrVEpsR2pDaldGczFnNGg2M3htSldxSXRZcUQ5Mk44WjB6Qnc2SE1UMlVaOWVaaUt1NzZBMm82a3JPMUkyVmxVMEVSdm90dERZTERFUWZyTExDWFRYT1NJNERCTTErbVBGd2N1RHZmTXY3UERLd3JsVmlEQ2VlS0owOE1HVE9aYytZQ0srK2xTcnNTbG1ERlJWMXFXUTlmQnhIUnZTRVhpLzlPVXNZb0VBaXh6cTJwYUExOEdreE1EenVmVVVIaWtmWE9hVzVPb2lyTEJEUnR3MlBNMERSdGxtWmNZZ2lOV0R3T2dkVC9WTUFuT2g5eVA2emRWaWUrSHc1dz09&returnUrl=%2F - - - 200 0 - 22.6806ms
+2024-04-13 10:25:21.514 -04:00 [INF] Request starting HTTP/1.1 GET https://localhost:7011/Identity/Account/ConfirmEmail?userId=a964ff9c-37f3-4ff9-b7b8-69fc6936e33b&code=Q2ZESjhGQmYvTUZrVEpsR2pDaldGczFnNGg2M3htSldxSXRZcUQ5Mk44WjB6Qnc2SE1UMlVaOWVaaUt1NzZBMm82a3JPMUkyVmxVMEVSdm90dERZTERFUWZyTExDWFRYT1NJNERCTTErbVBGd2N1RHZmTXY3UERLd3JsVmlEQ2VlS0owOE1HVE9aYytZQ0srK2xTcnNTbG1ERlJWMXFXUTlmQnhIUnZTRVhpLzlPVXNZb0VBaXh6cTJwYUExOEdreE1EenVmVVVIaWtmWE9hVzVPb2lyTEJEUnR3MlBNMERSdGxtWmNZZ2lOV0R3T2dkVC9WTUFuT2g5eVA2emRWaWUrSHc1dz09&returnUrl=%2F - -
+2024-04-13 10:25:21.516 -04:00 [INF] Executing endpoint '/Account/ConfirmEmail'
+2024-04-13 10:25:21.517 -04:00 [INF] Route matched with {page = "/Account/ConfirmEmail", area = "Identity", action = "", controller = ""}. Executing page /Account/ConfirmEmail
+2024-04-13 10:25:21.519 -04:00 [INF] Executing handler method Comp_2139.Areas.Identity.Pages.Account.ConfirmEmailModel.OnGetAsync - ModelState is "Valid"
+2024-04-13 10:25:21.569 -04:00 [INF] Executed DbCommand (25ms) [Parameters=[@__p_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`Id`, `u`.`AccessFailedCount`, `u`.`ConcurrencyStamp`, `u`.`Email`, `u`.`EmailConfirmed`, `u`.`FirstName`, `u`.`LastName`, `u`.`LockoutEnabled`, `u`.`LockoutEnd`, `u`.`NormalizedEmail`, `u`.`NormalizedUserName`, `u`.`PasswordHash`, `u`.`PhoneNumber`, `u`.`PhoneNumberConfirmed`, `u`.`ProfilePicture`, `u`.`SecurityStamp`, `u`.`TwoFactorEnabled`, `u`.`UserName`, `u`.`UsernameChangeLimit`
+FROM `User` AS `u`
+WHERE `u`.`Id` = @__p_0
+LIMIT 1
+2024-04-13 10:25:21.675 -04:00 [INF] Executed DbCommand (76ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`Id`, `u`.`AccessFailedCount`, `u`.`ConcurrencyStamp`, `u`.`Email`, `u`.`EmailConfirmed`, `u`.`FirstName`, `u`.`LastName`, `u`.`LockoutEnabled`, `u`.`LockoutEnd`, `u`.`NormalizedEmail`, `u`.`NormalizedUserName`, `u`.`PasswordHash`, `u`.`PhoneNumber`, `u`.`PhoneNumberConfirmed`, `u`.`ProfilePicture`, `u`.`SecurityStamp`, `u`.`TwoFactorEnabled`, `u`.`UserName`, `u`.`UsernameChangeLimit`
+FROM `User` AS `u`
+WHERE `u`.`NormalizedUserName` = @__normalizedUserName_0
+LIMIT 1
+2024-04-13 10:25:21.708 -04:00 [INF] Executed DbCommand (6ms) [Parameters=[@p18='?' (Size = 255), @p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p19='?' (Size = 4000), @p2='?' (Size = 256), @p3='?' (DbType = Boolean), @p4='?' (Size = 4000), @p5='?' (Size = 4000), @p6='?' (DbType = Boolean), @p7='?' (DbType = DateTimeOffset), @p8='?' (Size = 256), @p9='?' (Size = 256), @p10='?' (Size = 4000), @p11='?' (Size = 4000), @p12='?' (DbType = Boolean), @p13='?' (Size = 8000) (DbType = Binary), @p14='?' (Size = 4000), @p15='?' (DbType = Boolean), @p16='?' (Size = 256), @p17='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET AUTOCOMMIT = 1;
+UPDATE `User` SET `AccessFailedCount` = @p0, `ConcurrencyStamp` = @p1, `Email` = @p2, `EmailConfirmed` = @p3, `FirstName` = @p4, `LastName` = @p5, `LockoutEnabled` = @p6, `LockoutEnd` = @p7, `NormalizedEmail` = @p8, `NormalizedUserName` = @p9, `PasswordHash` = @p10, `PhoneNumber` = @p11, `PhoneNumberConfirmed` = @p12, `ProfilePicture` = @p13, `SecurityStamp` = @p14, `TwoFactorEnabled` = @p15, `UserName` = @p16, `UsernameChangeLimit` = @p17
+WHERE `Id` = @p18 AND `ConcurrencyStamp` = @p19;
+SELECT ROW_COUNT();
+2024-04-13 10:25:21.709 -04:00 [INF] Executed handler method OnGetAsync, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2024-04-13 10:25:21.723 -04:00 [INF] Executed page /Account/ConfirmEmail in 206.5626ms
+2024-04-13 10:25:21.724 -04:00 [INF] Executed endpoint '/Account/ConfirmEmail'
+2024-04-13 10:25:21.724 -04:00 [INF] Request finished HTTP/1.1 GET https://localhost:7011/Identity/Account/ConfirmEmail?userId=a964ff9c-37f3-4ff9-b7b8-69fc6936e33b&code=Q2ZESjhGQmYvTUZrVEpsR2pDaldGczFnNGg2M3htSldxSXRZcUQ5Mk44WjB6Qnc2SE1UMlVaOWVaaUt1NzZBMm82a3JPMUkyVmxVMEVSdm90dERZTERFUWZyTExDWFRYT1NJNERCTTErbVBGd2N1RHZmTXY3UERLd3JsVmlEQ2VlS0owOE1HVE9aYytZQ0srK2xTcnNTbG1ERlJWMXFXUTlmQnhIUnZTRVhpLzlPVXNZb0VBaXh6cTJwYUExOEdreE1EenVmVVVIaWtmWE9hVzVPb2lyTEJEUnR3MlBNMERSdGxtWmNZZ2lOV0R3T2dkVC9WTUFuT2g5eVA2emRWaWUrSHc1dz09&returnUrl=%2F - - - 200 - text/html;+charset=utf-8 210.5268ms
+2024-04-13 10:25:21.803 -04:00 [INF] Request starting HTTP/1.1 GET https://localhost:7011/lib/bootstrap/dist/css/bootstrap.min.css - -
+2024-04-13 10:25:21.837 -04:00 [INF] Request starting HTTP/1.1 GET https://localhost:7011/css/site.css?v=NbTvFXWxY-2zfXfcmhbHF-Wb6BLSbCs8DIp1cMcy-0Q - -
+2024-04-13 10:25:21.900 -04:00 [INF] Request starting HTTP/1.1 GET https://localhost:7011/Comp_2139.styles.css?v=qZEKus0ZzhR5XSE8_Z0qOwFflhpCXKi5ajL1hVnuREM - -
+2024-04-13 10:25:21.913 -04:00 [INF] Request starting HTTP/1.1 GET https://localhost:7011/js/site.js?v=ZuuafqFPrVRBKcjc9nVnUgldbE3hS3GG5WeZxe6SIR0 - -
+2024-04-13 10:25:22.016 -04:00 [INF] Sending file. Request path: '/css/site.css'. Physical path: '/Users/ramtinabolfazli/Documents/GBC/Winter 2024/2139- Web Application/comp2139_Labs/Labs/Lab1/Comp_2139/Comp_2139/wwwroot/css/site.css'
+2024-04-13 10:25:22.016 -04:00 [INF] Request finished HTTP/1.1 GET https://localhost:7011/css/site.css?v=NbTvFXWxY-2zfXfcmhbHF-Wb6BLSbCs8DIp1cMcy-0Q - - - 200 345 text/css 179.1727ms
+2024-04-13 10:25:22.017 -04:00 [INF] Sending file. Request path: '/Comp_2139.styles.css'. Physical path: '/Users/ramtinabolfazli/Documents/GBC/Winter 2024/2139- Web Application/comp2139_Labs/Labs/Lab1/Comp_2139/Comp_2139/obj/Debug/net7.0/scopedcss/bundle/Comp_2139.styles.css'
+2024-04-13 10:25:22.017 -04:00 [INF] Request finished HTTP/1.1 GET https://localhost:7011/Comp_2139.styles.css?v=qZEKus0ZzhR5XSE8_Z0qOwFflhpCXKi5ajL1hVnuREM - - - 200 1078 text/css 116.5899ms
+2024-04-13 10:25:22.017 -04:00 [INF] Request starting HTTP/1.1 GET https://localhost:7011/lib/bootstrap/dist/js/bootstrap.bundle.min.js - -
+2024-04-13 10:25:22.017 -04:00 [INF] Sending file. Request path: '/js/site.js'. Physical path: '/Users/ramtinabolfazli/Documents/GBC/Winter 2024/2139- Web Application/comp2139_Labs/Labs/Lab1/Comp_2139/Comp_2139/wwwroot/js/site.js'
+2024-04-13 10:25:22.017 -04:00 [INF] Request finished HTTP/1.1 GET https://localhost:7011/js/site.js?v=ZuuafqFPrVRBKcjc9nVnUgldbE3hS3GG5WeZxe6SIR0 - - - 200 227 text/javascript 104.3810ms
+2024-04-13 10:25:22.017 -04:00 [INF] Request starting HTTP/1.1 GET https://localhost:7011/lib/jquery/dist/jquery.min.js - -
+2024-04-13 10:25:22.042 -04:00 [INF] Sending file. Request path: '/lib/bootstrap/dist/js/bootstrap.bundle.min.js'. Physical path: '/Users/ramtinabolfazli/Documents/GBC/Winter 2024/2139- Web Application/comp2139_Labs/Labs/Lab1/Comp_2139/Comp_2139/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js'
+2024-04-13 10:25:22.043 -04:00 [INF] Request finished HTTP/1.1 GET https://localhost:7011/lib/bootstrap/dist/js/bootstrap.bundle.min.js - - - 200 78468 text/javascript 25.3569ms
+2024-04-13 10:25:22.043 -04:00 [INF] Sending file. Request path: '/lib/jquery/dist/jquery.min.js'. Physical path: '/Users/ramtinabolfazli/Documents/GBC/Winter 2024/2139- Web Application/comp2139_Labs/Labs/Lab1/Comp_2139/Comp_2139/wwwroot/lib/jquery/dist/jquery.min.js'
+2024-04-13 10:25:22.043 -04:00 [INF] Request finished HTTP/1.1 GET https://localhost:7011/lib/jquery/dist/jquery.min.js - - - 200 89501 text/javascript 26.1342ms
+2024-04-13 10:25:22.044 -04:00 [INF] Sending file. Request path: '/lib/bootstrap/dist/css/bootstrap.min.css'. Physical path: '/Users/ramtinabolfazli/Documents/GBC/Winter 2024/2139- Web Application/comp2139_Labs/Labs/Lab1/Comp_2139/Comp_2139/wwwroot/lib/bootstrap/dist/css/bootstrap.min.css'
+2024-04-13 10:25:22.044 -04:00 [INF] Request finished HTTP/1.1 GET https://localhost:7011/lib/bootstrap/dist/css/bootstrap.min.css - - - 200 162720 text/css 241.3965ms
+2024-04-13 10:25:22.268 -04:00 [INF] Request starting HTTP/1.1 GET https://localhost:7011/favicon.ico - -
+2024-04-13 10:25:22.270 -04:00 [INF] Sending file. Request path: '/favicon.ico'. Physical path: '/Users/ramtinabolfazli/Documents/GBC/Winter 2024/2139- Web Application/comp2139_Labs/Labs/Lab1/Comp_2139/Comp_2139/wwwroot/favicon.ico'
+2024-04-13 10:25:22.270 -04:00 [INF] Request finished HTTP/1.1 GET https://localhost:7011/favicon.ico - - - 200 5430 image/x-icon 1.9200ms
+2024-04-13 10:25:24.541 -04:00 [INF] Request starting HTTP/1.1 GET https://localhost:7011/Identity/Account/Login - -
+2024-04-13 10:25:24.542 -04:00 [INF] Executing endpoint '/Account/Login'
+2024-04-13 10:25:24.542 -04:00 [INF] Route matched with {page = "/Account/Login", area = "Identity", action = "", controller = ""}. Executing page /Account/Login
+2024-04-13 10:25:24.547 -04:00 [INF] Executing handler method Comp_2139.Areas.Identity.Pages.Account.LoginModel.OnGetAsync - ModelState is "Valid"
+2024-04-13 10:25:24.548 -04:00 [INF] AuthenticationScheme: Identity.External signed out.
+2024-04-13 10:25:24.548 -04:00 [INF] Executed handler method OnGetAsync, returned result .
+2024-04-13 10:25:24.548 -04:00 [INF] Executing an implicit handler method - ModelState is "Valid"
+2024-04-13 10:25:24.548 -04:00 [INF] Executed an implicit handler method, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2024-04-13 10:25:24.556 -04:00 [INF] Executed page /Account/Login in 13.2149ms
+2024-04-13 10:25:24.556 -04:00 [INF] Executed endpoint '/Account/Login'
+2024-04-13 10:25:24.556 -04:00 [INF] Request finished HTTP/1.1 GET https://localhost:7011/Identity/Account/Login - - - 200 - text/html;+charset=utf-8 15.3065ms
+2024-04-13 10:25:24.591 -04:00 [INF] Request starting HTTP/1.1 GET https://localhost:7011/Identity/lib/jquery-validation/dist/jquery.validate.js - -
+2024-04-13 10:25:24.596 -04:00 [INF] Sending file. Request path: '/Identity/lib/jquery-validation/dist/jquery.validate.js'. Physical path: '/Users/ramtinabolfazli/.nuget/packages/microsoft.aspnetcore.identity.ui/7.0.15/staticwebassets/V5/lib/jquery-validation/dist/jquery.validate.js'
+2024-04-13 10:25:24.596 -04:00 [INF] Request finished HTTP/1.1 GET https://localhost:7011/Identity/lib/jquery-validation/dist/jquery.validate.js - - - 200 51171 text/javascript 4.8139ms
+2024-04-13 10:25:24.598 -04:00 [INF] Request starting HTTP/1.1 GET https://localhost:7011/Identity/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js - -
+2024-04-13 10:25:24.601 -04:00 [INF] Sending file. Request path: '/Identity/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js'. Physical path: '/Users/ramtinabolfazli/.nuget/packages/microsoft.aspnetcore.identity.ui/7.0.15/staticwebassets/V5/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js'
+2024-04-13 10:25:24.601 -04:00 [INF] Request finished HTTP/1.1 GET https://localhost:7011/Identity/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js - - - 200 19385 text/javascript 2.5542ms
+2024-04-13 10:25:41.154 -04:00 [INF] Request starting HTTP/1.1 POST https://localhost:7011/Identity/Account/Login application/x-www-form-urlencoded 269
+2024-04-13 10:25:41.157 -04:00 [INF] Executing endpoint '/Account/Login'
+2024-04-13 10:25:41.158 -04:00 [INF] Route matched with {page = "/Account/Login", area = "Identity", action = "", controller = ""}. Executing page /Account/Login
+2024-04-13 10:25:41.172 -04:00 [INF] Executing handler method Comp_2139.Areas.Identity.Pages.Account.LoginModel.OnPostAsync - ModelState is "Valid"
+2024-04-13 10:25:41.384 -04:00 [INF] Executed DbCommand (96ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`Id`, `u`.`AccessFailedCount`, `u`.`ConcurrencyStamp`, `u`.`Email`, `u`.`EmailConfirmed`, `u`.`FirstName`, `u`.`LastName`, `u`.`LockoutEnabled`, `u`.`LockoutEnd`, `u`.`NormalizedEmail`, `u`.`NormalizedUserName`, `u`.`PasswordHash`, `u`.`PhoneNumber`, `u`.`PhoneNumberConfirmed`, `u`.`ProfilePicture`, `u`.`SecurityStamp`, `u`.`TwoFactorEnabled`, `u`.`UserName`, `u`.`UsernameChangeLimit`
+FROM `User` AS `u`
+WHERE `u`.`NormalizedEmail` = @__normalizedEmail_0
+LIMIT 2
+2024-04-13 10:25:41.462 -04:00 [INF] Executed DbCommand (49ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`Id`, `u`.`AccessFailedCount`, `u`.`ConcurrencyStamp`, `u`.`Email`, `u`.`EmailConfirmed`, `u`.`FirstName`, `u`.`LastName`, `u`.`LockoutEnabled`, `u`.`LockoutEnd`, `u`.`NormalizedEmail`, `u`.`NormalizedUserName`, `u`.`PasswordHash`, `u`.`PhoneNumber`, `u`.`PhoneNumberConfirmed`, `u`.`ProfilePicture`, `u`.`SecurityStamp`, `u`.`TwoFactorEnabled`, `u`.`UserName`, `u`.`UsernameChangeLimit`
+FROM `User` AS `u`
+WHERE `u`.`NormalizedUserName` = @__normalizedUserName_0
+LIMIT 1
+2024-04-13 10:25:41.615 -04:00 [INF] Executed DbCommand (24ms) [Parameters=[@__user_Id_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`Id`, `u`.`ClaimType`, `u`.`ClaimValue`, `u`.`UserId`
+FROM `UserClaims` AS `u`
+WHERE `u`.`UserId` = @__user_Id_0
+2024-04-13 10:25:41.734 -04:00 [INF] Executed DbCommand (52ms) [Parameters=[@__userId_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Name`
+FROM `UserRoles` AS `u`
+INNER JOIN `Role` AS `r` ON `u`.`RoleId` = `r`.`Id`
+WHERE `u`.`UserId` = @__userId_0
+2024-04-13 10:25:41.738 -04:00 [INF] Executed DbCommand (1ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Id`, `r`.`ConcurrencyStamp`, `r`.`Name`, `r`.`NormalizedName`
+FROM `Role` AS `r`
+WHERE `r`.`NormalizedName` = @__normalizedName_0
+LIMIT 1
+2024-04-13 10:25:41.771 -04:00 [INF] Executed DbCommand (3ms) [Parameters=[@__role_Id_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`ClaimType`, `r`.`ClaimValue`
+FROM `RoleClaims` AS `r`
+WHERE `r`.`RoleId` = @__role_Id_0
+2024-04-13 10:25:41.775 -04:00 [INF] AuthenticationScheme: Identity.Application signed in.
+2024-04-13 10:25:41.775 -04:00 [INF] User logged in.
+2024-04-13 10:25:41.776 -04:00 [INF] Executed handler method OnPostAsync, returned result Microsoft.AspNetCore.Mvc.LocalRedirectResult.
+2024-04-13 10:25:41.776 -04:00 [INF] Executing LocalRedirectResult, redirecting to /.
+2024-04-13 10:25:41.776 -04:00 [INF] Executed page /Account/Login in 618.614ms
+2024-04-13 10:25:41.776 -04:00 [INF] Executed endpoint '/Account/Login'
+2024-04-13 10:25:41.777 -04:00 [INF] Request finished HTTP/1.1 POST https://localhost:7011/Identity/Account/Login application/x-www-form-urlencoded 269 - 302 0 - 622.9468ms
+2024-04-13 10:25:41.781 -04:00 [INF] Request starting HTTP/1.1 GET https://localhost:7011/ - -
+2024-04-13 10:25:41.786 -04:00 [INF] Executing endpoint 'Comp_2139.Controllers.HomeController.Index (Comp_2139)'
+2024-04-13 10:25:41.786 -04:00 [INF] Route matched with {action = "Index", controller = "Home", area = "", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Comp_2139.Controllers.HomeController (Comp_2139).
+2024-04-13 10:25:41.787 -04:00 [INF] Executing ViewResult, running view Index.
+2024-04-13 10:25:41.810 -04:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`Id`, `u`.`AccessFailedCount`, `u`.`ConcurrencyStamp`, `u`.`Email`, `u`.`EmailConfirmed`, `u`.`FirstName`, `u`.`LastName`, `u`.`LockoutEnabled`, `u`.`LockoutEnd`, `u`.`NormalizedEmail`, `u`.`NormalizedUserName`, `u`.`PasswordHash`, `u`.`PhoneNumber`, `u`.`PhoneNumberConfirmed`, `u`.`ProfilePicture`, `u`.`SecurityStamp`, `u`.`TwoFactorEnabled`, `u`.`UserName`, `u`.`UsernameChangeLimit`
+FROM `User` AS `u`
+WHERE `u`.`Id` = @__p_0
+LIMIT 1
+2024-04-13 10:25:41.862 -04:00 [INF] Executed DbCommand (2ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Id`, `r`.`ConcurrencyStamp`, `r`.`Name`, `r`.`NormalizedName`
+FROM `Role` AS `r`
+WHERE `r`.`NormalizedName` = @__normalizedRoleName_0
+LIMIT 2
+2024-04-13 10:25:41.892 -04:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (Size = 255), @__p_1='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`UserId`, `u`.`RoleId`
+FROM `UserRoles` AS `u`
+WHERE (`u`.`UserId` = @__p_0) AND (`u`.`RoleId` = @__p_1)
+LIMIT 1
+2024-04-13 10:25:41.920 -04:00 [INF] Executed DbCommand (26ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Id`, `r`.`ConcurrencyStamp`, `r`.`Name`, `r`.`NormalizedName`
+FROM `Role` AS `r`
+WHERE `r`.`NormalizedName` = @__normalizedRoleName_0
+LIMIT 2
+2024-04-13 10:25:41.975 -04:00 [INF] Executed DbCommand (26ms) [Parameters=[@__p_0='?' (Size = 255), @__p_1='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`UserId`, `u`.`RoleId`
+FROM `UserRoles` AS `u`
+WHERE (`u`.`UserId` = @__p_0) AND (`u`.`RoleId` = @__p_1)
+LIMIT 1
+2024-04-13 10:25:42.041 -04:00 [INF] Executed ViewResult - view Index executed in 254.7554ms.
+2024-04-13 10:25:42.041 -04:00 [INF] Executed action Comp_2139.Controllers.HomeController.Index (Comp_2139) in 255.0009ms
+2024-04-13 10:25:42.041 -04:00 [INF] Executed endpoint 'Comp_2139.Controllers.HomeController.Index (Comp_2139)'
+2024-04-13 10:25:42.042 -04:00 [INF] Request finished HTTP/1.1 GET https://localhost:7011/ - - - 200 - text/html;+charset=utf-8 260.3505ms
+2024-04-13 10:25:48.520 -04:00 [INF] Request starting HTTP/1.1 GET https://localhost:7011/Identity/Account/Manage - -
+2024-04-13 10:25:48.531 -04:00 [INF] Executing endpoint '/Account/Manage/Index'
+2024-04-13 10:25:48.543 -04:00 [INF] Route matched with {page = "/Account/Manage/Index", area = "Identity", action = "", controller = ""}. Executing page /Account/Manage/Index
+2024-04-13 10:25:48.550 -04:00 [INF] Executing handler method Comp_2139.Areas.Identity.Pages.Account.Manage.IndexModel.OnGetAsync - ModelState is "Valid"
+2024-04-13 10:25:48.657 -04:00 [INF] Executed DbCommand (75ms) [Parameters=[@__p_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`Id`, `u`.`AccessFailedCount`, `u`.`ConcurrencyStamp`, `u`.`Email`, `u`.`EmailConfirmed`, `u`.`FirstName`, `u`.`LastName`, `u`.`LockoutEnabled`, `u`.`LockoutEnd`, `u`.`NormalizedEmail`, `u`.`NormalizedUserName`, `u`.`PasswordHash`, `u`.`PhoneNumber`, `u`.`PhoneNumberConfirmed`, `u`.`ProfilePicture`, `u`.`SecurityStamp`, `u`.`TwoFactorEnabled`, `u`.`UserName`, `u`.`UsernameChangeLimit`
+FROM `User` AS `u`
+WHERE `u`.`Id` = @__p_0
+LIMIT 1
+2024-04-13 10:25:48.738 -04:00 [INF] Executed handler method OnGetAsync, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2024-04-13 10:25:48.787 -04:00 [INF] Executed DbCommand (2ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Id`, `r`.`ConcurrencyStamp`, `r`.`Name`, `r`.`NormalizedName`
+FROM `Role` AS `r`
+WHERE `r`.`NormalizedName` = @__normalizedRoleName_0
+LIMIT 2
+2024-04-13 10:25:48.793 -04:00 [INF] Executed DbCommand (3ms) [Parameters=[@__p_0='?' (Size = 255), @__p_1='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`UserId`, `u`.`RoleId`
+FROM `UserRoles` AS `u`
+WHERE (`u`.`UserId` = @__p_0) AND (`u`.`RoleId` = @__p_1)
+LIMIT 1
+2024-04-13 10:25:48.797 -04:00 [INF] Executed DbCommand (2ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Id`, `r`.`ConcurrencyStamp`, `r`.`Name`, `r`.`NormalizedName`
+FROM `Role` AS `r`
+WHERE `r`.`NormalizedName` = @__normalizedRoleName_0
+LIMIT 2
+2024-04-13 10:25:48.825 -04:00 [INF] Executed DbCommand (26ms) [Parameters=[@__p_0='?' (Size = 255), @__p_1='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`UserId`, `u`.`RoleId`
+FROM `UserRoles` AS `u`
+WHERE (`u`.`UserId` = @__p_0) AND (`u`.`RoleId` = @__p_1)
+LIMIT 1
+2024-04-13 10:25:48.827 -04:00 [INF] Executed page /Account/Manage/Index in 283.9197ms
+2024-04-13 10:25:48.827 -04:00 [INF] Executed endpoint '/Account/Manage/Index'
+2024-04-13 10:25:48.828 -04:00 [INF] Request finished HTTP/1.1 GET https://localhost:7011/Identity/Account/Manage - - - 200 - text/html;+charset=utf-8 332.6182ms
+2024-04-13 10:26:03.857 -04:00 [INF] Request starting HTTP/1.1 POST https://localhost:7011/Identity/Account/Manage multipart/form-data;+boundary=----WebKitFormBoundaryzeQuCX7svgICxEkq 85302
+2024-04-13 10:26:03.878 -04:00 [INF] Executing endpoint '/Account/Manage/Index'
+2024-04-13 10:26:03.879 -04:00 [INF] Route matched with {page = "/Account/Manage/Index", area = "Identity", action = "", controller = ""}. Executing page /Account/Manage/Index
+2024-04-13 10:26:03.906 -04:00 [INF] Executing handler method Comp_2139.Areas.Identity.Pages.Account.Manage.IndexModel.OnPostAsync - ModelState is "Valid"
+2024-04-13 10:26:04.108 -04:00 [INF] Executed DbCommand (52ms) [Parameters=[@__p_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`Id`, `u`.`AccessFailedCount`, `u`.`ConcurrencyStamp`, `u`.`Email`, `u`.`EmailConfirmed`, `u`.`FirstName`, `u`.`LastName`, `u`.`LockoutEnabled`, `u`.`LockoutEnd`, `u`.`NormalizedEmail`, `u`.`NormalizedUserName`, `u`.`PasswordHash`, `u`.`PhoneNumber`, `u`.`PhoneNumberConfirmed`, `u`.`ProfilePicture`, `u`.`SecurityStamp`, `u`.`TwoFactorEnabled`, `u`.`UserName`, `u`.`UsernameChangeLimit`
+FROM `User` AS `u`
+WHERE `u`.`Id` = @__p_0
+LIMIT 1
+2024-04-13 10:26:04.146 -04:00 [INF] Executed DbCommand (25ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`Id`, `u`.`AccessFailedCount`, `u`.`ConcurrencyStamp`, `u`.`Email`, `u`.`EmailConfirmed`, `u`.`FirstName`, `u`.`LastName`, `u`.`LockoutEnabled`, `u`.`LockoutEnd`, `u`.`NormalizedEmail`, `u`.`NormalizedUserName`, `u`.`PasswordHash`, `u`.`PhoneNumber`, `u`.`PhoneNumberConfirmed`, `u`.`ProfilePicture`, `u`.`SecurityStamp`, `u`.`TwoFactorEnabled`, `u`.`UserName`, `u`.`UsernameChangeLimit`
+FROM `User` AS `u`
+WHERE `u`.`NormalizedUserName` = @__normalizedUserName_0
+LIMIT 1
+2024-04-13 10:26:04.221 -04:00 [INF] Executed DbCommand (26ms) [Parameters=[@p18='?' (Size = 255), @p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p19='?' (Size = 4000), @p2='?' (Size = 256), @p3='?' (DbType = Boolean), @p4='?' (Size = 4000), @p5='?' (Size = 4000), @p6='?' (DbType = Boolean), @p7='?' (DbType = DateTimeOffset), @p8='?' (Size = 256), @p9='?' (Size = 256), @p10='?' (Size = 4000), @p11='?' (Size = 4000), @p12='?' (DbType = Boolean), @p13='?' (Size = -1) (DbType = Binary), @p14='?' (Size = 4000), @p15='?' (DbType = Boolean), @p16='?' (Size = 256), @p17='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET AUTOCOMMIT = 1;
+UPDATE `User` SET `AccessFailedCount` = @p0, `ConcurrencyStamp` = @p1, `Email` = @p2, `EmailConfirmed` = @p3, `FirstName` = @p4, `LastName` = @p5, `LockoutEnabled` = @p6, `LockoutEnd` = @p7, `NormalizedEmail` = @p8, `NormalizedUserName` = @p9, `PasswordHash` = @p10, `PhoneNumber` = @p11, `PhoneNumberConfirmed` = @p12, `ProfilePicture` = @p13, `SecurityStamp` = @p14, `TwoFactorEnabled` = @p15, `UserName` = @p16, `UsernameChangeLimit` = @p17
+WHERE `Id` = @p18 AND `ConcurrencyStamp` = @p19;
+SELECT ROW_COUNT();
+2024-04-13 10:26:04.235 -04:00 [INF] Executed DbCommand (1ms) [Parameters=[@__user_Id_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`Id`, `u`.`ClaimType`, `u`.`ClaimValue`, `u`.`UserId`
+FROM `UserClaims` AS `u`
+WHERE `u`.`UserId` = @__user_Id_0
+2024-04-13 10:26:04.242 -04:00 [INF] Executed DbCommand (2ms) [Parameters=[@__userId_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Name`
+FROM `UserRoles` AS `u`
+INNER JOIN `Role` AS `r` ON `u`.`RoleId` = `r`.`Id`
+WHERE `u`.`UserId` = @__userId_0
+2024-04-13 10:26:04.247 -04:00 [INF] Executed DbCommand (2ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Id`, `r`.`ConcurrencyStamp`, `r`.`Name`, `r`.`NormalizedName`
+FROM `Role` AS `r`
+WHERE `r`.`NormalizedName` = @__normalizedName_0
+LIMIT 1
+2024-04-13 10:26:04.251 -04:00 [INF] Executed DbCommand (1ms) [Parameters=[@__role_Id_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`ClaimType`, `r`.`ClaimValue`
+FROM `RoleClaims` AS `r`
+WHERE `r`.`RoleId` = @__role_Id_0
+2024-04-13 10:26:04.251 -04:00 [INF] AuthenticationScheme: Identity.Application signed in.
+2024-04-13 10:26:04.252 -04:00 [INF] Executed handler method OnPostAsync, returned result Microsoft.AspNetCore.Mvc.RedirectToPageResult.
+2024-04-13 10:26:04.253 -04:00 [INF] Executing RedirectToPageResult, redirecting to null.
+2024-04-13 10:26:04.253 -04:00 [INF] Executed page /Account/Manage/Index in 374.1381ms
+2024-04-13 10:26:04.253 -04:00 [INF] Executed endpoint '/Account/Manage/Index'
+2024-04-13 10:26:04.254 -04:00 [INF] Request finished HTTP/1.1 POST https://localhost:7011/Identity/Account/Manage multipart/form-data;+boundary=----WebKitFormBoundaryzeQuCX7svgICxEkq 85302 - 302 0 - 397.1359ms
+2024-04-13 10:26:04.264 -04:00 [INF] Request starting HTTP/1.1 GET https://localhost:7011/Identity/Account/Manage - -
+2024-04-13 10:26:04.265 -04:00 [INF] Executing endpoint '/Account/Manage/Index'
+2024-04-13 10:26:04.265 -04:00 [INF] Route matched with {page = "/Account/Manage/Index", area = "Identity", action = "", controller = ""}. Executing page /Account/Manage/Index
+2024-04-13 10:26:04.265 -04:00 [INF] Executing handler method Comp_2139.Areas.Identity.Pages.Account.Manage.IndexModel.OnGetAsync - ModelState is "Valid"
+2024-04-13 10:26:04.295 -04:00 [INF] Executed DbCommand (28ms) [Parameters=[@__p_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`Id`, `u`.`AccessFailedCount`, `u`.`ConcurrencyStamp`, `u`.`Email`, `u`.`EmailConfirmed`, `u`.`FirstName`, `u`.`LastName`, `u`.`LockoutEnabled`, `u`.`LockoutEnd`, `u`.`NormalizedEmail`, `u`.`NormalizedUserName`, `u`.`PasswordHash`, `u`.`PhoneNumber`, `u`.`PhoneNumberConfirmed`, `u`.`ProfilePicture`, `u`.`SecurityStamp`, `u`.`TwoFactorEnabled`, `u`.`UserName`, `u`.`UsernameChangeLimit`
+FROM `User` AS `u`
+WHERE `u`.`Id` = @__p_0
+LIMIT 1
+2024-04-13 10:26:04.297 -04:00 [INF] Executed handler method OnGetAsync, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2024-04-13 10:26:04.358 -04:00 [INF] Executed DbCommand (28ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Id`, `r`.`ConcurrencyStamp`, `r`.`Name`, `r`.`NormalizedName`
+FROM `Role` AS `r`
+WHERE `r`.`NormalizedName` = @__normalizedRoleName_0
+LIMIT 2
+2024-04-13 10:26:04.388 -04:00 [INF] Executed DbCommand (26ms) [Parameters=[@__p_0='?' (Size = 255), @__p_1='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`UserId`, `u`.`RoleId`
+FROM `UserRoles` AS `u`
+WHERE (`u`.`UserId` = @__p_0) AND (`u`.`RoleId` = @__p_1)
+LIMIT 1
+2024-04-13 10:26:04.392 -04:00 [INF] Executed DbCommand (2ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Id`, `r`.`ConcurrencyStamp`, `r`.`Name`, `r`.`NormalizedName`
+FROM `Role` AS `r`
+WHERE `r`.`NormalizedName` = @__normalizedRoleName_0
+LIMIT 2
+2024-04-13 10:26:04.422 -04:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (Size = 255), @__p_1='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`UserId`, `u`.`RoleId`
+FROM `UserRoles` AS `u`
+WHERE (`u`.`UserId` = @__p_0) AND (`u`.`RoleId` = @__p_1)
+LIMIT 1
+2024-04-13 10:26:04.427 -04:00 [INF] Executed page /Account/Manage/Index in 161.7395ms
+2024-04-13 10:26:04.427 -04:00 [INF] Executed endpoint '/Account/Manage/Index'
+2024-04-13 10:26:04.427 -04:00 [INF] Request finished HTTP/1.1 GET https://localhost:7011/Identity/Account/Manage - - - 200 - text/html;+charset=utf-8 162.8866ms
+2024-04-13 10:26:07.121 -04:00 [INF] Request starting HTTP/1.1 GET https://localhost:7011/ - -
+2024-04-13 10:26:07.171 -04:00 [INF] Executing endpoint 'Comp_2139.Controllers.HomeController.Index (Comp_2139)'
+2024-04-13 10:26:07.171 -04:00 [INF] Route matched with {action = "Index", controller = "Home", area = "", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Comp_2139.Controllers.HomeController (Comp_2139).
+2024-04-13 10:26:07.171 -04:00 [INF] Executing ViewResult, running view Index.
+2024-04-13 10:26:07.344 -04:00 [INF] Executed DbCommand (142ms) [Parameters=[@__p_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`Id`, `u`.`AccessFailedCount`, `u`.`ConcurrencyStamp`, `u`.`Email`, `u`.`EmailConfirmed`, `u`.`FirstName`, `u`.`LastName`, `u`.`LockoutEnabled`, `u`.`LockoutEnd`, `u`.`NormalizedEmail`, `u`.`NormalizedUserName`, `u`.`PasswordHash`, `u`.`PhoneNumber`, `u`.`PhoneNumberConfirmed`, `u`.`ProfilePicture`, `u`.`SecurityStamp`, `u`.`TwoFactorEnabled`, `u`.`UserName`, `u`.`UsernameChangeLimit`
+FROM `User` AS `u`
+WHERE `u`.`Id` = @__p_0
+LIMIT 1
+2024-04-13 10:26:07.399 -04:00 [INF] Executed DbCommand (28ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Id`, `r`.`ConcurrencyStamp`, `r`.`Name`, `r`.`NormalizedName`
+FROM `Role` AS `r`
+WHERE `r`.`NormalizedName` = @__normalizedRoleName_0
+LIMIT 2
+2024-04-13 10:26:07.448 -04:00 [INF] Executed DbCommand (24ms) [Parameters=[@__p_0='?' (Size = 255), @__p_1='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`UserId`, `u`.`RoleId`
+FROM `UserRoles` AS `u`
+WHERE (`u`.`UserId` = @__p_0) AND (`u`.`RoleId` = @__p_1)
+LIMIT 1
+2024-04-13 10:26:07.477 -04:00 [INF] Executed DbCommand (26ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Id`, `r`.`ConcurrencyStamp`, `r`.`Name`, `r`.`NormalizedName`
+FROM `Role` AS `r`
+WHERE `r`.`NormalizedName` = @__normalizedRoleName_0
+LIMIT 2
+2024-04-13 10:26:07.487 -04:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (Size = 255), @__p_1='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`UserId`, `u`.`RoleId`
+FROM `UserRoles` AS `u`
+WHERE (`u`.`UserId` = @__p_0) AND (`u`.`RoleId` = @__p_1)
+LIMIT 1
+2024-04-13 10:26:07.515 -04:00 [INF] Executed ViewResult - view Index executed in 343.3097ms.
+2024-04-13 10:26:07.517 -04:00 [INF] Executed action Comp_2139.Controllers.HomeController.Index (Comp_2139) in 345.9715ms
+2024-04-13 10:26:07.517 -04:00 [INF] Executed endpoint 'Comp_2139.Controllers.HomeController.Index (Comp_2139)'
+2024-04-13 10:26:07.518 -04:00 [INF] Request finished HTTP/1.1 GET https://localhost:7011/ - - - 200 - text/html;+charset=utf-8 396.1852ms
+2024-04-13 10:26:08.890 -04:00 [INF] Request starting HTTP/1.1 GET https://localhost:7011/Identity/Account/Manage - -
+2024-04-13 10:26:08.892 -04:00 [INF] Executing endpoint '/Account/Manage/Index'
+2024-04-13 10:26:08.893 -04:00 [INF] Route matched with {page = "/Account/Manage/Index", area = "Identity", action = "", controller = ""}. Executing page /Account/Manage/Index
+2024-04-13 10:26:08.893 -04:00 [INF] Executing handler method Comp_2139.Areas.Identity.Pages.Account.Manage.IndexModel.OnGetAsync - ModelState is "Valid"
+2024-04-13 10:26:08.974 -04:00 [INF] Executed DbCommand (29ms) [Parameters=[@__p_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`Id`, `u`.`AccessFailedCount`, `u`.`ConcurrencyStamp`, `u`.`Email`, `u`.`EmailConfirmed`, `u`.`FirstName`, `u`.`LastName`, `u`.`LockoutEnabled`, `u`.`LockoutEnd`, `u`.`NormalizedEmail`, `u`.`NormalizedUserName`, `u`.`PasswordHash`, `u`.`PhoneNumber`, `u`.`PhoneNumberConfirmed`, `u`.`ProfilePicture`, `u`.`SecurityStamp`, `u`.`TwoFactorEnabled`, `u`.`UserName`, `u`.`UsernameChangeLimit`
+FROM `User` AS `u`
+WHERE `u`.`Id` = @__p_0
+LIMIT 1
+2024-04-13 10:26:09.019 -04:00 [INF] Executed handler method OnGetAsync, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2024-04-13 10:26:09.102 -04:00 [INF] Executed DbCommand (28ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Id`, `r`.`ConcurrencyStamp`, `r`.`Name`, `r`.`NormalizedName`
+FROM `Role` AS `r`
+WHERE `r`.`NormalizedName` = @__normalizedRoleName_0
+LIMIT 2
+2024-04-13 10:26:09.140 -04:00 [INF] Executed DbCommand (34ms) [Parameters=[@__p_0='?' (Size = 255), @__p_1='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`UserId`, `u`.`RoleId`
+FROM `UserRoles` AS `u`
+WHERE (`u`.`UserId` = @__p_0) AND (`u`.`RoleId` = @__p_1)
+LIMIT 1
+2024-04-13 10:26:09.192 -04:00 [INF] Executed DbCommand (27ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Id`, `r`.`ConcurrencyStamp`, `r`.`Name`, `r`.`NormalizedName`
+FROM `Role` AS `r`
+WHERE `r`.`NormalizedName` = @__normalizedRoleName_0
+LIMIT 2
+2024-04-13 10:26:09.222 -04:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (Size = 255), @__p_1='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`UserId`, `u`.`RoleId`
+FROM `UserRoles` AS `u`
+WHERE (`u`.`UserId` = @__p_0) AND (`u`.`RoleId` = @__p_1)
+LIMIT 1
+2024-04-13 10:26:09.236 -04:00 [INF] Executed page /Account/Manage/Index in 343.4656ms
+2024-04-13 10:26:09.236 -04:00 [INF] Executed endpoint '/Account/Manage/Index'
+2024-04-13 10:26:09.237 -04:00 [INF] Request finished HTTP/1.1 GET https://localhost:7011/Identity/Account/Manage - - - 200 - text/html;+charset=utf-8 346.3492ms
+2024-04-13 10:26:15.420 -04:00 [INF] Request starting HTTP/1.1 POST https://localhost:7011/Identity/Account/Manage multipart/form-data;+boundary=----WebKitFormBoundaryzRXXYTAZk9MQzawy 940
+2024-04-13 10:26:15.434 -04:00 [INF] Executing endpoint '/Account/Manage/Index'
+2024-04-13 10:26:15.435 -04:00 [INF] Route matched with {page = "/Account/Manage/Index", area = "Identity", action = "", controller = ""}. Executing page /Account/Manage/Index
+2024-04-13 10:26:15.438 -04:00 [INF] Executing handler method Comp_2139.Areas.Identity.Pages.Account.Manage.IndexModel.OnPostAsync - ModelState is "Valid"
+2024-04-13 10:26:15.571 -04:00 [INF] Executed DbCommand (76ms) [Parameters=[@__p_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`Id`, `u`.`AccessFailedCount`, `u`.`ConcurrencyStamp`, `u`.`Email`, `u`.`EmailConfirmed`, `u`.`FirstName`, `u`.`LastName`, `u`.`LockoutEnabled`, `u`.`LockoutEnd`, `u`.`NormalizedEmail`, `u`.`NormalizedUserName`, `u`.`PasswordHash`, `u`.`PhoneNumber`, `u`.`PhoneNumberConfirmed`, `u`.`ProfilePicture`, `u`.`SecurityStamp`, `u`.`TwoFactorEnabled`, `u`.`UserName`, `u`.`UsernameChangeLimit`
+FROM `User` AS `u`
+WHERE `u`.`Id` = @__p_0
+LIMIT 1
+2024-04-13 10:26:15.687 -04:00 [INF] Executed DbCommand (22ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`Id`, `u`.`AccessFailedCount`, `u`.`ConcurrencyStamp`, `u`.`Email`, `u`.`EmailConfirmed`, `u`.`FirstName`, `u`.`LastName`, `u`.`LockoutEnabled`, `u`.`LockoutEnd`, `u`.`NormalizedEmail`, `u`.`NormalizedUserName`, `u`.`PasswordHash`, `u`.`PhoneNumber`, `u`.`PhoneNumberConfirmed`, `u`.`ProfilePicture`, `u`.`SecurityStamp`, `u`.`TwoFactorEnabled`, `u`.`UserName`, `u`.`UsernameChangeLimit`
+FROM `User` AS `u`
+WHERE `u`.`NormalizedUserName` = @__normalizedUserName_0
+LIMIT 1
+2024-04-13 10:26:15.768 -04:00 [INF] Executed DbCommand (26ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`Id`, `u`.`AccessFailedCount`, `u`.`ConcurrencyStamp`, `u`.`Email`, `u`.`EmailConfirmed`, `u`.`FirstName`, `u`.`LastName`, `u`.`LockoutEnabled`, `u`.`LockoutEnd`, `u`.`NormalizedEmail`, `u`.`NormalizedUserName`, `u`.`PasswordHash`, `u`.`PhoneNumber`, `u`.`PhoneNumberConfirmed`, `u`.`ProfilePicture`, `u`.`SecurityStamp`, `u`.`TwoFactorEnabled`, `u`.`UserName`, `u`.`UsernameChangeLimit`
+FROM `User` AS `u`
+WHERE `u`.`NormalizedUserName` = @__normalizedUserName_0
+LIMIT 1
+2024-04-13 10:26:15.858 -04:00 [INF] Executed DbCommand (14ms) [Parameters=[@p18='?' (Size = 255), @p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p19='?' (Size = 4000), @p2='?' (Size = 256), @p3='?' (DbType = Boolean), @p4='?' (Size = 4000), @p5='?' (Size = 4000), @p6='?' (DbType = Boolean), @p7='?' (DbType = DateTimeOffset), @p8='?' (Size = 256), @p9='?' (Size = 256), @p10='?' (Size = 4000), @p11='?' (Size = 4000), @p12='?' (DbType = Boolean), @p13='?' (Size = -1) (DbType = Binary), @p14='?' (Size = 4000), @p15='?' (DbType = Boolean), @p16='?' (Size = 256), @p17='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET AUTOCOMMIT = 1;
+UPDATE `User` SET `AccessFailedCount` = @p0, `ConcurrencyStamp` = @p1, `Email` = @p2, `EmailConfirmed` = @p3, `FirstName` = @p4, `LastName` = @p5, `LockoutEnabled` = @p6, `LockoutEnd` = @p7, `NormalizedEmail` = @p8, `NormalizedUserName` = @p9, `PasswordHash` = @p10, `PhoneNumber` = @p11, `PhoneNumberConfirmed` = @p12, `ProfilePicture` = @p13, `SecurityStamp` = @p14, `TwoFactorEnabled` = @p15, `UserName` = @p16, `UsernameChangeLimit` = @p17
+WHERE `Id` = @p18 AND `ConcurrencyStamp` = @p19;
+SELECT ROW_COUNT();
+2024-04-13 10:26:15.911 -04:00 [INF] Executed DbCommand (46ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`Id`, `u`.`AccessFailedCount`, `u`.`ConcurrencyStamp`, `u`.`Email`, `u`.`EmailConfirmed`, `u`.`FirstName`, `u`.`LastName`, `u`.`LockoutEnabled`, `u`.`LockoutEnd`, `u`.`NormalizedEmail`, `u`.`NormalizedUserName`, `u`.`PasswordHash`, `u`.`PhoneNumber`, `u`.`PhoneNumberConfirmed`, `u`.`ProfilePicture`, `u`.`SecurityStamp`, `u`.`TwoFactorEnabled`, `u`.`UserName`, `u`.`UsernameChangeLimit`
+FROM `User` AS `u`
+WHERE `u`.`NormalizedUserName` = @__normalizedUserName_0
+LIMIT 1
+2024-04-13 10:26:15.985 -04:00 [INF] Executed DbCommand (32ms) [Parameters=[@p18='?' (Size = 255), @p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p19='?' (Size = 4000), @p2='?' (Size = 256), @p3='?' (DbType = Boolean), @p4='?' (Size = 4000), @p5='?' (Size = 4000), @p6='?' (DbType = Boolean), @p7='?' (DbType = DateTimeOffset), @p8='?' (Size = 256), @p9='?' (Size = 256), @p10='?' (Size = 4000), @p11='?' (Size = 4000), @p12='?' (DbType = Boolean), @p13='?' (Size = -1) (DbType = Binary), @p14='?' (Size = 4000), @p15='?' (DbType = Boolean), @p16='?' (Size = 256), @p17='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET AUTOCOMMIT = 1;
+UPDATE `User` SET `AccessFailedCount` = @p0, `ConcurrencyStamp` = @p1, `Email` = @p2, `EmailConfirmed` = @p3, `FirstName` = @p4, `LastName` = @p5, `LockoutEnabled` = @p6, `LockoutEnd` = @p7, `NormalizedEmail` = @p8, `NormalizedUserName` = @p9, `PasswordHash` = @p10, `PhoneNumber` = @p11, `PhoneNumberConfirmed` = @p12, `ProfilePicture` = @p13, `SecurityStamp` = @p14, `TwoFactorEnabled` = @p15, `UserName` = @p16, `UsernameChangeLimit` = @p17
+WHERE `Id` = @p18 AND `ConcurrencyStamp` = @p19;
+SELECT ROW_COUNT();
+2024-04-13 10:26:15.990 -04:00 [INF] Executed DbCommand (3ms) [Parameters=[@__user_Id_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`Id`, `u`.`ClaimType`, `u`.`ClaimValue`, `u`.`UserId`
+FROM `UserClaims` AS `u`
+WHERE `u`.`UserId` = @__user_Id_0
+2024-04-13 10:26:16.033 -04:00 [INF] Executed DbCommand (2ms) [Parameters=[@__userId_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Name`
+FROM `UserRoles` AS `u`
+INNER JOIN `Role` AS `r` ON `u`.`RoleId` = `r`.`Id`
+WHERE `u`.`UserId` = @__userId_0
+2024-04-13 10:26:16.087 -04:00 [INF] Executed DbCommand (26ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Id`, `r`.`ConcurrencyStamp`, `r`.`Name`, `r`.`NormalizedName`
+FROM `Role` AS `r`
+WHERE `r`.`NormalizedName` = @__normalizedName_0
+LIMIT 1
+2024-04-13 10:26:16.094 -04:00 [INF] Executed DbCommand (3ms) [Parameters=[@__role_Id_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`ClaimType`, `r`.`ClaimValue`
+FROM `RoleClaims` AS `r`
+WHERE `r`.`RoleId` = @__role_Id_0
+2024-04-13 10:26:16.096 -04:00 [INF] AuthenticationScheme: Identity.Application signed in.
+2024-04-13 10:26:16.096 -04:00 [INF] Executed handler method OnPostAsync, returned result Microsoft.AspNetCore.Mvc.RedirectToPageResult.
+2024-04-13 10:26:16.097 -04:00 [INF] Executing RedirectToPageResult, redirecting to null.
+2024-04-13 10:26:16.097 -04:00 [INF] Executed page /Account/Manage/Index in 662.1932ms
+2024-04-13 10:26:16.097 -04:00 [INF] Executed endpoint '/Account/Manage/Index'
+2024-04-13 10:26:16.097 -04:00 [INF] Request finished HTTP/1.1 POST https://localhost:7011/Identity/Account/Manage multipart/form-data;+boundary=----WebKitFormBoundaryzRXXYTAZk9MQzawy 940 - 302 0 - 688.4408ms
+2024-04-13 10:26:16.102 -04:00 [INF] Request starting HTTP/1.1 GET https://localhost:7011/Identity/Account/Manage - -
+2024-04-13 10:26:16.102 -04:00 [INF] Executing endpoint '/Account/Manage/Index'
+2024-04-13 10:26:16.102 -04:00 [INF] Route matched with {page = "/Account/Manage/Index", area = "Identity", action = "", controller = ""}. Executing page /Account/Manage/Index
+2024-04-13 10:26:16.103 -04:00 [INF] Executing handler method Comp_2139.Areas.Identity.Pages.Account.Manage.IndexModel.OnGetAsync - ModelState is "Valid"
+2024-04-13 10:26:16.109 -04:00 [INF] Executed DbCommand (4ms) [Parameters=[@__p_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`Id`, `u`.`AccessFailedCount`, `u`.`ConcurrencyStamp`, `u`.`Email`, `u`.`EmailConfirmed`, `u`.`FirstName`, `u`.`LastName`, `u`.`LockoutEnabled`, `u`.`LockoutEnd`, `u`.`NormalizedEmail`, `u`.`NormalizedUserName`, `u`.`PasswordHash`, `u`.`PhoneNumber`, `u`.`PhoneNumberConfirmed`, `u`.`ProfilePicture`, `u`.`SecurityStamp`, `u`.`TwoFactorEnabled`, `u`.`UserName`, `u`.`UsernameChangeLimit`
+FROM `User` AS `u`
+WHERE `u`.`Id` = @__p_0
+LIMIT 1
+2024-04-13 10:26:16.110 -04:00 [INF] Executed handler method OnGetAsync, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2024-04-13 10:26:16.123 -04:00 [INF] Executed DbCommand (7ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Id`, `r`.`ConcurrencyStamp`, `r`.`Name`, `r`.`NormalizedName`
+FROM `Role` AS `r`
+WHERE `r`.`NormalizedName` = @__normalizedRoleName_0
+LIMIT 2
+2024-04-13 10:26:16.135 -04:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (Size = 255), @__p_1='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`UserId`, `u`.`RoleId`
+FROM `UserRoles` AS `u`
+WHERE (`u`.`UserId` = @__p_0) AND (`u`.`RoleId` = @__p_1)
+LIMIT 1
+2024-04-13 10:26:16.137 -04:00 [INF] Executed DbCommand (0ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Id`, `r`.`ConcurrencyStamp`, `r`.`Name`, `r`.`NormalizedName`
+FROM `Role` AS `r`
+WHERE `r`.`NormalizedName` = @__normalizedRoleName_0
+LIMIT 2
+2024-04-13 10:26:16.139 -04:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (Size = 255), @__p_1='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`UserId`, `u`.`RoleId`
+FROM `UserRoles` AS `u`
+WHERE (`u`.`UserId` = @__p_0) AND (`u`.`RoleId` = @__p_1)
+LIMIT 1
+2024-04-13 10:26:16.182 -04:00 [INF] Executed page /Account/Manage/Index in 79.1412ms
+2024-04-13 10:26:16.182 -04:00 [INF] Executed endpoint '/Account/Manage/Index'
+2024-04-13 10:26:16.182 -04:00 [INF] Request finished HTTP/1.1 GET https://localhost:7011/Identity/Account/Manage - - - 200 - text/html;+charset=utf-8 80.3907ms
+2024-04-13 10:26:19.536 -04:00 [INF] Request starting HTTP/1.1 GET https://localhost:7011/ - -
+2024-04-13 10:26:19.558 -04:00 [INF] Executing endpoint 'Comp_2139.Controllers.HomeController.Index (Comp_2139)'
+2024-04-13 10:26:19.559 -04:00 [INF] Route matched with {action = "Index", controller = "Home", area = "", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Comp_2139.Controllers.HomeController (Comp_2139).
+2024-04-13 10:26:19.559 -04:00 [INF] Executing ViewResult, running view Index.
+2024-04-13 10:26:19.629 -04:00 [INF] Executed DbCommand (27ms) [Parameters=[@__p_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`Id`, `u`.`AccessFailedCount`, `u`.`ConcurrencyStamp`, `u`.`Email`, `u`.`EmailConfirmed`, `u`.`FirstName`, `u`.`LastName`, `u`.`LockoutEnabled`, `u`.`LockoutEnd`, `u`.`NormalizedEmail`, `u`.`NormalizedUserName`, `u`.`PasswordHash`, `u`.`PhoneNumber`, `u`.`PhoneNumberConfirmed`, `u`.`ProfilePicture`, `u`.`SecurityStamp`, `u`.`TwoFactorEnabled`, `u`.`UserName`, `u`.`UsernameChangeLimit`
+FROM `User` AS `u`
+WHERE `u`.`Id` = @__p_0
+LIMIT 1
+2024-04-13 10:26:19.686 -04:00 [INF] Executed DbCommand (2ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Id`, `r`.`ConcurrencyStamp`, `r`.`Name`, `r`.`NormalizedName`
+FROM `Role` AS `r`
+WHERE `r`.`NormalizedName` = @__normalizedRoleName_0
+LIMIT 2
+2024-04-13 10:26:19.690 -04:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (Size = 255), @__p_1='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`UserId`, `u`.`RoleId`
+FROM `UserRoles` AS `u`
+WHERE (`u`.`UserId` = @__p_0) AND (`u`.`RoleId` = @__p_1)
+LIMIT 1
+2024-04-13 10:26:19.813 -04:00 [INF] Executed DbCommand (95ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Id`, `r`.`ConcurrencyStamp`, `r`.`Name`, `r`.`NormalizedName`
+FROM `Role` AS `r`
+WHERE `r`.`NormalizedName` = @__normalizedRoleName_0
+LIMIT 2
+2024-04-13 10:26:19.818 -04:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (Size = 255), @__p_1='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`UserId`, `u`.`RoleId`
+FROM `UserRoles` AS `u`
+WHERE (`u`.`UserId` = @__p_0) AND (`u`.`RoleId` = @__p_1)
+LIMIT 1
+2024-04-13 10:26:19.821 -04:00 [INF] Executed ViewResult - view Index executed in 262.0507ms.
+2024-04-13 10:26:19.821 -04:00 [INF] Executed action Comp_2139.Controllers.HomeController.Index (Comp_2139) in 262.4705ms
+2024-04-13 10:26:19.821 -04:00 [INF] Executed endpoint 'Comp_2139.Controllers.HomeController.Index (Comp_2139)'
+2024-04-13 10:26:19.822 -04:00 [INF] Request finished HTTP/1.1 GET https://localhost:7011/ - - - 200 - text/html;+charset=utf-8 285.6744ms
+2024-04-13 10:26:29.108 -04:00 [INF] Request starting HTTP/1.1 POST https://localhost:7011/Identity/Account/Logout application/x-www-form-urlencoded 225
+2024-04-13 10:26:29.112 -04:00 [INF] Executing endpoint '/Account/Logout'
+2024-04-13 10:26:29.115 -04:00 [INF] Route matched with {page = "/Account/Logout", area = "Identity", action = "", controller = ""}. Executing page /Account/Logout
+2024-04-13 10:26:29.117 -04:00 [INF] Executing handler method Comp_2139.Areas.Identity.Pages.Account.LogoutModel.OnPost - ModelState is "Valid"
+2024-04-13 10:26:29.119 -04:00 [INF] AuthenticationScheme: Identity.Application signed out.
+2024-04-13 10:26:29.119 -04:00 [INF] AuthenticationScheme: Identity.External signed out.
+2024-04-13 10:26:29.119 -04:00 [INF] AuthenticationScheme: Identity.TwoFactorUserId signed out.
+2024-04-13 10:26:29.119 -04:00 [INF] User logged out.
+2024-04-13 10:26:29.119 -04:00 [INF] Executed handler method OnPost, returned result Microsoft.AspNetCore.Mvc.RedirectToPageResult.
+2024-04-13 10:26:29.120 -04:00 [INF] Executing RedirectToPageResult, redirecting to null.
+2024-04-13 10:26:29.120 -04:00 [INF] Executed page /Account/Logout in 4.0148ms
+2024-04-13 10:26:29.120 -04:00 [INF] Executed endpoint '/Account/Logout'
+2024-04-13 10:26:29.120 -04:00 [INF] Request finished HTTP/1.1 POST https://localhost:7011/Identity/Account/Logout application/x-www-form-urlencoded 225 - 302 0 - 13.3580ms
+2024-04-13 10:26:29.123 -04:00 [INF] Request starting HTTP/1.1 GET https://localhost:7011/Identity/Account/Logout - -
+2024-04-13 10:26:29.124 -04:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2024-04-13 10:26:29.124 -04:00 [INF] AuthenticationScheme: Identity.Application was challenged.
+2024-04-13 10:26:29.124 -04:00 [INF] Request finished HTTP/1.1 GET https://localhost:7011/Identity/Account/Logout - - - 302 0 - 1.0600ms
+2024-04-13 10:26:29.127 -04:00 [INF] Request starting HTTP/1.1 GET https://localhost:7011/Identity/Account/Login?ReturnUrl=%2FIdentity%2FAccount%2FLogout - -
+2024-04-13 10:26:29.127 -04:00 [INF] Executing endpoint '/Account/Login'
+2024-04-13 10:26:29.127 -04:00 [INF] Route matched with {page = "/Account/Login", area = "Identity", action = "", controller = ""}. Executing page /Account/Login
+2024-04-13 10:26:29.128 -04:00 [INF] Executing handler method Comp_2139.Areas.Identity.Pages.Account.LoginModel.OnGetAsync - ModelState is "Valid"
+2024-04-13 10:26:29.128 -04:00 [INF] AuthenticationScheme: Identity.External signed out.
+2024-04-13 10:26:29.128 -04:00 [INF] Executed handler method OnGetAsync, returned result .
+2024-04-13 10:26:29.129 -04:00 [INF] Executing an implicit handler method - ModelState is "Valid"
+2024-04-13 10:26:29.129 -04:00 [INF] Executed an implicit handler method, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2024-04-13 10:26:29.179 -04:00 [INF] Executed page /Account/Login in 51.3852ms
+2024-04-13 10:26:29.179 -04:00 [INF] Executed endpoint '/Account/Login'
+2024-04-13 10:26:29.179 -04:00 [INF] Request finished HTTP/1.1 GET https://localhost:7011/Identity/Account/Login?ReturnUrl=%2FIdentity%2FAccount%2FLogout - - - 200 - text/html;+charset=utf-8 52.0340ms
+2024-04-13 10:26:32.305 -04:00 [INF] Request starting HTTP/1.1 GET https://localhost:7011/Identity/Account/Login - -
+2024-04-13 10:26:32.306 -04:00 [INF] Executing endpoint '/Account/Login'
+2024-04-13 10:26:32.306 -04:00 [INF] Route matched with {page = "/Account/Login", area = "Identity", action = "", controller = ""}. Executing page /Account/Login
+2024-04-13 10:26:32.306 -04:00 [INF] Executing handler method Comp_2139.Areas.Identity.Pages.Account.LoginModel.OnGetAsync - ModelState is "Valid"
+2024-04-13 10:26:32.307 -04:00 [INF] AuthenticationScheme: Identity.External signed out.
+2024-04-13 10:26:32.307 -04:00 [INF] Executed handler method OnGetAsync, returned result .
+2024-04-13 10:26:32.307 -04:00 [INF] Executing an implicit handler method - ModelState is "Valid"
+2024-04-13 10:26:32.307 -04:00 [INF] Executed an implicit handler method, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2024-04-13 10:26:32.309 -04:00 [INF] Executed page /Account/Login in 2.5856ms
+2024-04-13 10:26:32.309 -04:00 [INF] Executed endpoint '/Account/Login'
+2024-04-13 10:26:32.309 -04:00 [INF] Request finished HTTP/1.1 GET https://localhost:7011/Identity/Account/Login - - - 200 - text/html;+charset=utf-8 3.5254ms
+2024-04-13 10:26:43.200 -04:00 [INF] Request starting HTTP/1.1 GET https://localhost:7011/Identity/Account/Login - -
+2024-04-13 10:26:43.252 -04:00 [INF] Executing endpoint '/Account/Login'
+2024-04-13 10:26:43.253 -04:00 [INF] Route matched with {page = "/Account/Login", area = "Identity", action = "", controller = ""}. Executing page /Account/Login
+2024-04-13 10:26:43.255 -04:00 [INF] Executing handler method Comp_2139.Areas.Identity.Pages.Account.LoginModel.OnGetAsync - ModelState is "Valid"
+2024-04-13 10:26:43.256 -04:00 [INF] AuthenticationScheme: Identity.External signed out.
+2024-04-13 10:26:43.268 -04:00 [INF] Executed handler method OnGetAsync, returned result .
+2024-04-13 10:26:43.268 -04:00 [INF] Executing an implicit handler method - ModelState is "Valid"
+2024-04-13 10:26:43.268 -04:00 [INF] Executed an implicit handler method, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2024-04-13 10:26:43.275 -04:00 [INF] Executed page /Account/Login in 21.6844ms
+2024-04-13 10:26:43.275 -04:00 [INF] Executed endpoint '/Account/Login'
+2024-04-13 10:26:43.275 -04:00 [INF] Request finished HTTP/1.1 GET https://localhost:7011/Identity/Account/Login - - - 200 - text/html;+charset=utf-8 75.2641ms
+2024-04-13 10:26:50.533 -04:00 [INF] Request starting HTTP/1.1 POST https://localhost:7011/Identity/Account/Login application/x-www-form-urlencoded 274
+2024-04-13 10:26:50.537 -04:00 [INF] Executing endpoint '/Account/Login'
+2024-04-13 10:26:50.538 -04:00 [INF] Route matched with {page = "/Account/Login", area = "Identity", action = "", controller = ""}. Executing page /Account/Login
+2024-04-13 10:26:50.542 -04:00 [INF] Executing handler method Comp_2139.Areas.Identity.Pages.Account.LoginModel.OnPostAsync - ModelState is "Valid"
+2024-04-13 10:26:50.668 -04:00 [INF] Executed DbCommand (27ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`Id`, `u`.`AccessFailedCount`, `u`.`ConcurrencyStamp`, `u`.`Email`, `u`.`EmailConfirmed`, `u`.`FirstName`, `u`.`LastName`, `u`.`LockoutEnabled`, `u`.`LockoutEnd`, `u`.`NormalizedEmail`, `u`.`NormalizedUserName`, `u`.`PasswordHash`, `u`.`PhoneNumber`, `u`.`PhoneNumberConfirmed`, `u`.`ProfilePicture`, `u`.`SecurityStamp`, `u`.`TwoFactorEnabled`, `u`.`UserName`, `u`.`UsernameChangeLimit`
+FROM `User` AS `u`
+WHERE `u`.`NormalizedEmail` = @__normalizedEmail_0
+LIMIT 2
+2024-04-13 10:26:50.676 -04:00 [INF] Executed DbCommand (2ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`Id`, `u`.`AccessFailedCount`, `u`.`ConcurrencyStamp`, `u`.`Email`, `u`.`EmailConfirmed`, `u`.`FirstName`, `u`.`LastName`, `u`.`LockoutEnabled`, `u`.`LockoutEnd`, `u`.`NormalizedEmail`, `u`.`NormalizedUserName`, `u`.`PasswordHash`, `u`.`PhoneNumber`, `u`.`PhoneNumberConfirmed`, `u`.`ProfilePicture`, `u`.`SecurityStamp`, `u`.`TwoFactorEnabled`, `u`.`UserName`, `u`.`UsernameChangeLimit`
+FROM `User` AS `u`
+WHERE `u`.`NormalizedUserName` = @__normalizedUserName_0
+LIMIT 1
+2024-04-13 10:26:50.833 -04:00 [INF] Executed DbCommand (53ms) [Parameters=[@__user_Id_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`Id`, `u`.`ClaimType`, `u`.`ClaimValue`, `u`.`UserId`
+FROM `UserClaims` AS `u`
+WHERE `u`.`UserId` = @__user_Id_0
+2024-04-13 10:26:50.865 -04:00 [INF] Executed DbCommand (2ms) [Parameters=[@__userId_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Name`
+FROM `UserRoles` AS `u`
+INNER JOIN `Role` AS `r` ON `u`.`RoleId` = `r`.`Id`
+WHERE `u`.`UserId` = @__userId_0
+2024-04-13 10:26:50.871 -04:00 [INF] Executed DbCommand (1ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Id`, `r`.`ConcurrencyStamp`, `r`.`Name`, `r`.`NormalizedName`
+FROM `Role` AS `r`
+WHERE `r`.`NormalizedName` = @__normalizedName_0
+LIMIT 1
+2024-04-13 10:26:50.876 -04:00 [INF] Executed DbCommand (3ms) [Parameters=[@__role_Id_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`ClaimType`, `r`.`ClaimValue`
+FROM `RoleClaims` AS `r`
+WHERE `r`.`RoleId` = @__role_Id_0
+2024-04-13 10:26:50.903 -04:00 [INF] Executed DbCommand (1ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Id`, `r`.`ConcurrencyStamp`, `r`.`Name`, `r`.`NormalizedName`
+FROM `Role` AS `r`
+WHERE `r`.`NormalizedName` = @__normalizedName_0
+LIMIT 1
+2024-04-13 10:26:50.955 -04:00 [INF] Executed DbCommand (27ms) [Parameters=[@__role_Id_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`ClaimType`, `r`.`ClaimValue`
+FROM `RoleClaims` AS `r`
+WHERE `r`.`RoleId` = @__role_Id_0
+2024-04-13 10:26:51.010 -04:00 [INF] Executed DbCommand (27ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Id`, `r`.`ConcurrencyStamp`, `r`.`Name`, `r`.`NormalizedName`
+FROM `Role` AS `r`
+WHERE `r`.`NormalizedName` = @__normalizedName_0
+LIMIT 1
+2024-04-13 10:26:51.038 -04:00 [INF] Executed DbCommand (25ms) [Parameters=[@__role_Id_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`ClaimType`, `r`.`ClaimValue`
+FROM `RoleClaims` AS `r`
+WHERE `r`.`RoleId` = @__role_Id_0
+2024-04-13 10:26:51.040 -04:00 [INF] AuthenticationScheme: Identity.Application signed in.
+2024-04-13 10:26:51.040 -04:00 [INF] User logged in.
+2024-04-13 10:26:51.040 -04:00 [INF] Executed handler method OnPostAsync, returned result Microsoft.AspNetCore.Mvc.LocalRedirectResult.
+2024-04-13 10:26:51.040 -04:00 [INF] Executing LocalRedirectResult, redirecting to /.
+2024-04-13 10:26:51.041 -04:00 [INF] Executed page /Account/Login in 502.8586ms
+2024-04-13 10:26:51.041 -04:00 [INF] Executed endpoint '/Account/Login'
+2024-04-13 10:26:51.041 -04:00 [INF] Request finished HTTP/1.1 POST https://localhost:7011/Identity/Account/Login application/x-www-form-urlencoded 274 - 302 0 - 508.7447ms
+2024-04-13 10:26:51.046 -04:00 [INF] Request starting HTTP/1.1 GET https://localhost:7011/ - -
+2024-04-13 10:26:51.047 -04:00 [INF] Executing endpoint 'Comp_2139.Controllers.HomeController.Index (Comp_2139)'
+2024-04-13 10:26:51.048 -04:00 [INF] Route matched with {action = "Index", controller = "Home", area = "", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Comp_2139.Controllers.HomeController (Comp_2139).
+2024-04-13 10:26:51.048 -04:00 [INF] Executing ViewResult, running view Index.
+2024-04-13 10:26:51.101 -04:00 [INF] Executed DbCommand (26ms) [Parameters=[@__p_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`Id`, `u`.`AccessFailedCount`, `u`.`ConcurrencyStamp`, `u`.`Email`, `u`.`EmailConfirmed`, `u`.`FirstName`, `u`.`LastName`, `u`.`LockoutEnabled`, `u`.`LockoutEnd`, `u`.`NormalizedEmail`, `u`.`NormalizedUserName`, `u`.`PasswordHash`, `u`.`PhoneNumber`, `u`.`PhoneNumberConfirmed`, `u`.`ProfilePicture`, `u`.`SecurityStamp`, `u`.`TwoFactorEnabled`, `u`.`UserName`, `u`.`UsernameChangeLimit`
+FROM `User` AS `u`
+WHERE `u`.`Id` = @__p_0
+LIMIT 1
+2024-04-13 10:26:51.133 -04:00 [INF] Executed DbCommand (2ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Id`, `r`.`ConcurrencyStamp`, `r`.`Name`, `r`.`NormalizedName`
+FROM `Role` AS `r`
+WHERE `r`.`NormalizedName` = @__normalizedRoleName_0
+LIMIT 2
+2024-04-13 10:26:51.163 -04:00 [INF] Executed DbCommand (28ms) [Parameters=[@__p_0='?' (Size = 255), @__p_1='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`UserId`, `u`.`RoleId`
+FROM `UserRoles` AS `u`
+WHERE (`u`.`UserId` = @__p_0) AND (`u`.`RoleId` = @__p_1)
+LIMIT 1
+2024-04-13 10:26:51.248 -04:00 [INF] Executed DbCommand (2ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Id`, `r`.`ConcurrencyStamp`, `r`.`Name`, `r`.`NormalizedName`
+FROM `Role` AS `r`
+WHERE `r`.`NormalizedName` = @__normalizedRoleName_0
+LIMIT 2
+2024-04-13 10:26:51.281 -04:00 [INF] Executed DbCommand (26ms) [Parameters=[@__p_0='?' (Size = 255), @__p_1='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`UserId`, `u`.`RoleId`
+FROM `UserRoles` AS `u`
+WHERE (`u`.`UserId` = @__p_0) AND (`u`.`RoleId` = @__p_1)
+LIMIT 1
+2024-04-13 10:26:51.328 -04:00 [INF] Executed ViewResult - view Index executed in 280.1883ms.
+2024-04-13 10:26:51.329 -04:00 [INF] Executed action Comp_2139.Controllers.HomeController.Index (Comp_2139) in 280.926ms
+2024-04-13 10:26:51.329 -04:00 [INF] Executed endpoint 'Comp_2139.Controllers.HomeController.Index (Comp_2139)'
+2024-04-13 10:26:51.329 -04:00 [INF] Request finished HTTP/1.1 GET https://localhost:7011/ - - - 200 - text/html;+charset=utf-8 282.5240ms
+2024-04-13 10:26:53.443 -04:00 [INF] Request starting HTTP/1.1 GET https://localhost:7011/Identity/Account/Manage - -
+2024-04-13 10:26:53.444 -04:00 [INF] Executing endpoint '/Account/Manage/Index'
+2024-04-13 10:26:53.444 -04:00 [INF] Route matched with {page = "/Account/Manage/Index", area = "Identity", action = "", controller = ""}. Executing page /Account/Manage/Index
+2024-04-13 10:26:53.445 -04:00 [INF] Executing handler method Comp_2139.Areas.Identity.Pages.Account.Manage.IndexModel.OnGetAsync - ModelState is "Valid"
+2024-04-13 10:26:53.473 -04:00 [INF] Executed DbCommand (3ms) [Parameters=[@__p_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`Id`, `u`.`AccessFailedCount`, `u`.`ConcurrencyStamp`, `u`.`Email`, `u`.`EmailConfirmed`, `u`.`FirstName`, `u`.`LastName`, `u`.`LockoutEnabled`, `u`.`LockoutEnd`, `u`.`NormalizedEmail`, `u`.`NormalizedUserName`, `u`.`PasswordHash`, `u`.`PhoneNumber`, `u`.`PhoneNumberConfirmed`, `u`.`ProfilePicture`, `u`.`SecurityStamp`, `u`.`TwoFactorEnabled`, `u`.`UserName`, `u`.`UsernameChangeLimit`
+FROM `User` AS `u`
+WHERE `u`.`Id` = @__p_0
+LIMIT 1
+2024-04-13 10:26:53.503 -04:00 [INF] Executed handler method OnGetAsync, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2024-04-13 10:26:53.549 -04:00 [INF] Executed DbCommand (25ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Id`, `r`.`ConcurrencyStamp`, `r`.`Name`, `r`.`NormalizedName`
+FROM `Role` AS `r`
+WHERE `r`.`NormalizedName` = @__normalizedRoleName_0
+LIMIT 2
+2024-04-13 10:26:53.578 -04:00 [INF] Executed DbCommand (27ms) [Parameters=[@__p_0='?' (Size = 255), @__p_1='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`UserId`, `u`.`RoleId`
+FROM `UserRoles` AS `u`
+WHERE (`u`.`UserId` = @__p_0) AND (`u`.`RoleId` = @__p_1)
+LIMIT 1
+2024-04-13 10:26:53.631 -04:00 [INF] Executed DbCommand (26ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Id`, `r`.`ConcurrencyStamp`, `r`.`Name`, `r`.`NormalizedName`
+FROM `Role` AS `r`
+WHERE `r`.`NormalizedName` = @__normalizedRoleName_0
+LIMIT 2
+2024-04-13 10:26:53.636 -04:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (Size = 255), @__p_1='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`UserId`, `u`.`RoleId`
+FROM `UserRoles` AS `u`
+WHERE (`u`.`UserId` = @__p_0) AND (`u`.`RoleId` = @__p_1)
+LIMIT 1
+2024-04-13 10:26:53.639 -04:00 [INF] Executed page /Account/Manage/Index in 194.1413ms
+2024-04-13 10:26:53.639 -04:00 [INF] Executed endpoint '/Account/Manage/Index'
+2024-04-13 10:26:53.639 -04:00 [INF] Request finished HTTP/1.1 GET https://localhost:7011/Identity/Account/Manage - - - 200 - text/html;+charset=utf-8 195.9678ms
+2024-04-13 10:27:08.636 -04:00 [INF] Request starting HTTP/1.1 POST https://localhost:7011/Identity/Account/Manage multipart/form-data;+boundary=----WebKitFormBoundaryb9AhqIxXNLtDThr0 955
+2024-04-13 10:27:08.642 -04:00 [INF] Executing endpoint '/Account/Manage/Index'
+2024-04-13 10:27:08.643 -04:00 [INF] Route matched with {page = "/Account/Manage/Index", area = "Identity", action = "", controller = ""}. Executing page /Account/Manage/Index
+2024-04-13 10:27:08.648 -04:00 [INF] Executing handler method Comp_2139.Areas.Identity.Pages.Account.Manage.IndexModel.OnPostAsync - ModelState is "Valid"
+2024-04-13 10:27:08.843 -04:00 [INF] Executed DbCommand (112ms) [Parameters=[@__p_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`Id`, `u`.`AccessFailedCount`, `u`.`ConcurrencyStamp`, `u`.`Email`, `u`.`EmailConfirmed`, `u`.`FirstName`, `u`.`LastName`, `u`.`LockoutEnabled`, `u`.`LockoutEnd`, `u`.`NormalizedEmail`, `u`.`NormalizedUserName`, `u`.`PasswordHash`, `u`.`PhoneNumber`, `u`.`PhoneNumberConfirmed`, `u`.`ProfilePicture`, `u`.`SecurityStamp`, `u`.`TwoFactorEnabled`, `u`.`UserName`, `u`.`UsernameChangeLimit`
+FROM `User` AS `u`
+WHERE `u`.`Id` = @__p_0
+LIMIT 1
+2024-04-13 10:27:09.079 -04:00 [INF] Executed DbCommand (3ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`Id`, `u`.`AccessFailedCount`, `u`.`ConcurrencyStamp`, `u`.`Email`, `u`.`EmailConfirmed`, `u`.`FirstName`, `u`.`LastName`, `u`.`LockoutEnabled`, `u`.`LockoutEnd`, `u`.`NormalizedEmail`, `u`.`NormalizedUserName`, `u`.`PasswordHash`, `u`.`PhoneNumber`, `u`.`PhoneNumberConfirmed`, `u`.`ProfilePicture`, `u`.`SecurityStamp`, `u`.`TwoFactorEnabled`, `u`.`UserName`, `u`.`UsernameChangeLimit`
+FROM `User` AS `u`
+WHERE `u`.`NormalizedUserName` = @__normalizedUserName_0
+LIMIT 1
+2024-04-13 10:27:09.103 -04:00 [INF] Executed handler method OnPostAsync, returned result Microsoft.AspNetCore.Mvc.RedirectToPageResult.
+2024-04-13 10:27:09.103 -04:00 [INF] Executing RedirectToPageResult, redirecting to null.
+2024-04-13 10:27:09.104 -04:00 [INF] Executed page /Account/Manage/Index in 460.9571ms
+2024-04-13 10:27:09.104 -04:00 [INF] Executed endpoint '/Account/Manage/Index'
+2024-04-13 10:27:09.104 -04:00 [INF] Request finished HTTP/1.1 POST https://localhost:7011/Identity/Account/Manage multipart/form-data;+boundary=----WebKitFormBoundaryb9AhqIxXNLtDThr0 955 - 302 0 - 468.0372ms
+2024-04-13 10:27:09.108 -04:00 [INF] Request starting HTTP/1.1 GET https://localhost:7011/Identity/Account/Manage - -
+2024-04-13 10:27:09.108 -04:00 [INF] Executing endpoint '/Account/Manage/Index'
+2024-04-13 10:27:09.108 -04:00 [INF] Route matched with {page = "/Account/Manage/Index", area = "Identity", action = "", controller = ""}. Executing page /Account/Manage/Index
+2024-04-13 10:27:09.109 -04:00 [INF] Executing handler method Comp_2139.Areas.Identity.Pages.Account.Manage.IndexModel.OnGetAsync - ModelState is "Valid"
+2024-04-13 10:27:09.234 -04:00 [INF] Executed DbCommand (31ms) [Parameters=[@__p_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`Id`, `u`.`AccessFailedCount`, `u`.`ConcurrencyStamp`, `u`.`Email`, `u`.`EmailConfirmed`, `u`.`FirstName`, `u`.`LastName`, `u`.`LockoutEnabled`, `u`.`LockoutEnd`, `u`.`NormalizedEmail`, `u`.`NormalizedUserName`, `u`.`PasswordHash`, `u`.`PhoneNumber`, `u`.`PhoneNumberConfirmed`, `u`.`ProfilePicture`, `u`.`SecurityStamp`, `u`.`TwoFactorEnabled`, `u`.`UserName`, `u`.`UsernameChangeLimit`
+FROM `User` AS `u`
+WHERE `u`.`Id` = @__p_0
+LIMIT 1
+2024-04-13 10:27:09.235 -04:00 [INF] Executed handler method OnGetAsync, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2024-04-13 10:27:09.243 -04:00 [INF] Executed DbCommand (2ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Id`, `r`.`ConcurrencyStamp`, `r`.`Name`, `r`.`NormalizedName`
+FROM `Role` AS `r`
+WHERE `r`.`NormalizedName` = @__normalizedRoleName_0
+LIMIT 2
+2024-04-13 10:27:09.325 -04:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (Size = 255), @__p_1='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`UserId`, `u`.`RoleId`
+FROM `UserRoles` AS `u`
+WHERE (`u`.`UserId` = @__p_0) AND (`u`.`RoleId` = @__p_1)
+LIMIT 1
+2024-04-13 10:27:09.334 -04:00 [INF] Executed DbCommand (2ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Id`, `r`.`ConcurrencyStamp`, `r`.`Name`, `r`.`NormalizedName`
+FROM `Role` AS `r`
+WHERE `r`.`NormalizedName` = @__normalizedRoleName_0
+LIMIT 2
+2024-04-13 10:27:09.339 -04:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (Size = 255), @__p_1='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`UserId`, `u`.`RoleId`
+FROM `UserRoles` AS `u`
+WHERE (`u`.`UserId` = @__p_0) AND (`u`.`RoleId` = @__p_1)
+LIMIT 1
+2024-04-13 10:27:09.342 -04:00 [INF] Executed page /Account/Manage/Index in 233.1944ms
+2024-04-13 10:27:09.342 -04:00 [INF] Executed endpoint '/Account/Manage/Index'
+2024-04-13 10:27:09.342 -04:00 [INF] Request finished HTTP/1.1 GET https://localhost:7011/Identity/Account/Manage - - - 200 - text/html;+charset=utf-8 234.3189ms
+2024-04-13 10:27:19.675 -04:00 [INF] Request starting HTTP/1.1 POST https://localhost:7011/Identity/Account/Manage multipart/form-data;+boundary=----WebKitFormBoundaryOpyFBNtzcHK3Zrez 949
+2024-04-13 10:27:19.677 -04:00 [INF] Executing endpoint '/Account/Manage/Index'
+2024-04-13 10:27:19.678 -04:00 [INF] Route matched with {page = "/Account/Manage/Index", area = "Identity", action = "", controller = ""}. Executing page /Account/Manage/Index
+2024-04-13 10:27:19.679 -04:00 [INF] Executing handler method Comp_2139.Areas.Identity.Pages.Account.Manage.IndexModel.OnPostAsync - ModelState is "Valid"
+2024-04-13 10:27:19.732 -04:00 [INF] Executed DbCommand (26ms) [Parameters=[@__p_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`Id`, `u`.`AccessFailedCount`, `u`.`ConcurrencyStamp`, `u`.`Email`, `u`.`EmailConfirmed`, `u`.`FirstName`, `u`.`LastName`, `u`.`LockoutEnabled`, `u`.`LockoutEnd`, `u`.`NormalizedEmail`, `u`.`NormalizedUserName`, `u`.`PasswordHash`, `u`.`PhoneNumber`, `u`.`PhoneNumberConfirmed`, `u`.`ProfilePicture`, `u`.`SecurityStamp`, `u`.`TwoFactorEnabled`, `u`.`UserName`, `u`.`UsernameChangeLimit`
+FROM `User` AS `u`
+WHERE `u`.`Id` = @__p_0
+LIMIT 1
+2024-04-13 10:27:19.738 -04:00 [INF] Executed DbCommand (2ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`Id`, `u`.`AccessFailedCount`, `u`.`ConcurrencyStamp`, `u`.`Email`, `u`.`EmailConfirmed`, `u`.`FirstName`, `u`.`LastName`, `u`.`LockoutEnabled`, `u`.`LockoutEnd`, `u`.`NormalizedEmail`, `u`.`NormalizedUserName`, `u`.`PasswordHash`, `u`.`PhoneNumber`, `u`.`PhoneNumberConfirmed`, `u`.`ProfilePicture`, `u`.`SecurityStamp`, `u`.`TwoFactorEnabled`, `u`.`UserName`, `u`.`UsernameChangeLimit`
+FROM `User` AS `u`
+WHERE `u`.`NormalizedUserName` = @__normalizedUserName_0
+LIMIT 1
+2024-04-13 10:27:19.790 -04:00 [INF] Executed DbCommand (27ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`Id`, `u`.`AccessFailedCount`, `u`.`ConcurrencyStamp`, `u`.`Email`, `u`.`EmailConfirmed`, `u`.`FirstName`, `u`.`LastName`, `u`.`LockoutEnabled`, `u`.`LockoutEnd`, `u`.`NormalizedEmail`, `u`.`NormalizedUserName`, `u`.`PasswordHash`, `u`.`PhoneNumber`, `u`.`PhoneNumberConfirmed`, `u`.`ProfilePicture`, `u`.`SecurityStamp`, `u`.`TwoFactorEnabled`, `u`.`UserName`, `u`.`UsernameChangeLimit`
+FROM `User` AS `u`
+WHERE `u`.`NormalizedUserName` = @__normalizedUserName_0
+LIMIT 1
+2024-04-13 10:27:19.920 -04:00 [INF] Executed DbCommand (55ms) [Parameters=[@p18='?' (Size = 255), @p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p19='?' (Size = 4000), @p2='?' (Size = 256), @p3='?' (DbType = Boolean), @p4='?' (Size = 4000), @p5='?' (Size = 4000), @p6='?' (DbType = Boolean), @p7='?' (DbType = DateTimeOffset), @p8='?' (Size = 256), @p9='?' (Size = 256), @p10='?' (Size = 4000), @p11='?' (Size = 4000), @p12='?' (DbType = Boolean), @p13='?' (Size = -1) (DbType = Binary), @p14='?' (Size = 4000), @p15='?' (DbType = Boolean), @p16='?' (Size = 256), @p17='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET AUTOCOMMIT = 1;
+UPDATE `User` SET `AccessFailedCount` = @p0, `ConcurrencyStamp` = @p1, `Email` = @p2, `EmailConfirmed` = @p3, `FirstName` = @p4, `LastName` = @p5, `LockoutEnabled` = @p6, `LockoutEnd` = @p7, `NormalizedEmail` = @p8, `NormalizedUserName` = @p9, `PasswordHash` = @p10, `PhoneNumber` = @p11, `PhoneNumberConfirmed` = @p12, `ProfilePicture` = @p13, `SecurityStamp` = @p14, `TwoFactorEnabled` = @p15, `UserName` = @p16, `UsernameChangeLimit` = @p17
+WHERE `Id` = @p18 AND `ConcurrencyStamp` = @p19;
+SELECT ROW_COUNT();
+2024-04-13 10:27:19.997 -04:00 [INF] Executed DbCommand (25ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`Id`, `u`.`AccessFailedCount`, `u`.`ConcurrencyStamp`, `u`.`Email`, `u`.`EmailConfirmed`, `u`.`FirstName`, `u`.`LastName`, `u`.`LockoutEnabled`, `u`.`LockoutEnd`, `u`.`NormalizedEmail`, `u`.`NormalizedUserName`, `u`.`PasswordHash`, `u`.`PhoneNumber`, `u`.`PhoneNumberConfirmed`, `u`.`ProfilePicture`, `u`.`SecurityStamp`, `u`.`TwoFactorEnabled`, `u`.`UserName`, `u`.`UsernameChangeLimit`
+FROM `User` AS `u`
+WHERE `u`.`NormalizedUserName` = @__normalizedUserName_0
+LIMIT 1
+2024-04-13 10:27:20.117 -04:00 [INF] Executed DbCommand (73ms) [Parameters=[@p18='?' (Size = 255), @p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p19='?' (Size = 4000), @p2='?' (Size = 256), @p3='?' (DbType = Boolean), @p4='?' (Size = 4000), @p5='?' (Size = 4000), @p6='?' (DbType = Boolean), @p7='?' (DbType = DateTimeOffset), @p8='?' (Size = 256), @p9='?' (Size = 256), @p10='?' (Size = 4000), @p11='?' (Size = 4000), @p12='?' (DbType = Boolean), @p13='?' (Size = -1) (DbType = Binary), @p14='?' (Size = 4000), @p15='?' (DbType = Boolean), @p16='?' (Size = 256), @p17='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET AUTOCOMMIT = 1;
+UPDATE `User` SET `AccessFailedCount` = @p0, `ConcurrencyStamp` = @p1, `Email` = @p2, `EmailConfirmed` = @p3, `FirstName` = @p4, `LastName` = @p5, `LockoutEnabled` = @p6, `LockoutEnd` = @p7, `NormalizedEmail` = @p8, `NormalizedUserName` = @p9, `PasswordHash` = @p10, `PhoneNumber` = @p11, `PhoneNumberConfirmed` = @p12, `ProfilePicture` = @p13, `SecurityStamp` = @p14, `TwoFactorEnabled` = @p15, `UserName` = @p16, `UsernameChangeLimit` = @p17
+WHERE `Id` = @p18 AND `ConcurrencyStamp` = @p19;
+SELECT ROW_COUNT();
+2024-04-13 10:27:20.173 -04:00 [INF] Executed DbCommand (27ms) [Parameters=[@__user_Id_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`Id`, `u`.`ClaimType`, `u`.`ClaimValue`, `u`.`UserId`
+FROM `UserClaims` AS `u`
+WHERE `u`.`UserId` = @__user_Id_0
+2024-04-13 10:27:20.179 -04:00 [INF] Executed DbCommand (2ms) [Parameters=[@__userId_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Name`
+FROM `UserRoles` AS `u`
+INNER JOIN `Role` AS `r` ON `u`.`RoleId` = `r`.`Id`
+WHERE `u`.`UserId` = @__userId_0
+2024-04-13 10:27:20.209 -04:00 [INF] Executed DbCommand (2ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Id`, `r`.`ConcurrencyStamp`, `r`.`Name`, `r`.`NormalizedName`
+FROM `Role` AS `r`
+WHERE `r`.`NormalizedName` = @__normalizedName_0
+LIMIT 1
+2024-04-13 10:27:20.215 -04:00 [INF] Executed DbCommand (2ms) [Parameters=[@__role_Id_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`ClaimType`, `r`.`ClaimValue`
+FROM `RoleClaims` AS `r`
+WHERE `r`.`RoleId` = @__role_Id_0
+2024-04-13 10:27:20.244 -04:00 [INF] Executed DbCommand (27ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Id`, `r`.`ConcurrencyStamp`, `r`.`Name`, `r`.`NormalizedName`
+FROM `Role` AS `r`
+WHERE `r`.`NormalizedName` = @__normalizedName_0
+LIMIT 1
+2024-04-13 10:27:20.272 -04:00 [INF] Executed DbCommand (2ms) [Parameters=[@__role_Id_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`ClaimType`, `r`.`ClaimValue`
+FROM `RoleClaims` AS `r`
+WHERE `r`.`RoleId` = @__role_Id_0
+2024-04-13 10:27:20.298 -04:00 [INF] Executed DbCommand (2ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Id`, `r`.`ConcurrencyStamp`, `r`.`Name`, `r`.`NormalizedName`
+FROM `Role` AS `r`
+WHERE `r`.`NormalizedName` = @__normalizedName_0
+LIMIT 1
+2024-04-13 10:27:20.329 -04:00 [INF] Executed DbCommand (3ms) [Parameters=[@__role_Id_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`ClaimType`, `r`.`ClaimValue`
+FROM `RoleClaims` AS `r`
+WHERE `r`.`RoleId` = @__role_Id_0
+2024-04-13 10:27:20.329 -04:00 [INF] AuthenticationScheme: Identity.Application signed in.
+2024-04-13 10:27:20.330 -04:00 [INF] Executed handler method OnPostAsync, returned result Microsoft.AspNetCore.Mvc.RedirectToPageResult.
+2024-04-13 10:27:20.330 -04:00 [INF] Executing RedirectToPageResult, redirecting to null.
+2024-04-13 10:27:20.330 -04:00 [INF] Executed page /Account/Manage/Index in 652.2369ms
+2024-04-13 10:27:20.330 -04:00 [INF] Executed endpoint '/Account/Manage/Index'
+2024-04-13 10:27:20.330 -04:00 [INF] Request finished HTTP/1.1 POST https://localhost:7011/Identity/Account/Manage multipart/form-data;+boundary=----WebKitFormBoundaryOpyFBNtzcHK3Zrez 949 - 302 0 - 655.0324ms
+2024-04-13 10:27:20.336 -04:00 [INF] Request starting HTTP/1.1 GET https://localhost:7011/Identity/Account/Manage - -
+2024-04-13 10:27:20.337 -04:00 [INF] Executing endpoint '/Account/Manage/Index'
+2024-04-13 10:27:20.337 -04:00 [INF] Route matched with {page = "/Account/Manage/Index", area = "Identity", action = "", controller = ""}. Executing page /Account/Manage/Index
+2024-04-13 10:27:20.337 -04:00 [INF] Executing handler method Comp_2139.Areas.Identity.Pages.Account.Manage.IndexModel.OnGetAsync - ModelState is "Valid"
+2024-04-13 10:27:20.384 -04:00 [INF] Executed DbCommand (24ms) [Parameters=[@__p_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`Id`, `u`.`AccessFailedCount`, `u`.`ConcurrencyStamp`, `u`.`Email`, `u`.`EmailConfirmed`, `u`.`FirstName`, `u`.`LastName`, `u`.`LockoutEnabled`, `u`.`LockoutEnd`, `u`.`NormalizedEmail`, `u`.`NormalizedUserName`, `u`.`PasswordHash`, `u`.`PhoneNumber`, `u`.`PhoneNumberConfirmed`, `u`.`ProfilePicture`, `u`.`SecurityStamp`, `u`.`TwoFactorEnabled`, `u`.`UserName`, `u`.`UsernameChangeLimit`
+FROM `User` AS `u`
+WHERE `u`.`Id` = @__p_0
+LIMIT 1
+2024-04-13 10:27:20.458 -04:00 [INF] Executed handler method OnGetAsync, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2024-04-13 10:27:20.493 -04:00 [INF] Executed DbCommand (27ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Id`, `r`.`ConcurrencyStamp`, `r`.`Name`, `r`.`NormalizedName`
+FROM `Role` AS `r`
+WHERE `r`.`NormalizedName` = @__normalizedRoleName_0
+LIMIT 2
+2024-04-13 10:27:20.499 -04:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (Size = 255), @__p_1='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`UserId`, `u`.`RoleId`
+FROM `UserRoles` AS `u`
+WHERE (`u`.`UserId` = @__p_0) AND (`u`.`RoleId` = @__p_1)
+LIMIT 1
+2024-04-13 10:27:20.504 -04:00 [INF] Executed DbCommand (1ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Id`, `r`.`ConcurrencyStamp`, `r`.`Name`, `r`.`NormalizedName`
+FROM `Role` AS `r`
+WHERE `r`.`NormalizedName` = @__normalizedRoleName_0
+LIMIT 2
+2024-04-13 10:27:20.534 -04:00 [INF] Executed DbCommand (27ms) [Parameters=[@__p_0='?' (Size = 255), @__p_1='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`UserId`, `u`.`RoleId`
+FROM `UserRoles` AS `u`
+WHERE (`u`.`UserId` = @__p_0) AND (`u`.`RoleId` = @__p_1)
+LIMIT 1
+2024-04-13 10:27:20.540 -04:00 [INF] Executed page /Account/Manage/Index in 202.6473ms
+2024-04-13 10:27:20.540 -04:00 [INF] Executed endpoint '/Account/Manage/Index'
+2024-04-13 10:27:20.540 -04:00 [INF] Request finished HTTP/1.1 GET https://localhost:7011/Identity/Account/Manage - - - 200 - text/html;+charset=utf-8 204.3217ms
+2024-04-13 10:27:26.833 -04:00 [INF] Request starting HTTP/1.1 GET https://localhost:7011/UserRoles - -
+2024-04-13 10:27:26.862 -04:00 [INF] Executing endpoint 'Comp_2139.Controllers.UserRolesController.Index (Comp_2139)'
+2024-04-13 10:27:26.870 -04:00 [INF] Route matched with {action = "Index", controller = "UserRoles", area = "", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Comp_2139.Controllers.UserRolesController (Comp_2139).
+2024-04-13 10:27:26.935 -04:00 [INF] Executed DbCommand (51ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`Id`, `u`.`AccessFailedCount`, `u`.`ConcurrencyStamp`, `u`.`Email`, `u`.`EmailConfirmed`, `u`.`FirstName`, `u`.`LastName`, `u`.`LockoutEnabled`, `u`.`LockoutEnd`, `u`.`NormalizedEmail`, `u`.`NormalizedUserName`, `u`.`PasswordHash`, `u`.`PhoneNumber`, `u`.`PhoneNumberConfirmed`, `u`.`ProfilePicture`, `u`.`SecurityStamp`, `u`.`TwoFactorEnabled`, `u`.`UserName`, `u`.`UsernameChangeLimit`
+FROM `User` AS `u`
+2024-04-13 10:27:26.990 -04:00 [INF] Executed DbCommand (28ms) [Parameters=[@__userId_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Name`
+FROM `UserRoles` AS `u`
+INNER JOIN `Role` AS `r` ON `u`.`RoleId` = `r`.`Id`
+WHERE `u`.`UserId` = @__userId_0
+2024-04-13 10:27:27.019 -04:00 [INF] Executed DbCommand (24ms) [Parameters=[@__userId_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Name`
+FROM `UserRoles` AS `u`
+INNER JOIN `Role` AS `r` ON `u`.`RoleId` = `r`.`Id`
+WHERE `u`.`UserId` = @__userId_0
+2024-04-13 10:27:27.025 -04:00 [INF] Executed DbCommand (2ms) [Parameters=[@__userId_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Name`
+FROM `UserRoles` AS `u`
+INNER JOIN `Role` AS `r` ON `u`.`RoleId` = `r`.`Id`
+WHERE `u`.`UserId` = @__userId_0
+2024-04-13 10:27:27.054 -04:00 [INF] Executed DbCommand (26ms) [Parameters=[@__userId_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Name`
+FROM `UserRoles` AS `u`
+INNER JOIN `Role` AS `r` ON `u`.`RoleId` = `r`.`Id`
+WHERE `u`.`UserId` = @__userId_0
+2024-04-13 10:27:27.109 -04:00 [INF] Executed DbCommand (26ms) [Parameters=[@__userId_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Name`
+FROM `UserRoles` AS `u`
+INNER JOIN `Role` AS `r` ON `u`.`RoleId` = `r`.`Id`
+WHERE `u`.`UserId` = @__userId_0
+2024-04-13 10:27:27.160 -04:00 [INF] Executed DbCommand (23ms) [Parameters=[@__userId_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Name`
+FROM `UserRoles` AS `u`
+INNER JOIN `Role` AS `r` ON `u`.`RoleId` = `r`.`Id`
+WHERE `u`.`UserId` = @__userId_0
+2024-04-13 10:27:27.218 -04:00 [INF] Executed DbCommand (3ms) [Parameters=[@__userId_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Name`
+FROM `UserRoles` AS `u`
+INNER JOIN `Role` AS `r` ON `u`.`RoleId` = `r`.`Id`
+WHERE `u`.`UserId` = @__userId_0
+2024-04-13 10:27:27.247 -04:00 [INF] Executed DbCommand (26ms) [Parameters=[@__userId_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Name`
+FROM `UserRoles` AS `u`
+INNER JOIN `Role` AS `r` ON `u`.`RoleId` = `r`.`Id`
+WHERE `u`.`UserId` = @__userId_0
+2024-04-13 10:27:27.252 -04:00 [INF] Executing ViewResult, running view Index.
+2024-04-13 10:27:27.347 -04:00 [INF] Executed DbCommand (75ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Id`, `r`.`ConcurrencyStamp`, `r`.`Name`, `r`.`NormalizedName`
+FROM `Role` AS `r`
+WHERE `r`.`NormalizedName` = @__normalizedRoleName_0
+LIMIT 2
+2024-04-13 10:27:27.400 -04:00 [INF] Executed DbCommand (50ms) [Parameters=[@__p_0='?' (Size = 255), @__p_1='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`UserId`, `u`.`RoleId`
+FROM `UserRoles` AS `u`
+WHERE (`u`.`UserId` = @__p_0) AND (`u`.`RoleId` = @__p_1)
+LIMIT 1
+2024-04-13 10:27:27.455 -04:00 [INF] Executed DbCommand (27ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Id`, `r`.`ConcurrencyStamp`, `r`.`Name`, `r`.`NormalizedName`
+FROM `Role` AS `r`
+WHERE `r`.`NormalizedName` = @__normalizedRoleName_0
+LIMIT 2
+2024-04-13 10:27:27.487 -04:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (Size = 255), @__p_1='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`UserId`, `u`.`RoleId`
+FROM `UserRoles` AS `u`
+WHERE (`u`.`UserId` = @__p_0) AND (`u`.`RoleId` = @__p_1)
+LIMIT 1
+2024-04-13 10:27:27.519 -04:00 [INF] Executed ViewResult - view Index executed in 267.4244ms.
+2024-04-13 10:27:27.519 -04:00 [INF] Executed action Comp_2139.Controllers.UserRolesController.Index (Comp_2139) in 649.2639ms
+2024-04-13 10:27:27.519 -04:00 [INF] Executed endpoint 'Comp_2139.Controllers.UserRolesController.Index (Comp_2139)'
+2024-04-13 10:27:27.519 -04:00 [INF] Request finished HTTP/1.1 GET https://localhost:7011/UserRoles - - - 200 - text/html;+charset=utf-8 686.8567ms
+2024-04-13 10:27:31.243 -04:00 [INF] Request starting HTTP/1.1 GET https://localhost:7011/RoleManager - -
+2024-04-13 10:27:31.245 -04:00 [INF] Executing endpoint 'Comp_2139.Areas.ProjectManagement.Controllers.RoleManagerController.Index (Comp_2139)'
+2024-04-13 10:27:31.250 -04:00 [INF] Route matched with {action = "Index", controller = "RoleManager", area = "", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Comp_2139.Areas.ProjectManagement.Controllers.RoleManagerController (Comp_2139).
+2024-04-13 10:27:31.334 -04:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Id`, `r`.`ConcurrencyStamp`, `r`.`Name`, `r`.`NormalizedName`
+FROM `Role` AS `r`
+2024-04-13 10:27:31.480 -04:00 [INF] Executing ViewResult, running view Index.
+2024-04-13 10:27:31.499 -04:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`Id`, `u`.`AccessFailedCount`, `u`.`ConcurrencyStamp`, `u`.`Email`, `u`.`EmailConfirmed`, `u`.`FirstName`, `u`.`LastName`, `u`.`LockoutEnabled`, `u`.`LockoutEnd`, `u`.`NormalizedEmail`, `u`.`NormalizedUserName`, `u`.`PasswordHash`, `u`.`PhoneNumber`, `u`.`PhoneNumberConfirmed`, `u`.`ProfilePicture`, `u`.`SecurityStamp`, `u`.`TwoFactorEnabled`, `u`.`UserName`, `u`.`UsernameChangeLimit`
+FROM `User` AS `u`
+WHERE `u`.`Id` = @__p_0
+LIMIT 1
+2024-04-13 10:27:31.509 -04:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Id`, `r`.`ConcurrencyStamp`, `r`.`Name`, `r`.`NormalizedName`
+FROM `Role` AS `r`
+WHERE `r`.`NormalizedName` = @__normalizedRoleName_0
+LIMIT 2
+2024-04-13 10:27:31.514 -04:00 [INF] Executed DbCommand (3ms) [Parameters=[@__p_0='?' (Size = 255), @__p_1='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`UserId`, `u`.`RoleId`
+FROM `UserRoles` AS `u`
+WHERE (`u`.`UserId` = @__p_0) AND (`u`.`RoleId` = @__p_1)
+LIMIT 1
+2024-04-13 10:27:31.567 -04:00 [INF] Executed DbCommand (25ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Id`, `r`.`ConcurrencyStamp`, `r`.`Name`, `r`.`NormalizedName`
+FROM `Role` AS `r`
+WHERE `r`.`NormalizedName` = @__normalizedRoleName_0
+LIMIT 2
+2024-04-13 10:27:31.573 -04:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (Size = 255), @__p_1='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`UserId`, `u`.`RoleId`
+FROM `UserRoles` AS `u`
+WHERE (`u`.`UserId` = @__p_0) AND (`u`.`RoleId` = @__p_1)
+LIMIT 1
+2024-04-13 10:27:31.584 -04:00 [INF] Executed ViewResult - view Index executed in 105.0619ms.
+2024-04-13 10:27:31.584 -04:00 [INF] Executed action Comp_2139.Areas.ProjectManagement.Controllers.RoleManagerController.Index (Comp_2139) in 333.4671ms
+2024-04-13 10:27:31.584 -04:00 [INF] Executed endpoint 'Comp_2139.Areas.ProjectManagement.Controllers.RoleManagerController.Index (Comp_2139)'
+2024-04-13 10:27:31.584 -04:00 [INF] Request finished HTTP/1.1 GET https://localhost:7011/RoleManager - - - 200 - text/html;+charset=utf-8 340.4995ms
+2024-04-13 10:27:38.868 -04:00 [INF] Request starting HTTP/1.1 POST https://localhost:7011/RoleManager/AddRoles application/x-www-form-urlencoded 240
+2024-04-13 10:27:38.873 -04:00 [INF] Executing endpoint 'Comp_2139.Areas.ProjectManagement.Controllers.RoleManagerController.AddRoles (Comp_2139)'
+2024-04-13 10:27:38.878 -04:00 [INF] Route matched with {action = "AddRoles", controller = "RoleManager", area = "", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AddRoles(System.String) on controller Comp_2139.Areas.ProjectManagement.Controllers.RoleManagerController (Comp_2139).
+2024-04-13 10:27:39.128 -04:00 [INF] Executed DbCommand (71ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Id`, `r`.`ConcurrencyStamp`, `r`.`Name`, `r`.`NormalizedName`
+FROM `Role` AS `r`
+WHERE `r`.`NormalizedName` = @__normalizedName_0
+LIMIT 1
+2024-04-13 10:27:39.240 -04:00 [INF] Executed DbCommand (49ms) [Parameters=[@p0='?' (Size = 255), @p1='?' (Size = 4000), @p2='?' (Size = 256), @p3='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SET AUTOCOMMIT = 1;
+INSERT INTO `Role` (`Id`, `ConcurrencyStamp`, `Name`, `NormalizedName`)
+VALUES (@p0, @p1, @p2, @p3);
+2024-04-13 10:27:39.247 -04:00 [INF] Executing RedirectResult, redirecting to /RoleManager.
+2024-04-13 10:27:39.248 -04:00 [INF] Executed action Comp_2139.Areas.ProjectManagement.Controllers.RoleManagerController.AddRoles (Comp_2139) in 369.5305ms
+2024-04-13 10:27:39.248 -04:00 [INF] Executed endpoint 'Comp_2139.Areas.ProjectManagement.Controllers.RoleManagerController.AddRoles (Comp_2139)'
+2024-04-13 10:27:39.248 -04:00 [INF] Request finished HTTP/1.1 POST https://localhost:7011/RoleManager/AddRoles application/x-www-form-urlencoded 240 - 302 0 - 380.7653ms
+2024-04-13 10:27:39.258 -04:00 [INF] Request starting HTTP/1.1 GET https://localhost:7011/RoleManager - -
+2024-04-13 10:27:39.260 -04:00 [INF] Executing endpoint 'Comp_2139.Areas.ProjectManagement.Controllers.RoleManagerController.Index (Comp_2139)'
+2024-04-13 10:27:39.260 -04:00 [INF] Route matched with {action = "Index", controller = "RoleManager", area = "", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Comp_2139.Areas.ProjectManagement.Controllers.RoleManagerController (Comp_2139).
+2024-04-13 10:27:39.267 -04:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Id`, `r`.`ConcurrencyStamp`, `r`.`Name`, `r`.`NormalizedName`
+FROM `Role` AS `r`
+2024-04-13 10:27:39.268 -04:00 [INF] Executing ViewResult, running view Index.
+2024-04-13 10:27:39.324 -04:00 [INF] Executed DbCommand (27ms) [Parameters=[@__p_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`Id`, `u`.`AccessFailedCount`, `u`.`ConcurrencyStamp`, `u`.`Email`, `u`.`EmailConfirmed`, `u`.`FirstName`, `u`.`LastName`, `u`.`LockoutEnabled`, `u`.`LockoutEnd`, `u`.`NormalizedEmail`, `u`.`NormalizedUserName`, `u`.`PasswordHash`, `u`.`PhoneNumber`, `u`.`PhoneNumberConfirmed`, `u`.`ProfilePicture`, `u`.`SecurityStamp`, `u`.`TwoFactorEnabled`, `u`.`UserName`, `u`.`UsernameChangeLimit`
+FROM `User` AS `u`
+WHERE `u`.`Id` = @__p_0
+LIMIT 1
+2024-04-13 10:27:39.435 -04:00 [INF] Executed DbCommand (57ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Id`, `r`.`ConcurrencyStamp`, `r`.`Name`, `r`.`NormalizedName`
+FROM `Role` AS `r`
+WHERE `r`.`NormalizedName` = @__normalizedRoleName_0
+LIMIT 2
+2024-04-13 10:27:39.464 -04:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (Size = 255), @__p_1='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`UserId`, `u`.`RoleId`
+FROM `UserRoles` AS `u`
+WHERE (`u`.`UserId` = @__p_0) AND (`u`.`RoleId` = @__p_1)
+LIMIT 1
+2024-04-13 10:27:39.518 -04:00 [INF] Executed DbCommand (26ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Id`, `r`.`ConcurrencyStamp`, `r`.`Name`, `r`.`NormalizedName`
+FROM `Role` AS `r`
+WHERE `r`.`NormalizedName` = @__normalizedRoleName_0
+LIMIT 2
+2024-04-13 10:27:39.546 -04:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (Size = 255), @__p_1='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`UserId`, `u`.`RoleId`
+FROM `UserRoles` AS `u`
+WHERE (`u`.`UserId` = @__p_0) AND (`u`.`RoleId` = @__p_1)
+LIMIT 1
+2024-04-13 10:27:39.555 -04:00 [INF] Executed ViewResult - view Index executed in 287.4656ms.
+2024-04-13 10:27:39.555 -04:00 [INF] Executed action Comp_2139.Areas.ProjectManagement.Controllers.RoleManagerController.Index (Comp_2139) in 295.245ms
+2024-04-13 10:27:39.555 -04:00 [INF] Executed endpoint 'Comp_2139.Areas.ProjectManagement.Controllers.RoleManagerController.Index (Comp_2139)'
+2024-04-13 10:27:39.556 -04:00 [INF] Request finished HTTP/1.1 GET https://localhost:7011/RoleManager - - - 200 - text/html;+charset=utf-8 297.1218ms
+2024-04-13 10:27:42.657 -04:00 [INF] Request starting HTTP/1.1 GET https://localhost:7011/UserRoles - -
+2024-04-13 10:27:42.658 -04:00 [INF] Executing endpoint 'Comp_2139.Controllers.UserRolesController.Index (Comp_2139)'
+2024-04-13 10:27:42.658 -04:00 [INF] Route matched with {action = "Index", controller = "UserRoles", area = "", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Comp_2139.Controllers.UserRolesController (Comp_2139).
+2024-04-13 10:27:42.768 -04:00 [INF] Executed DbCommand (33ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`Id`, `u`.`AccessFailedCount`, `u`.`ConcurrencyStamp`, `u`.`Email`, `u`.`EmailConfirmed`, `u`.`FirstName`, `u`.`LastName`, `u`.`LockoutEnabled`, `u`.`LockoutEnd`, `u`.`NormalizedEmail`, `u`.`NormalizedUserName`, `u`.`PasswordHash`, `u`.`PhoneNumber`, `u`.`PhoneNumberConfirmed`, `u`.`ProfilePicture`, `u`.`SecurityStamp`, `u`.`TwoFactorEnabled`, `u`.`UserName`, `u`.`UsernameChangeLimit`
+FROM `User` AS `u`
+2024-04-13 10:27:42.820 -04:00 [INF] Executed DbCommand (24ms) [Parameters=[@__userId_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Name`
+FROM `UserRoles` AS `u`
+INNER JOIN `Role` AS `r` ON `u`.`RoleId` = `r`.`Id`
+WHERE `u`.`UserId` = @__userId_0
+2024-04-13 10:27:42.828 -04:00 [INF] Executed DbCommand (4ms) [Parameters=[@__userId_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Name`
+FROM `UserRoles` AS `u`
+INNER JOIN `Role` AS `r` ON `u`.`RoleId` = `r`.`Id`
+WHERE `u`.`UserId` = @__userId_0
+2024-04-13 10:27:42.834 -04:00 [INF] Executed DbCommand (3ms) [Parameters=[@__userId_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Name`
+FROM `UserRoles` AS `u`
+INNER JOIN `Role` AS `r` ON `u`.`RoleId` = `r`.`Id`
+WHERE `u`.`UserId` = @__userId_0
+2024-04-13 10:27:42.888 -04:00 [INF] Executed DbCommand (26ms) [Parameters=[@__userId_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Name`
+FROM `UserRoles` AS `u`
+INNER JOIN `Role` AS `r` ON `u`.`RoleId` = `r`.`Id`
+WHERE `u`.`UserId` = @__userId_0
+2024-04-13 10:27:42.894 -04:00 [INF] Executed DbCommand (2ms) [Parameters=[@__userId_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Name`
+FROM `UserRoles` AS `u`
+INNER JOIN `Role` AS `r` ON `u`.`RoleId` = `r`.`Id`
+WHERE `u`.`UserId` = @__userId_0
+2024-04-13 10:27:42.998 -04:00 [INF] Executed DbCommand (26ms) [Parameters=[@__userId_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Name`
+FROM `UserRoles` AS `u`
+INNER JOIN `Role` AS `r` ON `u`.`RoleId` = `r`.`Id`
+WHERE `u`.`UserId` = @__userId_0
+2024-04-13 10:27:43.026 -04:00 [INF] Executed DbCommand (25ms) [Parameters=[@__userId_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Name`
+FROM `UserRoles` AS `u`
+INNER JOIN `Role` AS `r` ON `u`.`RoleId` = `r`.`Id`
+WHERE `u`.`UserId` = @__userId_0
+2024-04-13 10:27:43.031 -04:00 [INF] Executed DbCommand (1ms) [Parameters=[@__userId_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Name`
+FROM `UserRoles` AS `u`
+INNER JOIN `Role` AS `r` ON `u`.`RoleId` = `r`.`Id`
+WHERE `u`.`UserId` = @__userId_0
+2024-04-13 10:27:43.031 -04:00 [INF] Executing ViewResult, running view Index.
+2024-04-13 10:27:43.063 -04:00 [INF] Executed DbCommand (3ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Id`, `r`.`ConcurrencyStamp`, `r`.`Name`, `r`.`NormalizedName`
+FROM `Role` AS `r`
+WHERE `r`.`NormalizedName` = @__normalizedRoleName_0
+LIMIT 2
+2024-04-13 10:27:43.088 -04:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (Size = 255), @__p_1='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`UserId`, `u`.`RoleId`
+FROM `UserRoles` AS `u`
+WHERE (`u`.`UserId` = @__p_0) AND (`u`.`RoleId` = @__p_1)
+LIMIT 1
+2024-04-13 10:27:43.095 -04:00 [INF] Executed DbCommand (2ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Id`, `r`.`ConcurrencyStamp`, `r`.`Name`, `r`.`NormalizedName`
+FROM `Role` AS `r`
+WHERE `r`.`NormalizedName` = @__normalizedRoleName_0
+LIMIT 2
+2024-04-13 10:27:43.098 -04:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (Size = 255), @__p_1='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`UserId`, `u`.`RoleId`
+FROM `UserRoles` AS `u`
+WHERE (`u`.`UserId` = @__p_0) AND (`u`.`RoleId` = @__p_1)
+LIMIT 1
+2024-04-13 10:27:43.109 -04:00 [INF] Executed ViewResult - view Index executed in 77.3682ms.
+2024-04-13 10:27:43.109 -04:00 [INF] Executed action Comp_2139.Controllers.UserRolesController.Index (Comp_2139) in 450.4771ms
+2024-04-13 10:27:43.109 -04:00 [INF] Executed endpoint 'Comp_2139.Controllers.UserRolesController.Index (Comp_2139)'
+2024-04-13 10:27:43.109 -04:00 [INF] Request finished HTTP/1.1 GET https://localhost:7011/UserRoles - - - 200 - text/html;+charset=utf-8 451.7848ms
+2024-04-13 10:27:47.592 -04:00 [INF] Request starting HTTP/1.1 GET https://localhost:7011/UserRoles/Manage?userId=49451d7d-ca1f-45b2-a1bf-d7578f907baf - -
+2024-04-13 10:27:47.594 -04:00 [INF] Executing endpoint 'Comp_2139.Controllers.UserRolesController.Manage (Comp_2139)'
+2024-04-13 10:27:47.602 -04:00 [INF] Route matched with {action = "Manage", controller = "UserRoles", area = "", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Manage(System.String) on controller Comp_2139.Controllers.UserRolesController (Comp_2139).
+2024-04-13 10:27:47.694 -04:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`Id`, `u`.`AccessFailedCount`, `u`.`ConcurrencyStamp`, `u`.`Email`, `u`.`EmailConfirmed`, `u`.`FirstName`, `u`.`LastName`, `u`.`LockoutEnabled`, `u`.`LockoutEnd`, `u`.`NormalizedEmail`, `u`.`NormalizedUserName`, `u`.`PasswordHash`, `u`.`PhoneNumber`, `u`.`PhoneNumberConfirmed`, `u`.`ProfilePicture`, `u`.`SecurityStamp`, `u`.`TwoFactorEnabled`, `u`.`UserName`, `u`.`UsernameChangeLimit`
+FROM `User` AS `u`
+WHERE `u`.`Id` = @__p_0
+LIMIT 1
+2024-04-13 10:27:47.799 -04:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Id`, `r`.`ConcurrencyStamp`, `r`.`Name`, `r`.`NormalizedName`
+FROM `Role` AS `r`
+2024-04-13 10:27:47.829 -04:00 [INF] Executed DbCommand (2ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Id`, `r`.`ConcurrencyStamp`, `r`.`Name`, `r`.`NormalizedName`
+FROM `Role` AS `r`
+WHERE `r`.`NormalizedName` = @__normalizedRoleName_0
+LIMIT 2
+2024-04-13 10:27:47.834 -04:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (Size = 255), @__p_1='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`UserId`, `u`.`RoleId`
+FROM `UserRoles` AS `u`
+WHERE (`u`.`UserId` = @__p_0) AND (`u`.`RoleId` = @__p_1)
+LIMIT 1
+2024-04-13 10:27:47.865 -04:00 [INF] Executed DbCommand (2ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Id`, `r`.`ConcurrencyStamp`, `r`.`Name`, `r`.`NormalizedName`
+FROM `Role` AS `r`
+WHERE `r`.`NormalizedName` = @__normalizedRoleName_0
+LIMIT 2
+2024-04-13 10:27:47.892 -04:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (Size = 255), @__p_1='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`UserId`, `u`.`RoleId`
+FROM `UserRoles` AS `u`
+WHERE (`u`.`UserId` = @__p_0) AND (`u`.`RoleId` = @__p_1)
+LIMIT 1
+2024-04-13 10:27:47.899 -04:00 [INF] Executed DbCommand (1ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Id`, `r`.`ConcurrencyStamp`, `r`.`Name`, `r`.`NormalizedName`
+FROM `Role` AS `r`
+WHERE `r`.`NormalizedName` = @__normalizedRoleName_0
+LIMIT 2
+2024-04-13 10:27:47.928 -04:00 [INF] Executed DbCommand (27ms) [Parameters=[@__p_0='?' (Size = 255), @__p_1='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`UserId`, `u`.`RoleId`
+FROM `UserRoles` AS `u`
+WHERE (`u`.`UserId` = @__p_0) AND (`u`.`RoleId` = @__p_1)
+LIMIT 1
+2024-04-13 10:27:47.933 -04:00 [INF] Executed DbCommand (3ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Id`, `r`.`ConcurrencyStamp`, `r`.`Name`, `r`.`NormalizedName`
+FROM `Role` AS `r`
+WHERE `r`.`NormalizedName` = @__normalizedRoleName_0
+LIMIT 2
+2024-04-13 10:27:47.938 -04:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (Size = 255), @__p_1='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`UserId`, `u`.`RoleId`
+FROM `UserRoles` AS `u`
+WHERE (`u`.`UserId` = @__p_0) AND (`u`.`RoleId` = @__p_1)
+LIMIT 1
+2024-04-13 10:27:47.944 -04:00 [INF] Executed DbCommand (3ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Id`, `r`.`ConcurrencyStamp`, `r`.`Name`, `r`.`NormalizedName`
+FROM `Role` AS `r`
+WHERE `r`.`NormalizedName` = @__normalizedRoleName_0
+LIMIT 2
+2024-04-13 10:27:47.953 -04:00 [INF] Executed DbCommand (4ms) [Parameters=[@__p_0='?' (Size = 255), @__p_1='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`UserId`, `u`.`RoleId`
+FROM `UserRoles` AS `u`
+WHERE (`u`.`UserId` = @__p_0) AND (`u`.`RoleId` = @__p_1)
+LIMIT 1
+2024-04-13 10:27:47.980 -04:00 [INF] Executed DbCommand (26ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Id`, `r`.`ConcurrencyStamp`, `r`.`Name`, `r`.`NormalizedName`
+FROM `Role` AS `r`
+WHERE `r`.`NormalizedName` = @__normalizedRoleName_0
+LIMIT 2
+2024-04-13 10:27:47.984 -04:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (Size = 255), @__p_1='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`UserId`, `u`.`RoleId`
+FROM `UserRoles` AS `u`
+WHERE (`u`.`UserId` = @__p_0) AND (`u`.`RoleId` = @__p_1)
+LIMIT 1
+2024-04-13 10:27:47.987 -04:00 [INF] Executing ViewResult, running view Manage.
+2024-04-13 10:27:48.169 -04:00 [INF] Executed DbCommand (50ms) [Parameters=[@__p_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`Id`, `u`.`AccessFailedCount`, `u`.`ConcurrencyStamp`, `u`.`Email`, `u`.`EmailConfirmed`, `u`.`FirstName`, `u`.`LastName`, `u`.`LockoutEnabled`, `u`.`LockoutEnd`, `u`.`NormalizedEmail`, `u`.`NormalizedUserName`, `u`.`PasswordHash`, `u`.`PhoneNumber`, `u`.`PhoneNumberConfirmed`, `u`.`ProfilePicture`, `u`.`SecurityStamp`, `u`.`TwoFactorEnabled`, `u`.`UserName`, `u`.`UsernameChangeLimit`
+FROM `User` AS `u`
+WHERE `u`.`Id` = @__p_0
+LIMIT 1
+2024-04-13 10:27:48.174 -04:00 [INF] Executed DbCommand (2ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Id`, `r`.`ConcurrencyStamp`, `r`.`Name`, `r`.`NormalizedName`
+FROM `Role` AS `r`
+WHERE `r`.`NormalizedName` = @__normalizedRoleName_0
+LIMIT 2
+2024-04-13 10:27:48.225 -04:00 [INF] Executed DbCommand (49ms) [Parameters=[@__p_0='?' (Size = 255), @__p_1='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`UserId`, `u`.`RoleId`
+FROM `UserRoles` AS `u`
+WHERE (`u`.`UserId` = @__p_0) AND (`u`.`RoleId` = @__p_1)
+LIMIT 1
+2024-04-13 10:27:48.249 -04:00 [INF] Executed DbCommand (2ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Id`, `r`.`ConcurrencyStamp`, `r`.`Name`, `r`.`NormalizedName`
+FROM `Role` AS `r`
+WHERE `r`.`NormalizedName` = @__normalizedRoleName_0
+LIMIT 2
+2024-04-13 10:27:48.280 -04:00 [INF] Executed DbCommand (28ms) [Parameters=[@__p_0='?' (Size = 255), @__p_1='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`UserId`, `u`.`RoleId`
+FROM `UserRoles` AS `u`
+WHERE (`u`.`UserId` = @__p_0) AND (`u`.`RoleId` = @__p_1)
+LIMIT 1
+2024-04-13 10:27:48.284 -04:00 [INF] Executed ViewResult - view Manage executed in 298.5337ms.
+2024-04-13 10:27:48.284 -04:00 [INF] Executed action Comp_2139.Controllers.UserRolesController.Manage (Comp_2139) in 681.6863ms
+2024-04-13 10:27:48.284 -04:00 [INF] Executed endpoint 'Comp_2139.Controllers.UserRolesController.Manage (Comp_2139)'
+2024-04-13 10:27:48.284 -04:00 [INF] Request finished HTTP/1.1 GET https://localhost:7011/UserRoles/Manage?userId=49451d7d-ca1f-45b2-a1bf-d7578f907baf - - - 200 - text/html;+charset=utf-8 691.7446ms
+2024-04-13 10:27:52.928 -04:00 [INF] Request starting HTTP/1.1 POST https://localhost:7011/UserRoles/Manage?userId=49451d7d-ca1f-45b2-a1bf-d7578f907baf application/x-www-form-urlencoded 890
+2024-04-13 10:27:52.934 -04:00 [INF] Executing endpoint 'Comp_2139.Controllers.UserRolesController.Manage (Comp_2139)'
+2024-04-13 10:27:53.072 -04:00 [INF] Route matched with {action = "Manage", controller = "UserRoles", area = "", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Manage(System.Collections.Generic.List`1[Comp_2139.Models.ViewModels.ManageUserRolesViewModel], System.String) on controller Comp_2139.Controllers.UserRolesController (Comp_2139).
+2024-04-13 10:27:53.118 -04:00 [INF] Executed DbCommand (30ms) [Parameters=[@__p_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`Id`, `u`.`AccessFailedCount`, `u`.`ConcurrencyStamp`, `u`.`Email`, `u`.`EmailConfirmed`, `u`.`FirstName`, `u`.`LastName`, `u`.`LockoutEnabled`, `u`.`LockoutEnd`, `u`.`NormalizedEmail`, `u`.`NormalizedUserName`, `u`.`PasswordHash`, `u`.`PhoneNumber`, `u`.`PhoneNumberConfirmed`, `u`.`ProfilePicture`, `u`.`SecurityStamp`, `u`.`TwoFactorEnabled`, `u`.`UserName`, `u`.`UsernameChangeLimit`
+FROM `User` AS `u`
+WHERE `u`.`Id` = @__p_0
+LIMIT 1
+2024-04-13 10:27:53.200 -04:00 [INF] Executed DbCommand (3ms) [Parameters=[@__userId_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Name`
+FROM `UserRoles` AS `u`
+INNER JOIN `Role` AS `r` ON `u`.`RoleId` = `r`.`Id`
+WHERE `u`.`UserId` = @__userId_0
+2024-04-13 10:27:53.207 -04:00 [INF] Executed DbCommand (1ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Id`, `r`.`ConcurrencyStamp`, `r`.`Name`, `r`.`NormalizedName`
+FROM `Role` AS `r`
+WHERE `r`.`NormalizedName` = @__normalizedRoleName_0
+LIMIT 2
+2024-04-13 10:27:53.234 -04:00 [INF] Executed DbCommand (25ms) [Parameters=[@__p_0='?' (Size = 255), @__p_1='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`UserId`, `u`.`RoleId`
+FROM `UserRoles` AS `u`
+WHERE (`u`.`UserId` = @__p_0) AND (`u`.`RoleId` = @__p_1)
+LIMIT 1
+2024-04-13 10:27:53.243 -04:00 [INF] Executed DbCommand (2ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Id`, `r`.`ConcurrencyStamp`, `r`.`Name`, `r`.`NormalizedName`
+FROM `Role` AS `r`
+WHERE `r`.`NormalizedName` = @__normalizedRoleName_0
+LIMIT 2
+2024-04-13 10:27:53.313 -04:00 [INF] Executed DbCommand (37ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`Id`, `u`.`AccessFailedCount`, `u`.`ConcurrencyStamp`, `u`.`Email`, `u`.`EmailConfirmed`, `u`.`FirstName`, `u`.`LastName`, `u`.`LockoutEnabled`, `u`.`LockoutEnd`, `u`.`NormalizedEmail`, `u`.`NormalizedUserName`, `u`.`PasswordHash`, `u`.`PhoneNumber`, `u`.`PhoneNumberConfirmed`, `u`.`ProfilePicture`, `u`.`SecurityStamp`, `u`.`TwoFactorEnabled`, `u`.`UserName`, `u`.`UsernameChangeLimit`
+FROM `User` AS `u`
+WHERE `u`.`NormalizedUserName` = @__normalizedUserName_0
+LIMIT 1
+2024-04-13 10:27:53.425 -04:00 [INF] Executed DbCommand (3ms) [Parameters=[@p18='?' (Size = 255), @p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p19='?' (Size = 4000), @p2='?' (Size = 256), @p3='?' (DbType = Boolean), @p4='?' (Size = 4000), @p5='?' (Size = 4000), @p6='?' (DbType = Boolean), @p7='?' (DbType = DateTimeOffset), @p8='?' (Size = 256), @p9='?' (Size = 256), @p10='?' (Size = 4000), @p11='?' (Size = 4000), @p12='?' (DbType = Boolean), @p13='?' (Size = 8000) (DbType = Binary), @p14='?' (Size = 4000), @p15='?' (DbType = Boolean), @p16='?' (Size = 256), @p17='?' (DbType = Int32), @p20='?' (Size = 255), @p21='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+UPDATE `User` SET `AccessFailedCount` = @p0, `ConcurrencyStamp` = @p1, `Email` = @p2, `EmailConfirmed` = @p3, `FirstName` = @p4, `LastName` = @p5, `LockoutEnabled` = @p6, `LockoutEnd` = @p7, `NormalizedEmail` = @p8, `NormalizedUserName` = @p9, `PasswordHash` = @p10, `PhoneNumber` = @p11, `PhoneNumberConfirmed` = @p12, `ProfilePicture` = @p13, `SecurityStamp` = @p14, `TwoFactorEnabled` = @p15, `UserName` = @p16, `UsernameChangeLimit` = @p17
+WHERE `Id` = @p18 AND `ConcurrencyStamp` = @p19;
+SELECT ROW_COUNT();
+
+DELETE FROM `UserRoles`
+WHERE `RoleId` = @p20 AND `UserId` = @p21;
+SELECT ROW_COUNT();
+2024-04-13 10:27:53.486 -04:00 [INF] Executed DbCommand (47ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Id`, `r`.`ConcurrencyStamp`, `r`.`Name`, `r`.`NormalizedName`
+FROM `Role` AS `r`
+WHERE `r`.`NormalizedName` = @__normalizedRoleName_0
+LIMIT 2
+2024-04-13 10:27:53.562 -04:00 [INF] Executed DbCommand (27ms) [Parameters=[@__p_0='?' (Size = 255), @__p_1='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`UserId`, `u`.`RoleId`
+FROM `UserRoles` AS `u`
+WHERE (`u`.`UserId` = @__p_0) AND (`u`.`RoleId` = @__p_1)
+LIMIT 1
+2024-04-13 10:27:53.591 -04:00 [INF] Executed DbCommand (25ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Id`, `r`.`ConcurrencyStamp`, `r`.`Name`, `r`.`NormalizedName`
+FROM `Role` AS `r`
+WHERE `r`.`NormalizedName` = @__normalizedRoleName_0
+LIMIT 2
+2024-04-13 10:27:53.599 -04:00 [INF] Executed DbCommand (2ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Id`, `r`.`ConcurrencyStamp`, `r`.`Name`, `r`.`NormalizedName`
+FROM `Role` AS `r`
+WHERE `r`.`NormalizedName` = @__normalizedRoleName_0
+LIMIT 2
+2024-04-13 10:27:53.630 -04:00 [INF] Executed DbCommand (4ms) [Parameters=[@__p_0='?' (Size = 255), @__p_1='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`UserId`, `u`.`RoleId`
+FROM `UserRoles` AS `u`
+WHERE (`u`.`UserId` = @__p_0) AND (`u`.`RoleId` = @__p_1)
+LIMIT 1
+2024-04-13 10:27:53.634 -04:00 [INF] Executed DbCommand (3ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Id`, `r`.`ConcurrencyStamp`, `r`.`Name`, `r`.`NormalizedName`
+FROM `Role` AS `r`
+WHERE `r`.`NormalizedName` = @__normalizedRoleName_0
+LIMIT 2
+2024-04-13 10:27:53.690 -04:00 [INF] Executed DbCommand (28ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Id`, `r`.`ConcurrencyStamp`, `r`.`Name`, `r`.`NormalizedName`
+FROM `Role` AS `r`
+WHERE `r`.`NormalizedName` = @__normalizedRoleName_0
+LIMIT 2
+2024-04-13 10:27:53.697 -04:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (Size = 255), @__p_1='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`UserId`, `u`.`RoleId`
+FROM `UserRoles` AS `u`
+WHERE (`u`.`UserId` = @__p_0) AND (`u`.`RoleId` = @__p_1)
+LIMIT 1
+2024-04-13 10:27:53.723 -04:00 [INF] Executed DbCommand (23ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Id`, `r`.`ConcurrencyStamp`, `r`.`Name`, `r`.`NormalizedName`
+FROM `Role` AS `r`
+WHERE `r`.`NormalizedName` = @__normalizedRoleName_0
+LIMIT 2
+2024-04-13 10:27:53.751 -04:00 [INF] Executed DbCommand (2ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`Id`, `u`.`AccessFailedCount`, `u`.`ConcurrencyStamp`, `u`.`Email`, `u`.`EmailConfirmed`, `u`.`FirstName`, `u`.`LastName`, `u`.`LockoutEnabled`, `u`.`LockoutEnd`, `u`.`NormalizedEmail`, `u`.`NormalizedUserName`, `u`.`PasswordHash`, `u`.`PhoneNumber`, `u`.`PhoneNumberConfirmed`, `u`.`ProfilePicture`, `u`.`SecurityStamp`, `u`.`TwoFactorEnabled`, `u`.`UserName`, `u`.`UsernameChangeLimit`
+FROM `User` AS `u`
+WHERE `u`.`NormalizedUserName` = @__normalizedUserName_0
+LIMIT 1
+2024-04-13 10:27:53.766 -04:00 [INF] Executed DbCommand (2ms) [Parameters=[@p18='?' (Size = 255), @p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p19='?' (Size = 4000), @p2='?' (Size = 256), @p3='?' (DbType = Boolean), @p4='?' (Size = 4000), @p5='?' (Size = 4000), @p6='?' (DbType = Boolean), @p7='?' (DbType = DateTimeOffset), @p8='?' (Size = 256), @p9='?' (Size = 256), @p10='?' (Size = 4000), @p11='?' (Size = 4000), @p12='?' (DbType = Boolean), @p13='?' (Size = 8000) (DbType = Binary), @p14='?' (Size = 4000), @p15='?' (DbType = Boolean), @p16='?' (Size = 256), @p17='?' (DbType = Int32), @p20='?' (Size = 255), @p21='?' (Size = 255), @p22='?' (Size = 255), @p23='?' (Size = 255), @p24='?' (Size = 255), @p25='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+UPDATE `User` SET `AccessFailedCount` = @p0, `ConcurrencyStamp` = @p1, `Email` = @p2, `EmailConfirmed` = @p3, `FirstName` = @p4, `LastName` = @p5, `LockoutEnabled` = @p6, `LockoutEnd` = @p7, `NormalizedEmail` = @p8, `NormalizedUserName` = @p9, `PasswordHash` = @p10, `PhoneNumber` = @p11, `PhoneNumberConfirmed` = @p12, `ProfilePicture` = @p13, `SecurityStamp` = @p14, `TwoFactorEnabled` = @p15, `UserName` = @p16, `UsernameChangeLimit` = @p17
+WHERE `Id` = @p18 AND `ConcurrencyStamp` = @p19;
+SELECT ROW_COUNT();
+
+INSERT INTO `UserRoles` (`RoleId`, `UserId`)
+VALUES (@p20, @p21),
+(@p22, @p23),
+(@p24, @p25);
+2024-04-13 10:27:53.777 -04:00 [INF] Executing RedirectResult, redirecting to /UserRoles.
+2024-04-13 10:27:53.778 -04:00 [INF] Executed action Comp_2139.Controllers.UserRolesController.Manage (Comp_2139) in 705.4104ms
+2024-04-13 10:27:53.778 -04:00 [INF] Executed endpoint 'Comp_2139.Controllers.UserRolesController.Manage (Comp_2139)'
+2024-04-13 10:27:53.778 -04:00 [INF] Request finished HTTP/1.1 POST https://localhost:7011/UserRoles/Manage?userId=49451d7d-ca1f-45b2-a1bf-d7578f907baf application/x-www-form-urlencoded 890 - 302 0 - 849.9065ms
+2024-04-13 10:27:53.783 -04:00 [INF] Request starting HTTP/1.1 GET https://localhost:7011/UserRoles - -
+2024-04-13 10:27:53.784 -04:00 [INF] Executing endpoint 'Comp_2139.Controllers.UserRolesController.Index (Comp_2139)'
+2024-04-13 10:27:53.784 -04:00 [INF] Route matched with {action = "Index", controller = "UserRoles", area = "", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Comp_2139.Controllers.UserRolesController (Comp_2139).
+2024-04-13 10:27:53.832 -04:00 [INF] Executed DbCommand (23ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`Id`, `u`.`AccessFailedCount`, `u`.`ConcurrencyStamp`, `u`.`Email`, `u`.`EmailConfirmed`, `u`.`FirstName`, `u`.`LastName`, `u`.`LockoutEnabled`, `u`.`LockoutEnd`, `u`.`NormalizedEmail`, `u`.`NormalizedUserName`, `u`.`PasswordHash`, `u`.`PhoneNumber`, `u`.`PhoneNumberConfirmed`, `u`.`ProfilePicture`, `u`.`SecurityStamp`, `u`.`TwoFactorEnabled`, `u`.`UserName`, `u`.`UsernameChangeLimit`
+FROM `User` AS `u`
+2024-04-13 10:27:53.885 -04:00 [INF] Executed DbCommand (4ms) [Parameters=[@__userId_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Name`
+FROM `UserRoles` AS `u`
+INNER JOIN `Role` AS `r` ON `u`.`RoleId` = `r`.`Id`
+WHERE `u`.`UserId` = @__userId_0
+2024-04-13 10:27:53.937 -04:00 [INF] Executed DbCommand (2ms) [Parameters=[@__userId_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Name`
+FROM `UserRoles` AS `u`
+INNER JOIN `Role` AS `r` ON `u`.`RoleId` = `r`.`Id`
+WHERE `u`.`UserId` = @__userId_0
+2024-04-13 10:27:53.965 -04:00 [INF] Executed DbCommand (25ms) [Parameters=[@__userId_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Name`
+FROM `UserRoles` AS `u`
+INNER JOIN `Role` AS `r` ON `u`.`RoleId` = `r`.`Id`
+WHERE `u`.`UserId` = @__userId_0
+2024-04-13 10:27:53.969 -04:00 [INF] Executed DbCommand (2ms) [Parameters=[@__userId_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Name`
+FROM `UserRoles` AS `u`
+INNER JOIN `Role` AS `r` ON `u`.`RoleId` = `r`.`Id`
+WHERE `u`.`UserId` = @__userId_0
+2024-04-13 10:27:53.998 -04:00 [INF] Executed DbCommand (3ms) [Parameters=[@__userId_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Name`
+FROM `UserRoles` AS `u`
+INNER JOIN `Role` AS `r` ON `u`.`RoleId` = `r`.`Id`
+WHERE `u`.`UserId` = @__userId_0
+2024-04-13 10:27:54.004 -04:00 [INF] Executed DbCommand (2ms) [Parameters=[@__userId_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Name`
+FROM `UserRoles` AS `u`
+INNER JOIN `Role` AS `r` ON `u`.`RoleId` = `r`.`Id`
+WHERE `u`.`UserId` = @__userId_0
+2024-04-13 10:27:54.052 -04:00 [INF] Executed DbCommand (24ms) [Parameters=[@__userId_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Name`
+FROM `UserRoles` AS `u`
+INNER JOIN `Role` AS `r` ON `u`.`RoleId` = `r`.`Id`
+WHERE `u`.`UserId` = @__userId_0
+2024-04-13 10:27:54.102 -04:00 [INF] Executed DbCommand (48ms) [Parameters=[@__userId_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Name`
+FROM `UserRoles` AS `u`
+INNER JOIN `Role` AS `r` ON `u`.`RoleId` = `r`.`Id`
+WHERE `u`.`UserId` = @__userId_0
+2024-04-13 10:27:54.103 -04:00 [INF] Executing ViewResult, running view Index.
+2024-04-13 10:27:54.111 -04:00 [INF] Executed DbCommand (3ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Id`, `r`.`ConcurrencyStamp`, `r`.`Name`, `r`.`NormalizedName`
+FROM `Role` AS `r`
+WHERE `r`.`NormalizedName` = @__normalizedRoleName_0
+LIMIT 2
+2024-04-13 10:27:54.116 -04:00 [INF] Executed DbCommand (4ms) [Parameters=[@__p_0='?' (Size = 255), @__p_1='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`UserId`, `u`.`RoleId`
+FROM `UserRoles` AS `u`
+WHERE (`u`.`UserId` = @__p_0) AND (`u`.`RoleId` = @__p_1)
+LIMIT 1
+2024-04-13 10:27:54.145 -04:00 [INF] Executed DbCommand (25ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Id`, `r`.`ConcurrencyStamp`, `r`.`Name`, `r`.`NormalizedName`
+FROM `Role` AS `r`
+WHERE `r`.`NormalizedName` = @__normalizedRoleName_0
+LIMIT 2
+2024-04-13 10:27:54.149 -04:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (Size = 255), @__p_1='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`UserId`, `u`.`RoleId`
+FROM `UserRoles` AS `u`
+WHERE (`u`.`UserId` = @__p_0) AND (`u`.`RoleId` = @__p_1)
+LIMIT 1
+2024-04-13 10:27:54.155 -04:00 [INF] Executed ViewResult - view Index executed in 52.2097ms.
+2024-04-13 10:27:54.155 -04:00 [INF] Executed action Comp_2139.Controllers.UserRolesController.Index (Comp_2139) in 371.8176ms
+2024-04-13 10:27:54.156 -04:00 [INF] Executed endpoint 'Comp_2139.Controllers.UserRolesController.Index (Comp_2139)'
+2024-04-13 10:27:54.156 -04:00 [INF] Request finished HTTP/1.1 GET https://localhost:7011/UserRoles - - - 200 - text/html;+charset=utf-8 372.8021ms

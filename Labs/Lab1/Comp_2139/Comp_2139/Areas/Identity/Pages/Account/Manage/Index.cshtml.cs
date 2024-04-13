@@ -21,7 +21,6 @@ namespace Comp_2139.Areas.Identity.Pages.Account.Manage
         public IndexModel(
             UserManager<ApplicationUser> userManager,
             SignInManager<ApplicationUser> signInManager)
-
         {
             _userManager = userManager;
             _signInManager = signInManager;
@@ -40,9 +39,9 @@ namespace Comp_2139.Areas.Identity.Pages.Account.Manage
         [TempData]
         public string StatusMessage { get; set; }
 
-
         [TempData]
         public string UserChangeLimitStatusMessage { get; set; }
+
         /// <summary>
         ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
         ///     directly from your code. This API may change or be removed in future releases.
@@ -56,6 +55,9 @@ namespace Comp_2139.Areas.Identity.Pages.Account.Manage
         /// </summary>
         public class InputModel
         {
+
+
+
             [Display(Name = "Username")]
             public string Username { get; set; }
 
@@ -85,15 +87,16 @@ namespace Comp_2139.Areas.Identity.Pages.Account.Manage
             var firstName = user.FirstName;
             var lastName = user.LastName;
             var profilePicture = user.ProfilePicture;
+            var email = user.Email;
 
             Username = userName;
 
             Input = new InputModel
             {
                 Username = userName,
-                PhoneNumber = phoneNumber,
                 FirstName = firstName,
                 LastName = lastName,
+                PhoneNumber = phoneNumber,
                 ProfilePicture = profilePicture
             };
         }
@@ -118,6 +121,14 @@ namespace Comp_2139.Areas.Identity.Pages.Account.Manage
                 return NotFound($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
             }
 
+            // Place the check here, right after ensuring the user is not null.
+            if (string.IsNullOrWhiteSpace(Input.Username))
+            {
+                ModelState.AddModelError(string.Empty, "Username cannot be empty.");
+                await LoadAsync(user); // Reload user data for the form
+                return Page();
+            }
+
             if (!ModelState.IsValid)
             {
                 await LoadAsync(user);
@@ -135,21 +146,22 @@ namespace Comp_2139.Areas.Identity.Pages.Account.Manage
                 }
             }
 
-
-            if(user.UsernameChangeLimit > 0)
+            if (user.UsernameChangeLimit > 0)
             {
-                if(Input.Username != user.UserName)
+                if (Input.Username != user.UserName)
                 {
                     var userNameExists = await _userManager.FindByNameAsync(Input.Username);
-                    if(userNameExists != null)
+                    if (userNameExists != null)
                     {
-                        StatusMessage = "Error: Username not available. please enter a new username. ";
+                        StatusMessage = "Error: Username already exists. Please enter a new useranme";
                         return RedirectToPage();
+
                     }
+
                     var setUsername = await _userManager.SetUserNameAsync(user, Input.Username);
                     if (!setUsername.Succeeded)
                     {
-                        StatusMessage = "Error: Unexpected error when attempting to update the username. ";
+                        StatusMessage = "Error: Unexpected error when attempting to update username";
                         return RedirectToPage();
                     }
                     else
@@ -157,33 +169,42 @@ namespace Comp_2139.Areas.Identity.Pages.Account.Manage
                         user.UserName = Input.Username;
                         user.UsernameChangeLimit -= 1;
                         await _userManager.UpdateAsync(user);
+
                     }
+
                 }
+
             }
+
+
             var firstName = user.FirstName;
-            if(Input.FirstName != firstName)
-            {
-                user.FirstName = firstName;
-                await _userManager.UpdateAsync(user);
-            }
-            var lastName = user.LastName;
             if (Input.FirstName != firstName)
             {
-                user.LastName = lastName;
+                user.FirstName = Input.FirstName;
                 await _userManager.UpdateAsync(user);
             }
 
-            // Intake profile image, assuming always new, reconstruct and persist to database
-            if(Request.Form.Files.Count > 0)
+            var lastName = user.LastName;
+            if (Input.LastName != lastName)
             {
+                user.LastName = Input.LastName;
+                await _userManager.UpdateAsync(user);
+            }
+
+            if (Request.Form.Files.Count > 0)
+            {
+
                 IFormFile file = Request.Form.Files.FirstOrDefault();
-                using( var dataStream = new MemoryStream())
+                using (var dataStream = new MemoryStream())
                 {
+
                     await file.CopyToAsync(dataStream);
                     user.ProfilePicture = dataStream.ToArray();
                 }
                 await _userManager.UpdateAsync(user);
+
             }
+
 
             await _signInManager.RefreshSignInAsync(user);
             StatusMessage = "Your profile has been updated";
